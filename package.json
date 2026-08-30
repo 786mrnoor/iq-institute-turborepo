@@ -1,0 +1,30 @@
+{
+	"name": "web-app",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"lint": "turbo lint",
+		"format": "turbo format",
+		"format:check": "turbo format:check",
+		"typecheck": "turbo typecheck",
+		"check": "turbo check",
+		"prepare": "husky"
+	},
+	"author": "Noor Mohammad",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^11.22.0",
+			"onFail": "download"
+		}
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.10",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.3.0",
+		"turbo": "^2.10.11"
+	}
+}

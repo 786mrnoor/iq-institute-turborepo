@@ -1,0 +1,35 @@
+{
+  "folders": [
+    {
+      "path": "apps/web",
+    },
+    {
+      "path": "apps/admin",
+    },
+    {
+      "path": "packages/ui",
+    },
+    {
+      "path": "packages/typescript-config",
+    },
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "[typescript]": {
+      "editor.defaultFormatter": "biomejs.biome",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome",
+    },
+
+    "biome.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit",
+    },
+  },
+}
