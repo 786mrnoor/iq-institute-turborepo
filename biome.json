@@ -28,6 +28,9 @@
 			"preset": "recommended",
 			"style": {
 				"noNonNullAssertion": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "info"
 			}
 		}
 	},

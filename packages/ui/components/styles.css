@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+	--color-background: #ffffff;
+	--color-foreground: #171717;
+	--color-white: white;
+	--color-black: black;
+
+	--color-primary: hsl(211, 100%, 50%);
+	--color-primary-dark: hsl(211, 98%, 31%);
+	--color-primary-hover: hsl(216, 90%, 44%);
+
+	--color-secondary: hsl(208, 7%, 46%);
+	--color-secondary-hover: hsl(210, 7%, 39%);
+
+	--color-green: hsl(152, 69%, 31%);
+	--color-green-hover: hsl(152, 69%, 27%);
+
+	--color-red: hsl(354, 70%, 54%);
+	--color-red-hover: hsl(354, 61%, 45%);
+
+	--color-info: hsl(190, 90%, 50%);
+	--color-info-hover: hsl(190, 88%, 57%);
+}

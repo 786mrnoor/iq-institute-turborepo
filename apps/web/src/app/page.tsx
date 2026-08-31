@@ -1,7 +1,15 @@
-export default function Home() {
+import { Gallery } from "./components/Gallery";
+import { Heading } from "./components/Heading";
+
+function HomePage() {
 	return (
-		<main className="p-4">
-			<h1>Web App</h1>
+		<main className="px-5 py-8">
+			<Heading>
+				WELCOME TO I.Q. EDUCATIONAL COMPUTER INSTITUTE & LIBRARY
+			</Heading>
+			<Gallery />
 		</main>
 	);
 }
+
+export default HomePage;

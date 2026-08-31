@@ -1,5 +1,5 @@
 {
 	// Visit https://aka.ms/tsconfig to read more about this file
 	"extends": "@repo/typescript-config/tsconfig.base.json",
-	"include": ["src"]
+	"include": ["components"]
 }
