@@ -1,13 +1,17 @@
 import z from "zod";
 
-export const loginSchema = z.object({
-	email: z.email("Invalid email address").trim().toLowerCase(),
+import { userBaseSchema } from "../users/base.user.schema";
 
+const loginBody = z.object({
+	email: userBaseSchema.shape.email,
 	password: z
 		.string("Enter Password")
 		.min(8, { message: "Password must be at least 8 characters long" })
 		.max(64, { message: "Password must be at most 64 characters long" }),
 });
 
-export type LoginData = z.infer<typeof loginSchema>;
-export type LoginInput = z.input<typeof loginSchema>;
+export const loginSchema = {
+	body: loginBody,
+};
+
+export type LoginData = typeof loginSchema;

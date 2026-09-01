@@ -1,0 +1,38 @@
+import type { Request, Response } from "express";
+import {
+	type RequestZodShape,
+	validate,
+} from "@/middleware/validate.middleware";
+import { verifySession } from "../session";
+import type { ControllerOptions } from "./types/options.types";
+import type { ControllerResult } from "./types/result.types";
+
+function createController<TSchema extends RequestZodShape, TResult>(
+	options: ControllerOptions<TSchema, TResult>,
+) {
+	return async (req: Request, res: Response) => {
+		const parsed = validate(options.schema, {
+			params: req.params,
+			body: req.body,
+			query: req.query,
+		});
+
+		let result: ControllerResult<TResult>;
+
+		if (options.requireAuth) {
+			const user = await verifySession(req);
+			if (!user) {
+				res.redirect("/login");
+				return;
+			}
+
+			result = await options.handler({ input: parsed, user }, res);
+		} else {
+			result = await options.handler({ input: parsed, user: null }, res);
+		}
+
+		res.status(result.statusCode).json(result);
+	};
+}
+
+export { createController };

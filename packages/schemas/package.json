@@ -4,7 +4,8 @@
 	"type": "module",
 	"private": true,
 	"exports": {
-		"./*": "./src/*.schema.ts"
+		"./*": "./src/*.schema.ts",
+		"./user-roles": "./src/users/user-roles.ts"
 	},
 	"scripts": {
 		"lint": "biome lint .",
