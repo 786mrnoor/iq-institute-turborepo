@@ -33,7 +33,7 @@ function Textarea({
 
 		if (autoHeight) {
 			e.target.style.height = "auto";
-			e.target.style.height = e.target.scrollHeight + 2 + "px";
+			e.target.style.height = `${e.target.scrollHeight + 2}px`;
 		}
 	}
 

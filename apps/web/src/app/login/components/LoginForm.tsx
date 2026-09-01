@@ -8,6 +8,7 @@ import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
 import { Input } from "@repo/ui/form-controls";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import type z from "zod";
 
 function LoginForm() {
 	const {
@@ -15,10 +16,10 @@ function LoginForm() {
 		handleSubmit,
 		formState: { errors, isLoading },
 	} = useForm({
-		resolver: zodResolver(loginSchema),
+		resolver: zodResolver(loginSchema.body),
 	});
 
-	async function onSubmit(data: LoginData) {
+	async function onSubmit(data: z.infer<LoginData["body"]>) {
 		try {
 			console.log(data);
 			toast.success("Logged in Successfully");
