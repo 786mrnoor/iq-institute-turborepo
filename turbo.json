@@ -7,7 +7,9 @@
 		},
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": [".next/**", "dist/**"]
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"outputs": [".next/**", "dist/**"],
+			"env": ["BACKEND_*"]
 		},
 		"lint": {
 			"dependsOn": ["^lint"]

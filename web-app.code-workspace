@@ -7,16 +7,20 @@
       "path": "apps/admin",
     },
     {
-      "path": "packages/ui",
+      "path": "apps/backend",
     },
     {
-      "path": "packages/typescript-config",
+      "path": "packages",
     },
     {
       "path": ".",
     },
   ],
   "settings": {
+    "files.exclude": {
+      "apps": true,
+      "packages": true,
+    },
     "editor.defaultFormatter": "biomejs.biome",
     "[typescript]": {
       "editor.defaultFormatter": "biomejs.biome",
