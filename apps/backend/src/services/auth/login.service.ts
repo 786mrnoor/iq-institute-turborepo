@@ -2,16 +2,15 @@ import type { AuthUser } from "@repo/schemas/auth/auth.user";
 import type { LoginData } from "@repo/schemas/auth/login";
 import { AppError } from "@repo/utils/app-error.js";
 import bcrypt from "bcryptjs";
-import type { Response } from "express";
 import { response } from "@/lib/controller";
 import type { PublicControllerContext } from "@/lib/controller/types";
 import { createSession } from "@/lib/session";
 import { User } from "@/models/user.model";
 
-async function loginService(
-	{ input }: PublicControllerContext<LoginData>,
-	res: Response,
-) {
+async function loginService({
+	input,
+	res,
+}: PublicControllerContext<LoginData>) {
 	const { email, password } = input.body;
 
 	const user = await User.findOne({ email })

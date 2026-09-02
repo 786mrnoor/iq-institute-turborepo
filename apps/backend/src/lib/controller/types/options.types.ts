@@ -1,4 +1,3 @@
-import type { Response } from "express";
 import type { RequestZodShape } from "@/middleware/validate.middleware";
 import type {
 	AuthControllerContext,
@@ -17,7 +16,6 @@ type AuthOptions<
 	requireAuth: true;
 	handler: (
 		ctx: AuthControllerContext<TSchema>,
-		res: Response,
 	) => Promise<ControllerResult<TResult>>;
 };
 
@@ -28,7 +26,6 @@ type PublicOptions<
 	requireAuth?: false;
 	handler: (
 		ctx: PublicControllerContext<TSchema>,
-		res: Response,
 	) => Promise<ControllerResult<TResult>>;
 };
 

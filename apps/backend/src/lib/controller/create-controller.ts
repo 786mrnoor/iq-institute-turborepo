@@ -26,9 +26,9 @@ function createController<TSchema extends RequestZodShape, TResult>(
 				return;
 			}
 
-			result = await options.handler({ input: parsed, user }, res);
+			result = await options.handler({ input: parsed, user, req, res });
 		} else {
-			result = await options.handler({ input: parsed, user: null }, res);
+			result = await options.handler({ input: parsed, user: null, req, res });
 		}
 
 		res.status(result.statusCode).json(result);
