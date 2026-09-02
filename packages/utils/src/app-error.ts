@@ -21,6 +21,8 @@ export class AppError extends Error {
 			this.errors = [errors];
 		}
 
-		Error.captureStackTrace(this, this.constructor);
+		if ("captureStackTrace" in Error) {
+			(Error as any).captureStackTrace(this, this.constructor);
+		}
 	}
 }

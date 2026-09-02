@@ -26,6 +26,8 @@
 	},
 	"devDependencies": {
 		"@repo/schemas": "workspace:*",
+		"@repo/api-client": "workspace:*",
+		"@repo/utils": "workspace:*",
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",

@@ -1,0 +1,24 @@
+{
+	"name": "@repo/api-client",
+	"version": "1.0.0",
+	"type": "module",
+	"exports": {
+		"./*": "./src/*"
+	},
+	"scripts": {
+		"lint": "biome lint .",
+		"format": "biome format --write .",
+		"format:check": "biome format .",
+		"typecheck": "tsc --noEmit",
+		"check": "biome check . && tsc --noEmit"
+	},
+	"devDependencies": {
+		"@repo/schemas": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"@repo/utils": "workspace:*",
+		"typescript": "^7.0.2"
+	},
+	"dependencies": {
+		"zod": "^4.5.4"
+	}
+}

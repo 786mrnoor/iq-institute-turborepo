@@ -30,7 +30,7 @@ async function loginService({
 
 	const isAuth = bcrypt.compareSync(password, user.passwordHash);
 	if (!isAuth) {
-		throw new AppError(401, "password is not correct.", {
+		throw new AppError(401, "Failed to login", {
 			path: "password",
 			message: "password is not correct.",
 		});

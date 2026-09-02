@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 import { Footer } from "@/components/footer/Footer";
 import { WebAppHeader } from "@/components/header/Header";
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 			<body className="">
 				<WebAppHeader />
 				{children}
+				<Toaster />
 				<Footer />
 			</body>
 		</html>
