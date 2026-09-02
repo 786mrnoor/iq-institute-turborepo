@@ -23,7 +23,7 @@ async function createUserService({
 		const newUser = new User({ ...userData, passwordHash: hash });
 		await newUser.save();
 
-		return response(201, "User created Successfully", {});
+		return response(201, { message: "User created Successfully" });
 	} catch (error) {
 		if (error instanceof mongoose.mongo.MongoServerError) {
 			throw new AppError(409, "email is already in use.", {

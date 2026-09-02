@@ -31,7 +31,7 @@ function createController<TSchema extends RequestZodShape, TResult>(
 			result = await options.handler({ input: parsed, user: null, req, res });
 		}
 
-		res.status(result.statusCode).json(result);
+		res.status(result.statusCode).json(result.data);
 	};
 }
 

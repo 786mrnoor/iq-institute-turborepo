@@ -46,7 +46,7 @@ async function loginService({
 		res,
 	);
 
-	return response(200, "Logged in Successfully", {});
+	return response(200, { message: "Logged in Successfully" });
 }
 
 export { loginService };
