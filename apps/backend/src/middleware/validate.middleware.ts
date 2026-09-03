@@ -1,19 +1,9 @@
+import type {
+	InferRequestShape,
+	RequestShape,
+	RequestZodShape,
+} from "@repo/schemas/request-types";
 import { AppError } from "@repo/utils/app-error.js";
-import type { z } from "zod";
-
-type RequestShape<T = unknown> = {
-	params?: T;
-	body?: T;
-	query?: T;
-};
-
-export type RequestZodShape = RequestShape<z.ZodObject>;
-
-export type InferRequestShape<S extends RequestZodShape> = {
-	params: S["params"] extends z.ZodType ? z.infer<S["params"]> : undefined;
-	body: S["body"] extends z.ZodType ? z.infer<S["body"]> : undefined;
-	query: S["query"] extends z.ZodType ? z.infer<S["query"]> : undefined;
-};
 
 function validate<S extends RequestZodShape>(
 	schema: S,

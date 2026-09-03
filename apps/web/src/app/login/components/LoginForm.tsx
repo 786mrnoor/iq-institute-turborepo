@@ -9,7 +9,6 @@ import { Input } from "@repo/ui/form-controls";
 import { applyBackendErrors } from "@repo/utils/apply-backend-errors.ts";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import type z from "zod";
 
 function LoginForm() {
 	const {
@@ -21,7 +20,7 @@ function LoginForm() {
 		resolver: zodResolver(loginSchema.body),
 	});
 
-	async function onSubmit(data: z.infer<LoginData["body"]>) {
+	async function onSubmit(data: LoginData["body"]) {
 		try {
 			await loginApi(data);
 			toast.success("Logged in Successfully");

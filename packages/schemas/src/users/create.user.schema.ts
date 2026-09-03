@@ -1,5 +1,5 @@
 import z from "zod";
-
+import type { InferRequestShape } from "../request.types";
 import { userBaseSchema } from "./base.user.schema";
 
 const createUserBody = z.object({
@@ -27,4 +27,4 @@ export const createUserSchema = {
 	body: createUserBody,
 };
 
-export type CreateUserSchema = typeof createUserSchema;
+export type CreateUserSchema = InferRequestShape<typeof createUserSchema>;

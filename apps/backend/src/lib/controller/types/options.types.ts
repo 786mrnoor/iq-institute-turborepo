@@ -1,4 +1,7 @@
-import type { RequestZodShape } from "@/middleware/validate.middleware";
+import type {
+	InferRequestShape,
+	RequestZodShape,
+} from "@repo/schemas/request-types";
 import type {
 	AuthControllerContext,
 	PublicControllerContext,
@@ -15,7 +18,7 @@ type AuthOptions<
 > = DefaultOptions<TSchema> & {
 	requireAuth: true;
 	handler: (
-		ctx: AuthControllerContext<TSchema>,
+		ctx: AuthControllerContext<InferRequestShape<TSchema>>,
 	) => Promise<ControllerResult<TResult>>;
 };
 
@@ -25,7 +28,7 @@ type PublicOptions<
 > = DefaultOptions<TSchema> & {
 	requireAuth?: false;
 	handler: (
-		ctx: PublicControllerContext<TSchema>,
+		ctx: PublicControllerContext<InferRequestShape<TSchema>>,
 	) => Promise<ControllerResult<TResult>>;
 };
 

@@ -1,5 +1,5 @@
 import z from "zod";
-
+import type { InferRequestShape } from "../request.types";
 import { userBaseSchema } from "../users/base.user.schema";
 
 const loginBody = z.object({
@@ -14,4 +14,4 @@ export const loginSchema = {
 	body: loginBody,
 };
 
-export type LoginData = typeof loginSchema;
+export type LoginData = InferRequestShape<typeof loginSchema>;

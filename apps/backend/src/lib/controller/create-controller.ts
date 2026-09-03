@@ -1,8 +1,6 @@
+import type { RequestZodShape } from "@repo/schemas/request-types";
 import type { Request, Response } from "express";
-import {
-	type RequestZodShape,
-	validate,
-} from "@/middleware/validate.middleware";
+import { validate } from "@/middleware/validate.middleware";
 import { verifySession } from "../session";
 import type { ControllerOptions } from "./types/options.types";
 import type { ControllerResult } from "./types/result.types";

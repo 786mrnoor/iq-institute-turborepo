@@ -4,6 +4,7 @@
 	"type": "module",
 	"private": true,
 	"exports": {
+		"./request-types": "./src/request.types.ts",
 		"./*": "./src/*.schema.ts",
 		"./user-roles": "./src/users/user-roles.ts"
 	},
