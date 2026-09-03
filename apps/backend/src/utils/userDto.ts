@@ -6,7 +6,6 @@ export function userDto(doc: TUser): UserBaseSchema {
 		_id,
 		__v,
 		passwordHash: _,
-		studentId,
 		passwordChangedBy,
 		createdBy,
 		...rest
@@ -14,11 +13,8 @@ export function userDto(doc: TUser): UserBaseSchema {
 
 	return {
 		...rest,
-		id: String(_id) as UserBaseSchema["id"],
-		studentId: String(studentId),
-		passwordChangedBy: String(
-			passwordChangedBy,
-		) as UserBaseSchema["passwordChangedBy"],
-		createdBy: String(createdBy) as UserBaseSchema["createdBy"],
+		id: String(_id),
+		passwordChangedBy: passwordChangedBy && String(passwordChangedBy),
+		createdBy: createdBy && String(createdBy),
 	} as UserBaseSchema;
 }

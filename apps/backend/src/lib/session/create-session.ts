@@ -8,11 +8,11 @@ export async function createSession(payload: AuthUser, res: Response) {
 	if (!JWT_SECRET_KEY) throw new AppError(500, "something went wrong");
 
 	const token = jwt.sign(payload, JWT_SECRET_KEY, {
-		expiresIn: "15m",
+		expiresIn: "7d",
 	});
 
 	res.cookie(SESSION_KEY, token, {
-		maxAge: 60 * 60 * 24 * 7, // 7 days
+		maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
 		httpOnly: true,
 		secure: true,
 		sameSite: "strict",
