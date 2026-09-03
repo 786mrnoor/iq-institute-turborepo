@@ -1,15 +1,26 @@
-import { Button } from "@repo/ui/button";
-import { useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
+import { BrowserRouter, Routes } from "react-router";
+import { routes } from "./app/routes";
+
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: { staleTime: 5 * 60 * 1000, networkMode: "always" },
+		mutations: { networkMode: "always" },
+	},
+});
 
 function App() {
-	const [count, setCount] = useState(0);
-
 	return (
-		<main className="p-4">
-			<h1>Admin Heading</h1>
+		<QueryClientProvider client={queryClient}>
+			<BrowserRouter>
+				<Routes>{routes}</Routes>
+			</BrowserRouter>
 
-			<Button onClick={() => setCount(count + 1)}>Admin Button {count}</Button>
-		</main>
+			<Toaster />
+			<ReactQueryDevtools />
+		</QueryClientProvider>
 	);
 }
 

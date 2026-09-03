@@ -22,3 +22,16 @@
 	--color-info: hsl(190, 90%, 50%);
 	--color-info-hover: hsl(190, 88%, 57%);
 }
+
+@layer component {
+	.nav-link {
+		@apply inline-block cursor-pointer bg-gray-100 px-4 py-2.5 text-left text-black;
+		@apply border-0 border-b border-gray-400 outline-transparent transition-all duration-300;
+		@variant md {
+			@apply rounded-md border border-white;
+			&:hover {
+				@apply bg-primary/25 text-white;
+			}
+		}
+	}
+}
