@@ -1,1 +1,1 @@
-export type AdminAppRoutes = "/admin";
+export type AdminAppRoutes = "/admin" | "/admin/users" | "/admin/users/create";

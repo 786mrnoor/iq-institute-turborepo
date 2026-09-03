@@ -222,15 +222,9 @@ importers:
 
   apps/admin:
     dependencies:
-      '@repo/api-client':
-        specifier: workspace:*
-        version: link:../../packages/api-client
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
+      '@hookform/resolvers':
+        specifier: ^5.9.1
+        version: 5.9.1(@standard-schema/spec@1.1.0)(react-hook-form@7.87.0(react@19.2.8))(zod@4.5.4)
       '@tailwindcss/vite':
         specifier: ^4.3.3
         version: 4.3.3(vite@8.2.2(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0))
@@ -262,6 +256,21 @@ importers:
         specifier: ^4.5.4
         version: 4.5.4
     devDependencies:
+      '@repo/api-client':
+        specifier: workspace:*
+        version: link:../../packages/api-client
+      '@repo/schemas':
+        specifier: workspace:*
+        version: link:../../packages/schemas
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@types/node':
         specifier: ^24.13.3
         version: 24.13.3
@@ -338,12 +347,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^5.9.1
         version: 5.9.1(@standard-schema/spec@1.1.0)(react-hook-form@7.87.0(react@19.2.8))(zod@4.5.4)
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -372,6 +375,12 @@ importers:
       '@repo/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@repo/utils':
         specifier: workspace:*
         version: link:../../packages/utils

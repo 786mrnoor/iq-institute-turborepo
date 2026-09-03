@@ -20,7 +20,7 @@ function createController<TSchema extends RequestZodShape, TResult>(
 		if (options.requireAuth) {
 			const user = await verifySession(req);
 			if (!user) {
-				res.redirect("/login");
+				res.sendStatus(401);
 				return;
 			}
 

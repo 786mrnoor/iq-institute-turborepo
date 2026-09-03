@@ -25,12 +25,12 @@ async function loginService({
 	}
 
 	if (user.status !== "active") {
-		throw new AppError(401, "Your account is not active or suspended");
+		throw new AppError(404, "Your account is not active or suspended");
 	}
 
 	const isAuth = bcrypt.compareSync(password, user.passwordHash);
 	if (!isAuth) {
-		throw new AppError(401, "Failed to login", {
+		throw new AppError(404, "Failed to login", {
 			path: "password",
 			message: "password is not correct.",
 		});

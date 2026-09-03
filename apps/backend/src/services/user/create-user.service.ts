@@ -14,7 +14,7 @@ async function createUserService({
 
 	try {
 		if (user.role !== "super-admin" && data.role === "super-admin") {
-			throw new AppError(401, "You cannot create a super-admin");
+			throw new AppError(404, "You cannot create a super-admin");
 		}
 
 		const { password, ...userData } = data;

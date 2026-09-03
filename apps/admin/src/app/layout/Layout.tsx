@@ -1,4 +1,5 @@
 import { Header } from "@repo/ui/header";
+import { Outlet } from "react-router";
 import navBg from "@/assets/images/nav-bg.jpg";
 import { AppLink } from "@/components/link/AppLink";
 import { NavLink } from "./components/NavLink";
@@ -19,10 +20,13 @@ function Layout() {
 	);
 
 	return (
-		<Header homeLink={homeLink} image={image}>
-			<NavLink to="/admin">Users</NavLink>
-			<NavLink to="/admin">Logout</NavLink>
-		</Header>
+		<>
+			<Header homeLink={homeLink} image={image}>
+				<NavLink to="/admin/users">Users</NavLink>
+				<NavLink to="/admin">Logout</NavLink>
+			</Header>
+			<Outlet />
+		</>
 	);
 }
 
