@@ -10,7 +10,6 @@ export function globalErrorHandler(
 	// Known (AppError)
 	if (err instanceof AppError) {
 		return res.status(err.statusCode).json({
-			statusCode: err.statusCode,
 			message: err.message,
 			errors: err.errors,
 		});

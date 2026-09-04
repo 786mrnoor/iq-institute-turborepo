@@ -4,6 +4,7 @@ import { connectDB } from "./config/db";
 import { getHealthController } from "./controllers/health";
 import { globalErrorHandler } from "./middleware/error.middleware";
 import { authRouter } from "./routes/auth.routes";
+import { topicRouter } from "./routes/topic.routes";
 import { userRouter } from "./routes/user.routes";
 
 const app = express();
@@ -15,6 +16,7 @@ app.get("/api/health", getHealthController);
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/topics", topicRouter);
 
 app.all("/*path", (_req, res) =>
 	res.status(404).json({ message: "Not Found" }),

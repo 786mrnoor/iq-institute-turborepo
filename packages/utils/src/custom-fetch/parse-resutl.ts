@@ -20,7 +20,10 @@ async function parseResult<T extends z.ZodType>(
 		return parsedResult.data;
 	}
 
-	const parsedError = errorSchema.safeParse(data);
+	const parsedError = errorSchema.safeParse({
+		...data,
+		statusCode: res.status,
+	});
 
 	if (!parsedError.success) {
 		throw new AppError(res.status, "Response shape is not correct");
