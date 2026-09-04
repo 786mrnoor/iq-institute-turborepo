@@ -26,7 +26,7 @@ app.use(globalErrorHandler);
 
 const PORT = process.env.BACKEND_PORT || 5000;
 
-await connectDB();
+connectDB();
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
 });

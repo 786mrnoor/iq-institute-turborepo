@@ -3,6 +3,7 @@ import { AppError } from "@repo/utils/app-error.js";
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Topic } from "@/models/topic.model";
+import { topicDto } from "@/utils/dtos/topicDto";
 
 async function addTopicService({
 	input,
@@ -12,7 +13,7 @@ async function addTopicService({
 
 		const newTopic = new Topic(topic);
 		await newTopic.save();
-		return response(201, newTopic);
+		return response(201, topicDto(newTopic.toObject()));
 	} catch (error) {
 		if (
 			error &&
@@ -22,7 +23,7 @@ async function addTopicService({
 		) {
 			throw new AppError(409, "topic is already in use.", {
 				path: "title",
-				message: "topic is already in use.",
+				message: "Please enter a different topic title",
 			});
 		}
 		throw error;
