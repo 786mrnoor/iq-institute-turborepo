@@ -5,6 +5,7 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
+		"./icons/*": "./components/icons/*",
 		"./*": "./components/*/index.ts",
 		"./styles.css": "./components/styles.css"
 	},

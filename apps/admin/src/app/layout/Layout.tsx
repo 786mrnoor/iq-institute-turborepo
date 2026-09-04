@@ -22,6 +22,7 @@ function Layout() {
 	return (
 		<>
 			<Header homeLink={homeLink} image={image}>
+				<NavLink to="/admin/topics">Topics</NavLink>
 				<NavLink to="/admin/users">Users</NavLink>
 				<NavLink to="/admin">Logout</NavLink>
 			</Header>
