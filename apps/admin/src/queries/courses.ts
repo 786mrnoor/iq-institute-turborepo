@@ -17,7 +17,7 @@ export const coursesKeys = {
 export const coursesQueries = {
 	all: queryOptions({
 		queryKey: coursesKeys.all,
-		queryFn: getCoursesApi,
+		queryFn: () => getCoursesApi(),
 	}),
 
 	detail: (id: CourseBaseSchema["id"]) =>

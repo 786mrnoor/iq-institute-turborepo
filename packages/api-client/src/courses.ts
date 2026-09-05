@@ -5,7 +5,7 @@ import {
 import type { CreateCourseSchema } from "@repo/schemas/course/create.course";
 import type { DeleteCourseSchema } from "@repo/schemas/course/delete.course";
 import type { UpdateCourseSchema } from "@repo/schemas/course/update.course";
-import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.js";
+import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.ts";
 import z from "zod";
 
 export const createCourseApi = (data: CreateCourseSchema["body"]) =>
@@ -15,9 +15,9 @@ export const createCourseApi = (data: CreateCourseSchema["body"]) =>
 		body: data,
 	});
 
-export const getCoursesApi = () =>
+export const getCoursesApi = (basePath: string = "") =>
 	customFetch(courseBaseSchema.array(), {
-		path: "/api/courses",
+		path: `${basePath}/api/courses`,
 		method: "GET",
 	});
 

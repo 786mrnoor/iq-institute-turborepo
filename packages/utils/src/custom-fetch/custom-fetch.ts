@@ -21,7 +21,9 @@ async function customFetch<T extends z.ZodType>(
 	});
 
 	if (res.status === 401) {
-		window.location.href = "/login";
+		if (globalThis.window) {
+			window.location.href = "/login";
+		}
 		throw new AppError(401, "Please login");
 	}
 	return parseResult(dataSchema, res);

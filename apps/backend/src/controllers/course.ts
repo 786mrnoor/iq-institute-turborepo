@@ -17,7 +17,7 @@ export const addCourseController = createController({
 
 export const getCoursesController = createController({
 	schema: {},
-	requireAuth: true,
+	requireAuth: false,
 	handler: getCoursesService,
 });
 

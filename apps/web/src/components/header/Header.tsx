@@ -23,7 +23,7 @@ function WebAppHeader() {
 	return (
 		<Header homeLink={homeLink} image={image}>
 			<NavLink href="/">Courses</NavLink>
-			<NavLink href="/">Contact Us</NavLink>
+			<NavLink href="/contact-us">Contact Us</NavLink>
 			<NavLink href="/login">Login</NavLink>
 		</Header>
 	);

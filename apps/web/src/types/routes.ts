@@ -1,1 +1,1 @@
-export type WebAppRoutes = "/" | "/login";
+export type WebAppRoutes = "/" | "/login" | "/contact-us";
