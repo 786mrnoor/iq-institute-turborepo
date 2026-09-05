@@ -19,7 +19,7 @@ async function updateCourseService({
 			{ _id: id, deletedAt: null },
 			course,
 			{
-				new: true,
+				returnDocument: "after",
 				runValidators: true,
 			},
 		);
