@@ -1,5 +1,6 @@
 import {
 	createTopicApi,
+	deleteTopicApi,
 	getTopicsApi,
 	updateTopicApi,
 } from "@repo/api-client/topic.ts";
@@ -33,6 +34,16 @@ export const topicsMutations = {
 		onSuccess(newTopic, _, __, { client }) {
 			client.setQueryData<TopicBaseSchema[]>(topicsKeys.all, (old = []) =>
 				old.map((t) => (t.id === newTopic.id ? newTopic : t)),
+			);
+			client.invalidateQueries({ queryKey: topicsKeys.all });
+		},
+	}),
+
+	delete: mutationOptions({
+		mutationFn: deleteTopicApi,
+		onSuccess(_, id, __, { client }) {
+			client.setQueryData<TopicBaseSchema[]>(topicsKeys.all, (old = []) =>
+				old.filter((t) => t.id !== id),
 			);
 			client.invalidateQueries({ queryKey: topicsKeys.all });
 		},
