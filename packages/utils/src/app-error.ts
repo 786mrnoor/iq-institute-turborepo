@@ -3,12 +3,29 @@ export type ActionResultError = {
 	message: string;
 };
 
+type ErrorStatusCode = 400 | 401 | 403 | 404 | 409 | 500;
+
+/**
+ * ## Error HTTP status codes.
+ *
+ * **400 - Bad Request**: Client error (invalid input).
+ *
+ * **401 - Unauthorized**: Authentication failure.
+ *
+ * **403 - Forbidden**: Access denied.
+ *
+ * **404 - Not Found**: Resource not found.
+ *
+ * **409 - Conflict**: Request conflicts with the current state of the server.
+ *
+ * **500 - Internal Server Error**: Server-side issue.
+ */
 export class AppError extends Error {
-	statusCode: number;
+	statusCode: ErrorStatusCode;
 	errors?: ActionResultError[];
 
 	constructor(
-		statusCode: number,
+		statusCode: ErrorStatusCode,
 		message: string,
 		errors?: ActionResultError | ActionResultError[],
 	) {
