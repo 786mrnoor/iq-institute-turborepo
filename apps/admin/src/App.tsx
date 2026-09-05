@@ -1,3 +1,4 @@
+import { ErrorScreen } from "@repo/ui/error-screen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
@@ -13,14 +14,16 @@ const queryClient = new QueryClient({
 
 function App() {
 	return (
-		<QueryClientProvider client={queryClient}>
-			<BrowserRouter>
-				<Routes>{routes}</Routes>
-			</BrowserRouter>
+		<ErrorScreen>
+			<QueryClientProvider client={queryClient}>
+				<BrowserRouter>
+					<Routes>{routes}</Routes>
+				</BrowserRouter>
 
-			<Toaster />
-			<ReactQueryDevtools />
-		</QueryClientProvider>
+				<Toaster />
+				<ReactQueryDevtools />
+			</QueryClientProvider>
+		</ErrorScreen>
 	);
 }
 

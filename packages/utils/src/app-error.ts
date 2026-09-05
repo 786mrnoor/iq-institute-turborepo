@@ -21,11 +21,11 @@ type ErrorStatusCode = 400 | 401 | 403 | 404 | 409 | 500;
  * **500 - Internal Server Error**: Server-side issue.
  */
 export class AppError extends Error {
-	statusCode: ErrorStatusCode;
+	statusCode: ErrorStatusCode | number;
 	errors?: ActionResultError[];
 
 	constructor(
-		statusCode: ErrorStatusCode,
+		statusCode: ErrorStatusCode | number,
 		message: string,
 		errors?: ActionResultError | ActionResultError[],
 	) {

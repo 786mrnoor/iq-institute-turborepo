@@ -1,4 +1,5 @@
 import type { GetCourseSchema } from "@repo/schemas/course/get.course";
+import { AppError } from "@repo/utils/app-error.js";
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Course } from "@/models/course.model";
@@ -11,7 +12,11 @@ async function getCourseService({
 		.lean()
 		.exec();
 
-	return response(200, course ? courseDto(course) : null);
+	if (course) {
+		return response(200, courseDto(course));
+	}
+
+	throw new AppError(404, "Course Not Found");
 }
 
 export { getCourseService };

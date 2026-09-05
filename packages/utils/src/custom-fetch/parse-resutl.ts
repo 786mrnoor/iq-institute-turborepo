@@ -6,9 +6,17 @@ async function parseResult<T extends z.ZodType>(
 	dataSchema: T,
 	res: Response,
 ): Promise<z.output<T>> {
-	const data = await res.json().catch(() => {
-		throw new AppError(res.status, `Invalid JSON response (${res.statusText})`);
-	});
+	// if the status code is 204 then the dataSchema must be a null schema
+	let data: unknown = null;
+
+	if (res.status !== 204) {
+		data = await res.json().catch(() => {
+			throw new AppError(
+				res.status,
+				`Invalid JSON response (${res.statusText})`,
+			);
+		});
+	}
 
 	if (res.ok) {
 		const parsedResult = dataSchema.safeParse(data);
@@ -21,7 +29,7 @@ async function parseResult<T extends z.ZodType>(
 	}
 
 	const parsedError = errorSchema.safeParse({
-		...data,
+		...(data || {}),
 		statusCode: res.status,
 	});
 
