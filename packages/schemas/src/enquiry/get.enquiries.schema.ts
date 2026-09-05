@@ -8,8 +8,8 @@ export const getEnquiriesSchema = {
 			status: enquiryBaseSchema.shape.status.unwrap().optional(),
 			fromDate: z.coerce.date("Enter a valid date"),
 			toDate: z.coerce.date("Enter a valid date"),
-			page: z.number().default(1),
-			limit: z.number().default(10),
+			page: z.coerce.number().default(1),
+			limit: z.coerce.number().default(10),
 		})
 		.refine((data) => data.fromDate <= data.toDate, {
 			message: "To date must be after From date",

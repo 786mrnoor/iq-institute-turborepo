@@ -7,7 +7,9 @@ import { getDefaultRange } from "@/forms/shared/range-filter-form/range-filter-d
 export const userFilterFormSchema = z
 	.object({
 		role: emptyStringToUndefined(userBaseSchema.shape.role.optional()),
-		status: emptyStringToUndefined(userBaseSchema.shape.status.optional()),
+		status: emptyStringToUndefined(
+			z.enum(userBaseSchema.shape.status.unwrap().enum).optional(),
+		),
 		dateRange: dateRangeSchema,
 	})
 	.transform((data) => {
