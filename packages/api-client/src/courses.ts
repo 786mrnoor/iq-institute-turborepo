@@ -5,6 +5,7 @@ import {
 import type { CreateCourseSchema } from "@repo/schemas/course/create.course";
 import type { DeleteCourseSchema } from "@repo/schemas/course/delete.course";
 import type { UpdateCourseSchema } from "@repo/schemas/course/update.course";
+import { topicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.ts";
 import z from "zod";
 
@@ -23,9 +24,25 @@ export const getCoursesApi = (basePath: string = "") =>
 
 export const getCourseByIdApi = (id: CourseBaseSchema["id"]) =>
 	customFetch(courseBaseSchema, {
-		path: `/api/courses/${id}`,
+		path: ["/api/courses", id],
 		method: "GET",
 	});
+
+export const getCourseWithTopicsApi = (
+	id: CourseBaseSchema["id"],
+	basePath: string,
+) =>
+	customFetch(
+		z.object({
+			...courseBaseSchema.shape,
+			topics: topicBaseSchema.array(),
+		}),
+		{
+			path: [basePath, "api/courses", id],
+			method: "GET",
+			query: { include: "topics" },
+		},
+	);
 
 export const updateCourseApi = (data: Omit<UpdateCourseSchema, "query">) =>
 	customFetch(courseBaseSchema, {

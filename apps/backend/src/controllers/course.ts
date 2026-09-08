@@ -23,7 +23,7 @@ export const getCoursesController = createController({
 
 export const getCourseController = createController({
 	schema: getCourseSchema,
-	requireAuth: true,
+	requireAuth: false,
 	handler: getCourseService,
 });
 

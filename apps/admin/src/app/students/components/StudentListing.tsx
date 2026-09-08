@@ -1,5 +1,5 @@
 import { Pagination } from "@repo/ui/pagination";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { studentQueries } from "@/queries/students";
 import { NotFound } from "../NotFound";
