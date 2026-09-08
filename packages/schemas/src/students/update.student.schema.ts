@@ -1,5 +1,5 @@
 import z from "zod";
-import type { InferRequestShape } from "../request.types";
+import type { InferRequestInput, InferRequestShape } from "../request.types";
 import { addStudentSchema } from "./add.student.schema";
 import { studentBaseSchema } from "./base.student.schema";
 
@@ -9,3 +9,4 @@ export const updateStudentSchema = {
 };
 
 export type UpdateStudentSchema = InferRequestShape<typeof updateStudentSchema>;
+export type UpdateStudentInput = InferRequestInput<typeof updateStudentSchema>;

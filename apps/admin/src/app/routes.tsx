@@ -5,6 +5,9 @@ import { EditCoursePage } from "./courses/edit/page";
 import { CoursesPage } from "./courses/page";
 import { EnquiriesPage } from "./enquiries/page";
 import { Layout } from "./layout/Layout";
+import { AddStudentPage } from "./students/add/page";
+import { EditStudentPage } from "./students/edit/page";
+import { StudentsPage } from "./students/page";
 import { TopicsPage } from "./topics/page";
 import CreateAccountPage from "./users/create/page";
 import UsersPage from "./users/page";
@@ -17,6 +20,10 @@ export const routes = (
 		<Route path="courses/:id" element={<CoursePage />} />
 		<Route path="courses/add" element={<CreateCoursePage />} />
 		<Route path="courses/edit/:id" element={<EditCoursePage />} />
+
+		<Route path="students" element={<StudentsPage />} />
+		<Route path="students/add" element={<AddStudentPage />} />
+		<Route path="students/edit/:id" element={<EditStudentPage />} />
 
 		<Route path="enquiries" element={<EnquiriesPage />} />
 

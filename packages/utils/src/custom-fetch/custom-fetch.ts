@@ -8,7 +8,8 @@ async function customFetch<T extends z.ZodType>(
 	dataSchema: T,
 	config: CustomFetchConfig,
 ): Promise<z.output<T>> {
-	const url = config.path + buildQuery(config.query);
+	const path = Array.isArray(config.path) ? config.path.join("/") : config.path;
+	const url = path + buildQuery(config.query);
 
 	const res = await fetch(url, {
 		...config,

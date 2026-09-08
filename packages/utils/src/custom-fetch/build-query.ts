@@ -7,6 +7,9 @@ export function buildQuery(query: CustomFetchConfig["query"]) {
 
 	Object.entries(query).forEach(([key, value]) => {
 		if (value !== undefined && value !== null) {
+			if (value instanceof Date) {
+				value = value.toISOString();
+			}
 			params.append(key, String(value));
 		}
 	});
