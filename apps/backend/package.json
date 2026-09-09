@@ -22,15 +22,16 @@
 		"zod": "^4.5.4"
 	},
 	"devDependencies": {
+		"@repo/schemas": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@repo/utils": "workspace:*",
-		"@repo/schemas": "workspace:*",
 		"@types/cookie-parser": "^1.4.10",
 		"@types/express": "^5.0.6",
 		"@types/jsonwebtoken": "^9.0.10",
 		"@types/node": "^26.4.0",
 		"tsc-alias": "^1.9.2",
 		"tsx": "^4.23.13",
+		"turbo": "^2.10.12",
 		"typescript": "^7.0.2"
 	}
 }
