@@ -2,6 +2,7 @@ import type {
 	InferRequestShape,
 	RequestZodShape,
 } from "@repo/schemas/request-types";
+import type { Permission } from "@/lib/permissions/permissions";
 import type {
 	AuthControllerContext,
 	PublicControllerContext,
@@ -17,6 +18,7 @@ type AuthOptions<
 	TResult,
 > = DefaultOptions<TSchema> & {
 	requireAuth: true;
+	permission: Permission;
 	handler: (
 		ctx: AuthControllerContext<InferRequestShape<TSchema>>,
 	) => Promise<ControllerResult<TResult>>;
