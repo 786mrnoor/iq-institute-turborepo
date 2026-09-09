@@ -6,7 +6,7 @@
 	"main": "./src/app.ts",
 	"scripts": {
 		"dev": "tsx watch --env-file=.env src/app.ts",
-		"build": "tsc && tsc-alias",
+		"build": "tsdown src/app.ts --format esm",
 		"lint": "biome lint .",
 		"format": "biome format --write .",
 		"format:check": "biome format .",
@@ -30,6 +30,7 @@
 		"@types/jsonwebtoken": "^9.0.10",
 		"@types/node": "^26.4.0",
 		"tsc-alias": "^1.9.2",
+		"tsdown": "^0.23.0",
 		"tsx": "^4.23.13",
 		"turbo": "^2.10.12",
 		"typescript": "^7.0.2"
