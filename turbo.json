@@ -11,11 +11,6 @@
 			"outputs": [".next/**", "!.next/cache/**", "dist/**"],
 			"env": ["BACKEND_*"]
 		},
-		"backend#build": {
-			"dependsOn": ["^build"],
-			"env": ["BACKEND_*"],
-			"outputs": ["dist/**"]
-		},
 		"lint": {
 			"dependsOn": ["^lint"]
 		},
