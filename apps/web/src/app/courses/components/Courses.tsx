@@ -2,7 +2,7 @@ import { getCoursesApi } from "@repo/api-client/courses.ts";
 import CourseCard from "./CourseCard";
 
 async function Courses() {
-	const courses = await getCoursesApi("http://localhost:5000");
+	const courses = await getCoursesApi(process.env.NEXT_BACKEND_URL);
 
 	return (
 		<section className="grid grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-5">

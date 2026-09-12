@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { CourseCard } from "./components/CourseCard";
 
 export async function generateStaticParams() {
-	const courses = await getCoursesApi("http://localhost:5000");
+	const courses = await getCoursesApi(process.env.NEXT_BACKEND_URL);
 
 	return courses.map((course) => ({
 		id: course.id,
@@ -22,7 +22,7 @@ async function CoursePage({ params }: PageProps<"/courses/[id]">) {
 
 	const course = await getCourseWithTopicsApi(
 		parsed.data,
-		"http://localhost:5000",
+		process.env.NEXT_BACKEND_URL || "",
 	);
 	if (!course) return notFound();
 

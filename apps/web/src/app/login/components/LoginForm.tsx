@@ -24,7 +24,7 @@ function LoginForm() {
 		try {
 			await loginApi(data);
 			toast.success("Logged in Successfully");
-			window.location.href = "/";
+			window.location.href = "/admin/students";
 		} catch (error) {
 			if (error instanceof Error) {
 				toast.error(error.message);

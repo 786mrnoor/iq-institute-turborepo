@@ -4,7 +4,7 @@ import { ContactInfo } from "./components/ContactInfo";
 import { Form } from "./components/Form";
 
 async function ContactUsPage() {
-	const courses = await getCoursesApi("http://localhost:5000");
+	const courses = await getCoursesApi(process.env.NEXT_BACKEND_URL);
 
 	return (
 		<main className="m-auto grid w-94/100 max-w-300 grid-cols-1 gap-5 py-5 md:w-9/10 md:grid-cols-[350px_1fr] md:px-5">
