@@ -6,7 +6,7 @@
 			"destination": "/assets/$1"
 		},
 		{
-			"source": "/admin/(.*)",
+			"source": "/admin/:path*",
 			"destination": "/index.html"
 		}
 	]
