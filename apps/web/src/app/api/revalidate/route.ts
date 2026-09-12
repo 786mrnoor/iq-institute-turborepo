@@ -25,6 +25,7 @@ async function POST(request: NextRequest) {
 			revalidatePath(path);
 		});
 		revalidatePath("/courses");
+		revalidatePath("/contact-us");
 
 		return NextResponse.json(null);
 	} catch {
