@@ -10,7 +10,7 @@ type TopicCardProps = {
 
 function TopicCard({ topic }: TopicCardProps) {
 	return (
-		<li className="flex items-center justify-between bg-white rounded-md px-4 py-2 border border-gray-300">
+		<li className="flex items-center justify-between bg-white rounded-md px-4 py-2 border border-gray-300 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200">
 			<div>
 				<p className="font-semibold">{topic.title}</p>
 				<span className="text-xs">{formatDateTime(topic.createdAt)}</span>

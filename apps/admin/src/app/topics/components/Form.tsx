@@ -28,7 +28,7 @@ function Form() {
 				closedBy={editId ? "closerequest" : "any"}
 			>
 				<DialogHeader>
-					<h2 className="text-lg font-medium">
+					<h2 className="text-lg font-medium dark:text-neutral-200">
 						{editId ? "Edit" : "Add"} Topic
 					</h2>
 				</DialogHeader>

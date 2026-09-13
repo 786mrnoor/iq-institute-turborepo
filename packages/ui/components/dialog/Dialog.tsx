@@ -33,7 +33,7 @@ function Dialog({
 				onClose={onClose}
 				closedby={closedBy}
 				ref={dialogRef}
-				className="m-auto max-w-180 min-w-80 scrollbar-thin rounded-xl ring-1 ring-gray-300 duration-300 backdrop:backdrop-blur-xs starting:scale-50"
+				className="m-auto max-w-180 min-w-80 scrollbar-thin rounded-xl ring-1 ring-gray-300 duration-300 backdrop:backdrop-blur-xs starting:scale-50 dark:ring-neutral-700"
 			>
 				{children}
 			</dialog>

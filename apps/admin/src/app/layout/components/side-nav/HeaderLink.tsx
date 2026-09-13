@@ -21,15 +21,7 @@ function HeaderLink({
 		<NavLink
 			to={to}
 			onClick={(e) => to === "void" && e.preventDefault() && onClick?.(e)}
-			className={({ isActive }) =>
-				clsx(
-					"p-2 flex gap-3 rounded-md",
-					isActive
-						? "bg-primary/20 text-primary-dark font-semibold hover:bg-primary/30"
-						: "hover:bg-gray-300",
-					className,
-				)
-			}
+			className={clsx("nav-link", className)}
 		>
 			{icon}
 			{children}

@@ -5,6 +5,7 @@ import { MessageCircleQuestionMark } from "@repo/ui/icons/MessageCircleQuestionM
 import { TagsIcon } from "@repo/ui/icons/TagsIcon.tsx";
 import { UsersIcon } from "@repo/ui/icons/UsersIcon.tsx";
 import { HeaderLink } from "./HeaderLink";
+import { ThemeToggler } from "./ThemeToggler";
 
 function Nav() {
 	return (
@@ -25,7 +26,10 @@ function Nav() {
 				Users
 			</HeaderLink>
 
-			<hr className="mt-auto border-gray-300" />
+			<hr className="mt-auto border-gray-300 dark:border-neutral-700" />
+
+			<ThemeToggler />
+
 			<HeaderLink
 				to="void"
 				icon={<LogOut />}

@@ -7,7 +7,7 @@ type ToggleButtonProps = {
 	className?: string;
 };
 
-function DropdownToggleButton({ children }: ToggleButtonProps) {
+function DropdownToggleButton({ children, className }: ToggleButtonProps) {
 	const setShow = useDropdownDispatch();
 
 	function toggle(e: React.MouseEvent<HTMLButtonElement>) {
@@ -19,7 +19,7 @@ function DropdownToggleButton({ children }: ToggleButtonProps) {
 		<button
 			type="button"
 			onClick={toggle}
-			className="cursor-pointer border-none p-0 outline-none"
+			className={`cursor-pointer border-none p-0 outline-none ${className}`}
 		>
 			{children}
 		</button>

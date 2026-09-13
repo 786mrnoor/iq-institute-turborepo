@@ -2,3 +2,16 @@
 @import "@repo/ui/styles.css";
 
 @source "../../../../packages/ui/components";
+
+@layer components {
+	.nav-link {
+		@apply inline-block cursor-pointer bg-gray-100 px-4 py-2.5 text-left text-black;
+		@apply border-0 border-b border-gray-400 outline-transparent transition-all duration-300;
+		@variant md {
+			@apply rounded-md border border-white;
+			&:hover {
+				@apply bg-primary/25 text-white;
+			}
+		}
+	}
+}

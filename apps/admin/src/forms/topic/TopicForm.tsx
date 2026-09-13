@@ -45,7 +45,12 @@ function TopicForm({ onSubmit, defaultValues }: TopicFormProps) {
 		>
 			<FieldGroup>
 				<FieldLabel htmlFor="title">Title</FieldLabel>
-				<Input id="title" placeholder="Course Title" {...register("title")} />
+				<Input
+					id="title"
+					placeholder="Course Title"
+					{...register("title")}
+					isInvalid={!!errors.title?.message}
+				/>
 				<FieldError>{errors.title?.message}</FieldError>
 				<FieldError>{errors.root?.message}</FieldError>
 			</FieldGroup>

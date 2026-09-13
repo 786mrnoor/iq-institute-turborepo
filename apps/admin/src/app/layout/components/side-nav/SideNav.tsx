@@ -19,10 +19,10 @@ function SideNav({ showNav, setShowNav }: SideNavProps) {
 				showNav ? "" : "hidden md:flex",
 			)}
 		>
-			<div className="relative w-50 lg:w-60 h-full flex flex-col border-r border-gray-300 bg-white overflow-x-hidden p-3 starting:-translate-x-full transition-all duration-400">
+			<div className="relative w-50 lg:w-60 h-full flex flex-col border-r border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 overflow-x-hidden p-3 starting:-translate-x-full transition-all duration-400">
 				<button
 					type="button"
-					className="absolute right-3 cursor-pointer p-2 rounded-sm hover:bg-gray-300 md:hidden"
+					className="absolute right-3 cursor-pointer p-2 rounded-sm dark:text-neutral-200 hover:bg-gray-300 hover:dark:bg-neutral-700 md:hidden"
 					onClick={() => setShowNav(false)}
 				>
 					<XIcon />
@@ -32,9 +32,10 @@ function SideNav({ showNav, setShowNav }: SideNavProps) {
 					<img
 						src={navBg}
 						alt="nav-bg"
-						className="w-30 aspect-square object-cover object-center"
+						className="w-30 aspect-square object-cover object-center rounded-full"
 					/>
 				</AppLink>
+
 				<Nav />
 			</div>
 		</aside>
