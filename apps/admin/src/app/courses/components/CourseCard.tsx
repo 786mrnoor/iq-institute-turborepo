@@ -11,7 +11,7 @@ type CourseCardProps = {
 
 function CourseCard({ course }: CourseCardProps) {
 	return (
-		<li className="flex items-center justify-between border border-gray-300 px-4 py-2 not-first:border-t-0 first:rounded-t-md last:rounded-b-md last:border-b">
+		<li className="flex items-center justify-between border bg-white rounded-md border-gray-300 px-4 py-2 ">
 			<div>
 				<p className="font-semibold text-primary">
 					<AppLink to={`/admin/courses/${course.id}`}>{course.title}</AppLink>

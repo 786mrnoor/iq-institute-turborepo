@@ -1,6 +1,5 @@
 import { courseBaseSchema } from "@repo/schemas/course/base.course";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { Heading } from "@repo/ui/heading";
 import { QueryLoader } from "@repo/ui/query-loder";
 import { Suspense } from "react";
 import { useParams } from "react-router";
@@ -18,8 +17,6 @@ function EditCoursePage() {
 
 	return (
 		<main className="mx-auto my-10 w-9/10 max-w-200 rounded-2xl border border-gray-300 bg-white p-2.5 md:p-5">
-			<Heading className="mb-3">Update the course</Heading>
-
 			<ErrorScreen title="Error Loading Course">
 				<Suspense fallback={<QueryLoader>Loading Course...</QueryLoader>}>
 					<EditCourseForm id={parsed.data} />

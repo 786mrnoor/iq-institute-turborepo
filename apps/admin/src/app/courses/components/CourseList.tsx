@@ -9,7 +9,7 @@ function CourseList() {
 		return <p className="text-center text-lg">No Courses Found</p>;
 
 	return (
-		<ul className="mx-auto rounded-md">
+		<ul className="space-y-3">
 			{courses?.map((course) => (
 				<CourseCard key={course.id} course={course} />
 			))}

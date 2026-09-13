@@ -1,6 +1,5 @@
 import { Button } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { Heading } from "@repo/ui/heading";
 import { QueryLoader } from "@repo/ui/query-loder";
 import { Suspense, useState } from "react";
 import { useNavigate } from "react-router";
@@ -23,8 +22,7 @@ function StudentsPage() {
 	}
 
 	return (
-		<main className="mx-auto my-5 w-96/100 rounded-lg border border-gray-300 p-5 shadow-lg">
-			<Heading>Students</Heading>
+		<main className="mx-auto my-5 w-96/100">
 			<Button onClick={() => navigate("/admin/students/add")}>
 				Add A New Student
 			</Button>

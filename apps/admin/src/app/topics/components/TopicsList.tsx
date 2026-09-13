@@ -9,7 +9,7 @@ function TopicsList() {
 		return <p className="text-center text-lg">No Topics Found</p>;
 
 	return (
-		<ul className="mx-auto rounded-md">
+		<ul className="mx-auto rounded-md space-y-3">
 			{topics?.map((topic) => (
 				<TopicCard key={topic.id} topic={topic} />
 			))}

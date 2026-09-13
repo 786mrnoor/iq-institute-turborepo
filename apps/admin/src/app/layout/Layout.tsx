@@ -1,35 +1,20 @@
-import { Header } from "@repo/ui/header";
+import { useState } from "react";
 import { Outlet } from "react-router";
-import navBg from "@/assets/images/nav-bg.jpg";
-import { AppLink } from "@/components/link/AppLink";
-import { NavLink } from "./components/NavLink";
+import { Header } from "./components/header/Header";
+import { SideNav } from "./components/side-nav/SideNav";
 
 function Layout() {
-	const homeLink = (
-		<AppLink className="outline-none" to="/admin">
-			I.Q. Educational Computer Institute
-		</AppLink>
-	);
-
-	const image = (
-		<img
-			src={navBg}
-			alt="nav-bg"
-			className="w-full h-full object-cover object-center"
-		/>
-	);
+	const [showNav, setShowNav] = useState(false);
 
 	return (
 		<>
-			<Header homeLink={homeLink} image={image}>
-				<NavLink to="/admin/topics">Topics</NavLink>
-				<NavLink to="/admin/courses">Courses</NavLink>
-				<NavLink to="/admin/students">Students</NavLink>
-				<NavLink to="/admin/enquiries">Enquiries</NavLink>
-				<NavLink to="/admin/users">Users</NavLink>
-				<NavLink to="/admin">Logout</NavLink>
-			</Header>
-			<Outlet />
+			<SideNav showNav={showNav} setShowNav={setShowNav} />
+
+			<main className="md:ml-50 lg:ml-60">
+				<Header onOpen={() => setShowNav(true)} />
+
+				<Outlet />
+			</main>
 		</>
 	);
 }

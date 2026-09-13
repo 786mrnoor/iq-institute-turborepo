@@ -1,5 +1,4 @@
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { Heading } from "@repo/ui/heading";
 import { QueryLoader } from "@repo/ui/query-loder";
 import { Suspense } from "react";
 import { Form } from "./components/Form";
@@ -9,8 +8,7 @@ import { EditProvider } from "./context/EditProvider";
 function TopicsPage() {
 	return (
 		<EditProvider>
-			<main className="mb-20 space-y-3 p-3">
-				<Heading>Topics</Heading>
+			<main className="mb-20 space-y-3 p-3 max-w-200 m-auto">
 				<Form />
 
 				<ErrorScreen title="Error Loading Topics">

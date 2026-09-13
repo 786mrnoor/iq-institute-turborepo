@@ -13,7 +13,7 @@ function StudentsTable({ students }: StudentsTableProps) {
 	);
 
 	return (
-		<div className="overflow-auto">
+		<div className="overflow-auto bg-white mb-3">
 			<table border={1} className="mb-4 w-full border border-gray-300">
 				<thead className="bg-black text-white">
 					<tr className="*:border *:border-gray-300 *:p-2">

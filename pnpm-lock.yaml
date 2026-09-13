@@ -193,6 +193,9 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.102.8
         version: 5.102.8(@tanstack/react-query@5.102.8(react@19.2.8))(react@19.2.8)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       react:
         specifier: ^19.2.8
         version: 19.2.8

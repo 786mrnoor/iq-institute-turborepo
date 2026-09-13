@@ -1,5 +1,4 @@
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { Heading } from "@repo/ui/heading";
 import { QueryLoader } from "@repo/ui/query-loder";
 import { Suspense, useState } from "react";
 import { EnquiryListing } from "./components/EnquiryListing";
@@ -20,8 +19,7 @@ function EnquiriesPage() {
 	}
 
 	return (
-		<main className="mx-auto my-5 w-96/100 rounded-lg border border-gray-300 p-5 shadow-lg">
-			<Heading>Enquiries</Heading>
+		<main className="mx-auto my-5 w-96/100">
 			<EnquiryFilterForm onSubmit={onSubmit} />
 
 			<ErrorScreen title="Error Loading Courses">

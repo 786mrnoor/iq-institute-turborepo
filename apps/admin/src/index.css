@@ -2,3 +2,9 @@
 @import "@repo/ui/styles.css";
 
 @source "../../../packages/ui/components";
+
+@layer base {
+	body {
+		background-color: var(--color-gray-100);
+	}
+}

@@ -31,7 +31,7 @@ function UserFilterForm({ onSubmit }: UserFilterFormProps) {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="mt-5 flex flex-wrap items-start gap-x-5 gap-y-2 *:w-fit"
+			className="mt-5 flex flex-wrap items-start gap-x-5 gap-y-2 *:w-fit p-5 bg-white border border-gray-200 rounded-md"
 		>
 			<FieldGroup size="small">
 				<FieldLabel htmlFor="role">Select Role</FieldLabel>

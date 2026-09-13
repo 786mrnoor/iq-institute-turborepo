@@ -29,7 +29,7 @@ function EnquiryFilterForm({ onSubmit }: EnquiryFilterFormProps) {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="mt-5 flex flex-wrap items-start gap-5 *:w-fit"
+			className="mt-5 flex flex-wrap items-start gap-5 *:w-fit bg-white p-5 border border-gray-200 rounded-md"
 		>
 			<FieldGroup size="small">
 				<FieldLabel htmlFor="status">Status</FieldLabel>

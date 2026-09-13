@@ -7,7 +7,7 @@ type EnquiriesTableProps = {
 
 function EnquiriesTable({ enquiries }: EnquiriesTableProps) {
 	return (
-		<div className="overflow-auto">
+		<div className="overflow-auto bg-white mb-3 p-2 md:p-4 border border-gray-200">
 			<table border={1} className="mb-4 w-full border border-gray-300">
 				<thead className="bg-black text-white">
 					<tr className="*:border *:border-gray-300 *:p-2">
