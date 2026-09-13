@@ -1,5 +1,6 @@
 import type { UpdateStudentSchema } from "@repo/schemas/students/update.student";
 import { AppError } from "@repo/utils/app-error.js";
+import mongoose from "mongoose";
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Student } from "@/models/student.model";
@@ -23,7 +24,9 @@ async function updateStudentService({
 
 		return response(200, studentDto(updatedStudent.toObject()));
 	} catch (error) {
-		handleDuplicateStudent(error);
+		if (error instanceof mongoose.mongo.MongoServerError) {
+			handleDuplicateStudent(error);
+		}
 
 		throw error;
 	}

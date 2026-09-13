@@ -4,6 +4,10 @@ import type { DefaultSchema } from "./types";
 
 const studentSchema = new mongoose.Schema(
 	{
+		studentId: {
+			type: String,
+			required: true,
+		},
 		name: {
 			type: String,
 			required: true,
@@ -83,6 +87,7 @@ export type TStudent = DefaultSchema & InferSchemaType<typeof studentSchema>;
 
 studentSchema.index({ createdAt: -1 });
 studentSchema.index({ deletedAt: 1 });
+studentSchema.index({ studentId: 1 }, { unique: true });
 studentSchema.index(
 	{ adharNo: 1 },
 	{

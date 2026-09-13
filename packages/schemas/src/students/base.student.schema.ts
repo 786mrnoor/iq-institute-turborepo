@@ -6,6 +6,9 @@ import { timestampSchema } from "../shared/timestamp-schema.schema";
 export const studentBaseSchema = z
 	.object({
 		id: objectIdSchema.brand("studentId"),
+		studentId: z
+			.string("Student Id is required")
+			.regex(/^STU-\d{4}-[0-9A-Z]{6}$/, "Invalid student ID format"),
 		name: z
 			.string("Student name is required")
 			.trim()

@@ -1,9 +1,7 @@
 import { AppError } from "@repo/utils/app-error.js";
-import mongoose from "mongoose";
+import type mongoose from "mongoose";
 
-function handleDuplicateStudent(error: unknown) {
-	if (!(error instanceof mongoose.mongo.MongoServerError)) return;
-
+function handleDuplicateStudent(error: mongoose.mongo.MongoServerError) {
 	if (error.keyValue?.adharNo) {
 		throw new AppError(409, "Adhar No. is already mapped to another student", {
 			path: "adharNo",
