@@ -29,7 +29,7 @@ function StudentFilterForm({ onSubmit }: StudentFilterFormProps) {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="mt-5 flex flex-wrap items-start gap-5 *:w-fit p-5 bg-white border border-gray-300 rounded-md"
+			className="mt-5 flex flex-wrap items-start gap-5 *:w-fit p-5 bg-white border border-gray-300 rounded-md dark:bg-neutral-800 dark:border-neutral-700"
 		>
 			<FieldGroup size="small">
 				<FieldLabel htmlFor="adharNo">Adhar No.</FieldLabel>
