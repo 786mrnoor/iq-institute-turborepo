@@ -25,6 +25,7 @@ function Button({
 	const classes = clsx(
 		"relative inline-block cursor-pointer border transition-all outline-none focus-visible:z-1 focus-visible:ring-4",
 		"disabled:cursor-auto disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
+		"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
 		COLOR_VARIANTS[color],
 		SIZE_VARIANTS[size],
 		className,

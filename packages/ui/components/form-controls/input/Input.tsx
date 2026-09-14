@@ -22,7 +22,7 @@ function Input({ isInvalid, className, size, ...rest }: InputProps) {
 			className={clsx(
 				"relative w-full border text-foreground transition-all outline-none focus:z-1 focus:ring-4 dark:text-neutral-200",
 				"disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
-				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-800 disabled:dark:text-neutral-400",
+				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
 				SIZE_VARIANTS[groupSize || size || "base"],
 				isInvalid
 					? "border-red focus:border-red focus:ring-red/25"

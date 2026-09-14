@@ -11,15 +11,17 @@ type CourseCardProps = {
 
 function CourseCard({ course }: CourseCardProps) {
 	return (
-		<li className="flex items-center justify-between border bg-white rounded-md border-gray-300 px-4 py-2 ">
+		<li className="flex items-center justify-between border bg-white rounded-md border-gray-300 px-4 py-2 dark:bg-neutral-800 dark:border-neutral-700">
 			<div>
 				<p className="font-semibold text-primary">
 					<AppLink to={`/admin/courses/${course.id}`}>{course.title}</AppLink>
 				</p>
-				<span className="text-xs">{formatDateTime(course.createdAt)}</span>
+				<span className="text-xs dark:text-neutral-300">
+					{formatDateTime(course.createdAt)}
+				</span>
 			</div>
 			<Dropdown>
-				<DropdownToggleButton>
+				<DropdownToggleButton className="dark:text-neutral-200">
 					<Dots />
 				</DropdownToggleButton>
 				<CourseDropdownMenu id={course.id} />

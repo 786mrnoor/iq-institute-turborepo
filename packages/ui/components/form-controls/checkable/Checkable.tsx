@@ -30,13 +30,14 @@ function Checkable({
 	return (
 		<label
 			className={clsx(
-				"relative flex w-full items-center gap-2 border text-foreground transition-all",
+				"relative flex w-full items-center gap-2 border text-foreground transition-all dark:text-neutral-200",
 				"disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
+				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
 				"cursor-pointer outline-none focus-within:z-1 focus-within:ring-4",
 				SIZE_VARIANTS[groupSize || size || "base"],
 				isInvalid
 					? "border-red focus-within:border-red focus-within:ring-red/25"
-					: "border-gray-300 focus-within:border-primary focus-within:ring-primary/25 has-checked:border-primary",
+					: "border-gray-300 focus-within:border-primary focus-within:ring-primary/25 has-checked:border-primary dark:border-neutral-700",
 				className,
 			)}
 		>
