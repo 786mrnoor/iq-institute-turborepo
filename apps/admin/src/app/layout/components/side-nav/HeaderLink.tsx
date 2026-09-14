@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import type { MouseEvent } from "react";
 import { NavLink } from "react-router";
 import type { AdminAppRoutes } from "@/types/routes";
 
@@ -17,10 +18,18 @@ function HeaderLink({
 	className,
 	onClick,
 }: HeaderLinkProps) {
+	function handleClick(event: MouseEvent<HTMLAnchorElement>) {
+		onClick?.(event);
+
+		if (to === "void") {
+			event.preventDefault();
+		}
+	}
+
 	return (
 		<NavLink
 			to={to}
-			onClick={(e) => to === "void" && e.preventDefault() && onClick?.(e)}
+			onClick={handleClick}
 			className={clsx("nav-link", className)}
 		>
 			{icon}

@@ -23,7 +23,11 @@ function EnquiryListing({ filter }: EnquiryListingProps) {
 	);
 
 	if (!data || data?.enquiries?.length === 0)
-		return <p className="text-center text-lg">No Enqiries Found</p>;
+		return (
+			<p className="text-center text-lg dark:text-neutral-200 mt-5">
+				No Enqiries Found
+			</p>
+		);
 
 	const { enquiries, meta } = data;
 

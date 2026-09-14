@@ -7,22 +7,34 @@ import { UsersIcon } from "@repo/ui/icons/UsersIcon.tsx";
 import { HeaderLink } from "./HeaderLink";
 import { ThemeToggler } from "./ThemeToggler";
 
-function Nav() {
+type NavProps = {
+	onNavigate: () => void;
+};
+
+function Nav({ onNavigate }: NavProps) {
 	return (
 		<nav className="flex flex-col gap-2 mt-8 h-full">
-			<HeaderLink to="/admin/topics" icon={<TagsIcon />}>
+			<HeaderLink to="/admin/topics" icon={<TagsIcon />} onClick={onNavigate}>
 				Topics
 			</HeaderLink>
-			<HeaderLink to="/admin/courses" icon={<BookOpen />}>
+			<HeaderLink to="/admin/courses" icon={<BookOpen />} onClick={onNavigate}>
 				Courses
 			</HeaderLink>
-			<HeaderLink to="/admin/students" icon={<GraduationCap />}>
+			<HeaderLink
+				to="/admin/students"
+				icon={<GraduationCap />}
+				onClick={onNavigate}
+			>
 				Students
 			</HeaderLink>
-			<HeaderLink to="/admin/enquiries" icon={<MessageCircleQuestionMark />}>
+			<HeaderLink
+				to="/admin/enquiries"
+				icon={<MessageCircleQuestionMark />}
+				onClick={onNavigate}
+			>
 				Enquiries
 			</HeaderLink>
-			<HeaderLink to="/admin/users" icon={<UsersIcon />}>
+			<HeaderLink to="/admin/users" icon={<UsersIcon />} onClick={onNavigate}>
 				Users
 			</HeaderLink>
 

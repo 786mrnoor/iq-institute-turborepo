@@ -36,7 +36,7 @@ function Header({ onOpen }: HeaderProps) {
 		<header className="sticky top-0 left-50 right-0 p-2 sm:p-3 z-1 bg-white flex items-center gap-1 md:gap-3 border-b border-gray-300 mb-5 dark:bg-neutral-900 dark:border-neutral-700">
 			<button
 				type="button"
-				className="md:hidden p-2 rounded-sm cursor-pointer text-neutral-200 hover:bg-gray-300 hover:dark:bg-neutral-700"
+				className="md:hidden p-2 rounded-sm cursor-pointer dark:text-neutral-200 hover:bg-gray-300 hover:dark:bg-neutral-700"
 				onClick={() => onOpen()}
 			>
 				<Menu className="md:size-8" />

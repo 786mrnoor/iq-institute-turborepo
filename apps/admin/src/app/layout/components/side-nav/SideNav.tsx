@@ -36,7 +36,7 @@ function SideNav({ showNav, setShowNav }: SideNavProps) {
 					/>
 				</AppLink>
 
-				<Nav />
+				<Nav onNavigate={() => setShowNav(false)} />
 			</div>
 		</aside>
 	);
