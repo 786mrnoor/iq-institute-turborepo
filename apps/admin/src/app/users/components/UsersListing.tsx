@@ -23,11 +23,7 @@ function UserListing({ filter }: UserListingProps) {
 	);
 
 	if (!data || data?.users?.length === 0)
-		return (
-			<p className="text-center text-lg mt-5 dark:text-neutral-200">
-				No Users Found
-			</p>
-		);
+		return <p className="text-center text-lg mt-5">No Users Found</p>;
 
 	const { users, meta } = data;
 

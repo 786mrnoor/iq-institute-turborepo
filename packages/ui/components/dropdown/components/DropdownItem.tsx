@@ -4,9 +4,7 @@ import type React from "react";
 import { useDropdownDispatch } from "../context/dropdown.context";
 
 const ColorVariant = {
-	primary: clsx(
-		"bg-white dark:bg-neutral-800 dark:text-neutral-200 text-foreground",
-	),
+	primary: clsx("dark:bg-neutral-800"),
 	danger: clsx("dark:bg-neutral-800 text-red"),
 } as const;
 

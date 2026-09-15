@@ -7,7 +7,7 @@ type UserCardProps = {
 
 function UserCard({ user }: UserCardProps) {
 	return (
-		<tr className="align-top text-sm *:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:text-neutral-200 dark:odd:bg-neutral-900 dark:*:border-neutral-700">
+		<tr className="align-top text-sm *:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:odd:bg-neutral-900 dark:*:border-neutral-700">
 			<td>
 				<strong>{user.name}</strong> <br />
 				<span className="text-xs">{user.email}</span>

@@ -19,11 +19,7 @@ function FieldLabel({
 
 	return (
 		<label
-			className={clsx(
-				"w-fit text-gray-900 dark:text-neutral-200",
-				groupSize && "text-sm",
-				className,
-			)}
+			className={clsx("w-fit", groupSize && "text-sm", className)}
 			htmlFor={htmlFor}
 		>
 			{children}

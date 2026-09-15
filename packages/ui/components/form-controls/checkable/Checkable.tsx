@@ -30,7 +30,7 @@ function Checkable({
 	return (
 		<label
 			className={clsx(
-				"relative flex w-full items-center gap-2 border text-foreground transition-all dark:text-neutral-200",
+				"relative flex w-full items-center gap-2 border transition-all",
 				"disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
 				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
 				"cursor-pointer outline-none focus-within:z-1 focus-within:ring-4",

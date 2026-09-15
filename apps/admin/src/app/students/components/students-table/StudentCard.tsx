@@ -13,7 +13,7 @@ function StudentCard({ student, onDelete }: StudentCardProps) {
 	const navigate = useNavigate();
 
 	return (
-		<tr className="align-top text-sm *:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:*:border-neutral-700 dark:odd:bg-neutral-900 dark:text-neutral-200">
+		<tr className="align-top text-sm *:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:*:border-neutral-700 dark:odd:bg-neutral-900">
 			<td>
 				Name: <strong>{student.name}</strong> <br />
 				Gender: <strong>{student.gender}</strong> <br />

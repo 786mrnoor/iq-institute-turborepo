@@ -22,3 +22,17 @@
 	--color-info: hsl(190, 90%, 50%);
 	--color-info-hover: hsl(190, 88%, 57%);
 }
+
+@layer base {
+	:root {
+		color-scheme: light;
+		@apply bg-gray-100 text-gray-900;
+
+		&.dark {
+			color-scheme: dark;
+			@apply bg-neutral-900 text-neutral-200;
+		}
+	}
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

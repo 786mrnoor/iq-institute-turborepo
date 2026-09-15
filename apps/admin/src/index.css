@@ -3,11 +3,9 @@
 
 @source "../../../packages/ui/components";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @layer components {
 	.nav-link {
-		@apply p-2 flex gap-3 rounded-md dark:text-neutral-200 hover:bg-gray-300 hover:dark:bg-neutral-800;
+		@apply p-2 flex gap-3 rounded-md hover:bg-gray-300 hover:dark:bg-neutral-800;
 
 		&.active {
 			@apply bg-primary/20 text-primary-dark font-semibold dark:text-neutral-50 hover:bg-primary/30;

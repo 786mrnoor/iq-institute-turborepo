@@ -30,7 +30,7 @@ function EnquiryCard({ enquiry }: EnquiryCardProps) {
 	}
 
 	return (
-		<tr className="*:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:text-neutral-200 dark:*:border-neutral-700 dark:odd:bg-neutral-900">
+		<tr className="*:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:*:border-neutral-700 dark:odd:bg-neutral-900">
 			<td>
 				{enquiry.name} <br />
 				<span className="text-xs">{formatDateTime(enquiry.createdAt)}</span>

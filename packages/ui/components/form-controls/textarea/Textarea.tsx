@@ -42,7 +42,7 @@ function Textarea({
 			{...rest}
 			onChange={handleChange}
 			className={clsx(
-				"relative w-full resize-none border text-foreground transition-all outline-none focus:z-1 focus:ring-4 dark:text-neutral-200",
+				"relative w-full resize-none border transition-all outline-none focus:z-1 focus:ring-4",
 				"disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
 				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
 				SIZE_VARIANTS[groupSize || size || "base"],

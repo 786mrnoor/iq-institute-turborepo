@@ -6,7 +6,7 @@ type QueryLoaderProps = {
 
 function QueryLoader({ children }: QueryLoaderProps) {
 	return (
-		<div className="flex flex-col items-center justify-center gap-2 p-4 text-center text-gray-900 dark:text-neutral-200">
+		<div className="flex flex-col items-center justify-center gap-2 p-4 text-center">
 			<Spinner className="animate-spin" /> {children || "Loading..."}
 		</div>
 	);

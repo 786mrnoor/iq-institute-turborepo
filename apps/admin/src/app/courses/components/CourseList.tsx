@@ -6,11 +6,7 @@ function CourseList() {
 	const { data: courses } = useSuspenseQuery(coursesQueries.all);
 
 	if (courses?.length === 0)
-		return (
-			<p className="text-center text-lg dark:text-neutral-200">
-				No Courses Found
-			</p>
-		);
+		return <p className="text-center text-lg">No Courses Found</p>;
 
 	return (
 		<ul className="space-y-3">

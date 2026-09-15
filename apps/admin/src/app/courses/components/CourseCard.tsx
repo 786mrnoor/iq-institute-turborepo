@@ -21,7 +21,7 @@ function CourseCard({ course }: CourseCardProps) {
 				</span>
 			</div>
 			<Dropdown>
-				<DropdownToggleButton className="dark:text-neutral-200">
+				<DropdownToggleButton>
 					<Dots />
 				</DropdownToggleButton>
 				<CourseDropdownMenu id={course.id} />
