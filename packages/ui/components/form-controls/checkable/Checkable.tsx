@@ -12,17 +12,12 @@ type CheckableProps = Omit<
 	children: React.ReactNode;
 };
 
-const SIZE_VARIANTS: Record<Size, string> = {
-	small: clsx("rounded-sm px-2 py-1 text-sm"),
-	base: clsx("rounded-md px-3 py-1.5"),
-};
-
 function Checkable({
 	children,
 	type,
 	isInvalid,
 	className,
-	size,
+	size = "base",
 	...rest
 }: CheckableProps) {
 	const groupSize = useFieldGroupContext();
@@ -30,14 +25,9 @@ function Checkable({
 	return (
 		<label
 			className={clsx(
-				"relative flex w-full items-center gap-2 border transition-all",
-				"disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
-				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
-				"cursor-pointer outline-none focus-within:z-1 focus-within:ring-4",
-				SIZE_VARIANTS[groupSize || size || "base"],
-				isInvalid
-					? "border-red focus-within:border-red focus-within:ring-red/25"
-					: "border-gray-300 focus-within:border-primary focus-within:ring-primary/25 has-checked:border-primary dark:border-neutral-700",
+				"form-control flex items-center gap-2 has-checked:border-primary cursor-pointer",
+				groupSize || size,
+				isInvalid && "invalid",
 				className,
 			)}
 		>

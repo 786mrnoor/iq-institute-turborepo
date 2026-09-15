@@ -36,3 +36,42 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+	.form-control {
+		@apply relative w-full transition-all outline-none border border-gray-300;
+
+		@variant dark {
+			@apply border-neutral-700;
+		}
+
+		&.small {
+			@apply rounded-sm px-2 py-1 text-sm;
+		}
+
+		&.base {
+			@apply rounded-md px-3 py-1.5;
+		}
+
+		&.invalid {
+			@apply border-red;
+		}
+
+		&:disabled {
+			@apply bg-gray-300 text-gray-400 border-gray-400;
+
+			@variant dark {
+				@apply bg-neutral-700 text-neutral-400 border-neutral-700;
+			}
+		}
+
+		&:focus,
+		&:focus-within {
+			@apply z-1 ring-4 border-primary ring-primary/25;
+
+			&.invalid {
+				@apply border-red ring-red/25;
+			}
+		}
+	}
+}

@@ -13,17 +13,12 @@ type TextareaProps = Omit<
 	autoHeight?: boolean;
 };
 
-const SIZE_VARIANTS: Record<Size, string> = {
-	small: clsx("rounded-sm px-2 py-1 text-sm"),
-	base: clsx("rounded-md px-3 py-1.5"),
-};
-
 function Textarea({
 	isInvalid,
 	className,
 	onChange,
 	autoHeight,
-	size,
+	size = "base",
 	...rest
 }: TextareaProps) {
 	const groupSize = useFieldGroupContext();
@@ -40,18 +35,14 @@ function Textarea({
 	return (
 		<textarea
 			{...rest}
+			aria-invalid={isInvalid}
 			onChange={handleChange}
 			className={clsx(
-				"relative w-full resize-none border transition-all outline-none focus:z-1 focus:ring-4",
-				"disabled:border-gray-400 disabled:bg-gray-300 disabled:text-gray-400",
-				"dark:disabled:border-neutral-700 disabled:dark:bg-neutral-700 disabled:dark:text-neutral-400",
-				SIZE_VARIANTS[groupSize || size || "base"],
-				isInvalid
-					? "border-red focus:border-red focus:ring-red/25"
-					: "border-gray-300 focus:border-primary focus:ring-primary/25 dark:border-neutral-700",
+				"form-control resize-none",
+				groupSize || size,
+				isInvalid && "invalid",
 				className,
 			)}
-			aria-invalid={isInvalid}
 		></textarea>
 	);
 }
