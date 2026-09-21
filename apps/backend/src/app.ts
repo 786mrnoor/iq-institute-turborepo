@@ -4,6 +4,7 @@ import { connectDB } from "./config/db";
 import { getHealthController } from "./controllers/health";
 import { globalErrorHandler } from "./middleware/error.middleware";
 import { authRouter } from "./routes/auth.routes";
+import { batchRouter } from "./routes/batch.routes";
 import { courseRouter } from "./routes/course.routes";
 import { enquiryRouter } from "./routes/enquiry.routes";
 import { studentRouter } from "./routes/student.routes";
@@ -23,6 +24,7 @@ app.use("/api/topics", topicRouter);
 app.use("/api/courses", courseRouter);
 app.use("/api/students", studentRouter);
 app.use("/api/enquiries", enquiryRouter);
+app.use("/api/batch", batchRouter);
 
 app.all("/*path", (_req, res) =>
 	res.status(404).json({ message: "Not Found" }),

@@ -23,6 +23,11 @@ export const PERMISSIONS = {
 	ENQUIRY_READ: "enquiry:read",
 	ENQUIRY_UPDATE: "enquiry:update",
 	ENQUIRY_DELETE: "enquiry:delete",
+
+	BATCH_CREATE: "batch:create",
+	BATCH_READ: "batch:read",
+	BATCH_UPDATE: "batch:update",
+	BATCH_DELETE: "batch:delete",
 } as const;
 
 export type Permission = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];
