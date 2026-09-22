@@ -4,12 +4,10 @@ import {
 	DropdownMenu,
 	DropdownToggleButton,
 } from "@repo/ui/dropdown";
-import { Check } from "@repo/ui/icons/Check.tsx";
-import { ChevronDown } from "@repo/ui/icons/ChevronDown.tsx";
-import { SunMoon } from "@repo/ui/icons/SunMoon.tsx";
 import { useTheme } from "@repo/utils/hooks/useTheme.ts";
 import type { Theme } from "@repo/utils/theme.js";
 import clsx from "clsx";
+import { Check, ChevronDown, SunMoon } from "lucide-react";
 
 function ThemeToggler() {
 	const { theme, setTheme } = useTheme();

@@ -1,8 +1,8 @@
 import { useQueryErrorResetBoundary } from "@tanstack/react-query";
+import { Anchor } from "lucide-react";
 import type React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "../button";
-import { Anchor } from "../icons/Anchor";
 
 type ErrorScreenProps = {
 	children: React.ReactNode;

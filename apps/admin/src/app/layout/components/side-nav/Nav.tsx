@@ -1,9 +1,11 @@
-import { BookOpen } from "@repo/ui/icons/BookOpen.tsx";
-import { GraduationCap } from "@repo/ui/icons/GraduationCap.tsx";
-import { LogOut } from "@repo/ui/icons/LogOut.tsx";
-import { MessageCircleQuestionMark } from "@repo/ui/icons/MessageCircleQuestionMark.tsx";
-import { TagsIcon } from "@repo/ui/icons/TagsIcon.tsx";
-import { UsersIcon } from "@repo/ui/icons/UsersIcon.tsx";
+import {
+	BookOpen,
+	GraduationCap,
+	LogOut,
+	MessageCircleQuestionMark,
+	TagsIcon,
+	UsersIcon,
+} from "lucide-react";
 import { HeaderLink } from "./HeaderLink";
 import { ThemeToggler } from "./ThemeToggler";
 

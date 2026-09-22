@@ -1,7 +1,7 @@
 import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { Dropdown, DropdownToggleButton } from "@repo/ui/dropdown";
-import { Dots } from "@repo/ui/icons/Dots.tsx";
 import { formatDateTime } from "@repo/utils/date/format/date-time.js";
+import { EllipsisVertical } from "lucide-react";
 import { TopicDropdownMenu } from "./TopicDropdownMenu";
 
 type TopicCardProps = {
@@ -18,7 +18,7 @@ function TopicCard({ topic }: TopicCardProps) {
 
 			<Dropdown>
 				<DropdownToggleButton>
-					<Dots />
+					<EllipsisVertical />
 				</DropdownToggleButton>
 				<TopicDropdownMenu id={topic.id} />
 			</Dropdown>

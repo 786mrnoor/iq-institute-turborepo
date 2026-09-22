@@ -1,5 +1,4 @@
-import { MapPin } from "@repo/ui/icons/MapPin.tsx";
-import { Phone } from "@repo/ui/icons/Phone.tsx";
+import { MapPin, Phone } from "lucide-react";
 
 function ContactInfo() {
 	return (

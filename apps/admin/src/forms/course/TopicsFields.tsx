@@ -1,9 +1,8 @@
 import { Button, ButtonGroup } from "@repo/ui/button";
 import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
 import { Select } from "@repo/ui/form-controls";
-import { ArrowUp } from "@repo/ui/icons/ArrowUp.tsx";
-import { Trash } from "@repo/ui/icons/Trash.tsx";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { ArrowDown, ArrowUp, Trash } from "lucide-react";
 import {
 	type Control,
 	type FieldErrors,
@@ -71,7 +70,7 @@ function TopicsFileds({ control, register, errors }: TopicsFiledsProps) {
 									onClick={() => swap(index, index + 1)}
 									disabled={index === fields.length - 1}
 								>
-									<ArrowUp className="rotate-180" />
+									<ArrowDown />
 								</Button>
 							</ButtonGroup>
 						</FieldGroup>

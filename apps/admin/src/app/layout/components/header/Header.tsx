@@ -1,5 +1,4 @@
-import { CircleUserRound } from "@repo/ui/icons/CircleUserRound.tsx";
-import { Menu } from "@repo/ui/icons/Menu.tsx";
+import { CircleUserRound, Menu } from "lucide-react";
 import { useLocation } from "react-router";
 import type { AdminAppRoutes } from "@/types/routes";
 
