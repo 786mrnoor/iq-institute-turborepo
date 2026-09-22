@@ -1,4 +1,5 @@
 import mongoose, { type InferSchemaType, Schema } from "mongoose";
+
 import type { DefaultSchema } from "./types";
 
 const scheduleSchema = new mongoose.Schema(

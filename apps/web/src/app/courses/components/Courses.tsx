@@ -1,4 +1,5 @@
 import { getCoursesApi } from "@repo/api-client/courses.ts";
+
 import CourseCard from "./CourseCard";
 
 async function Courses() {

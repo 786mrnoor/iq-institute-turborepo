@@ -1,6 +1,8 @@
-import { Pagination } from "@repo/ui/pagination";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
+
+import { Pagination } from "@repo/ui/pagination";
+
 import { userQueries } from "@/queries/users";
 import type { UserFilterFormData } from "./user-filter-form/schema";
 import { UsersTable } from "./users-table/UsersTable";

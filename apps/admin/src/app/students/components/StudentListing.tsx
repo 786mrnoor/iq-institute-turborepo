@@ -1,6 +1,8 @@
-import { Pagination } from "@repo/ui/pagination";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
+
+import { Pagination } from "@repo/ui/pagination";
+
 import { studentQueries } from "@/queries/students";
 import { NotFound } from "../NotFound";
 import type { StudentFilterFormData } from "./student-filter-form/schema";

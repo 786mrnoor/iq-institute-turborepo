@@ -1,4 +1,5 @@
 import type { UserBaseSchema } from "@repo/schemas/users/base.user";
+
 import type { TUser } from "@/models/user.model";
 
 export function userDto(doc: TUser): UserBaseSchema {

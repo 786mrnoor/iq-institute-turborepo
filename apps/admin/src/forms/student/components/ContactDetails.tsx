@@ -1,6 +1,7 @@
+import type { FieldErrors, UseFormRegister } from "react-hook-form";
+
 import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
 import { Input, Textarea } from "@repo/ui/form-controls";
-import type { FieldErrors, UseFormRegister } from "react-hook-form";
 
 import type { StudentFormInput } from "../student.schema";
 

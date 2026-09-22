@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
+
 import navBg from "@/assets/images/nav-bg.jpg";
 import { AppLink } from "../link/AppLink";
 import Bars from "./components/Bars";

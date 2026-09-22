@@ -1,4 +1,5 @@
 import type z from "zod";
+
 import { userBaseSchema } from "../users/base.user.schema";
 
 export const authUserSchema = userBaseSchema.pick({

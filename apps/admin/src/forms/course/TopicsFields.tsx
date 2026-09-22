@@ -1,6 +1,3 @@
-import { Button, ButtonGroup } from "@repo/ui/button";
-import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
-import { Select } from "@repo/ui/form-controls";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowDown, ArrowUp, Trash } from "lucide-react";
 import {
@@ -9,6 +6,11 @@ import {
 	type UseFormRegister,
 	useFieldArray,
 } from "react-hook-form";
+
+import { Button, ButtonGroup } from "@repo/ui/button";
+import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
+import { Select } from "@repo/ui/form-controls";
+
 import { topicsQueries } from "@/queries/topics";
 import type { CourseFormData, CourseFormInput } from "./course.schema";
 

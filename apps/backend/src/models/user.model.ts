@@ -1,6 +1,8 @@
+import mongoose, { type InferSchemaType, type Model, Types } from "mongoose";
+
 import { ROLES } from "@repo/schemas/user-roles";
 import { USER_STATUS } from "@repo/schemas/users/base.user";
-import mongoose, { type InferSchemaType, type Model, Types } from "mongoose";
+
 import type { DefaultSchema } from "./types";
 
 const userSchema = new mongoose.Schema(

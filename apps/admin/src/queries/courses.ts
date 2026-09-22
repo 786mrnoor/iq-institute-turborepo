@@ -1,3 +1,5 @@
+import { mutationOptions, queryOptions } from "@tanstack/react-query";
+
 import {
 	createCourseApi,
 	deleteCourseApi,
@@ -6,7 +8,6 @@ import {
 	updateCourseApi,
 } from "@repo/api-client/courses.ts";
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
-import { mutationOptions, queryOptions } from "@tanstack/react-query";
 
 export const coursesKeys = {
 	all: ["courses"] as const,

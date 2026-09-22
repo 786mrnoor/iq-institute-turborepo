@@ -1,10 +1,11 @@
+import z from "zod";
+
 import { enquiryBaseSchema } from "@repo/schemas/enquiry/base.enquiry";
 import type { CreateEnquirySchema } from "@repo/schemas/enquiry/create.enquiry";
 import type { GetEnquiriesSchema } from "@repo/schemas/enquiry/get.enquiries";
 import type { UpdateEnquiryStatusSchema } from "@repo/schemas/enquiry/update.enquiry.status";
 import { paginationSchema } from "@repo/schemas/shared/pagination";
 import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.ts";
-import z from "zod";
 
 export const createEnquiryApi = (data: CreateEnquirySchema["body"]) =>
 	customFetch(z.null(), {

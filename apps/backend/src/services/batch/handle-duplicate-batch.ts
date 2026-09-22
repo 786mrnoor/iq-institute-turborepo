@@ -1,5 +1,6 @@
-import { AppError } from "@repo/utils/app-error.js";
 import mongoose from "mongoose";
+
+import { AppError } from "@repo/utils/app-error.js";
 
 function handleDuplicateBatch(error: unknown) {
 	if (!(error instanceof mongoose.mongo.MongoServerError)) return;

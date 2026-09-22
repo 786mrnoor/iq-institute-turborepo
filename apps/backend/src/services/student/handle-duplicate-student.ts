@@ -1,5 +1,6 @@
-import { AppError } from "@repo/utils/app-error.js";
 import type mongoose from "mongoose";
+
+import { AppError } from "@repo/utils/app-error.js";
 
 function handleDuplicateStudent(error: mongoose.mongo.MongoServerError) {
 	if (error.keyValue?.adharNo) {

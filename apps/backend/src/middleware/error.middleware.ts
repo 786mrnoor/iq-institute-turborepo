@@ -1,5 +1,6 @@
-import { AppError } from "@repo/utils/app-error.ts";
 import type { NextFunction, Request, Response } from "express";
+
+import { AppError } from "@repo/utils/app-error.ts";
 
 export function globalErrorHandler(
 	err: unknown,

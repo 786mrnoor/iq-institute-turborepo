@@ -1,9 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { Button } from "@repo/ui/button";
-import { useRouter } from "next/navigation";
 
 type CourseProps = {
 	course: Omit<CourseBaseSchema, "topics"> & { topics: TopicBaseSchema[] };

@@ -1,4 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
+
 import { coursesQueries } from "@/queries/courses";
 import { CourseCard } from "./CourseCard";
 

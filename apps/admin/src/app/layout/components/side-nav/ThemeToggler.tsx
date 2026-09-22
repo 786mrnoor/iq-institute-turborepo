@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import { Check, ChevronDown, SunMoon } from "lucide-react";
+
 import {
 	Dropdown,
 	DropdownItem,
@@ -6,8 +9,6 @@ import {
 } from "@repo/ui/dropdown";
 import { useTheme } from "@repo/utils/hooks/useTheme.ts";
 import type { Theme } from "@repo/utils/theme.js";
-import clsx from "clsx";
-import { Check, ChevronDown, SunMoon } from "lucide-react";
 
 function ThemeToggler() {
 	const { theme, setTheme } = useTheme();

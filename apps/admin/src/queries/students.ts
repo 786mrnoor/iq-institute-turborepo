@@ -1,3 +1,5 @@
+import { mutationOptions, queryOptions } from "@tanstack/react-query";
+
 import {
 	addStudentApi,
 	deleteStudentByIdApi,
@@ -7,7 +9,6 @@ import {
 } from "@repo/api-client/student.ts";
 import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
 import type { GetStudentsSchema } from "@repo/schemas/students/get.students";
-import { mutationOptions, queryOptions } from "@tanstack/react-query";
 
 export const studentKeys = {
 	all: ["students"] as const,

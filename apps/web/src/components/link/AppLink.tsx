@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import type { WebAppRoutes } from "@/types/routes";
 
 type AppLinkProps = {

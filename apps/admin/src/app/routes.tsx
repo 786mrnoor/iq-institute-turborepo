@@ -1,4 +1,5 @@
 import { Route } from "react-router";
+
 import { CoursePage } from "./courses/[id]/page";
 import { CreateCoursePage } from "./courses/add/page";
 import { EditCoursePage } from "./courses/edit/page";

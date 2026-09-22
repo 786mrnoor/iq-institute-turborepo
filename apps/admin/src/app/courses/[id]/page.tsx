@@ -1,8 +1,10 @@
+import { Suspense } from "react";
+import { useParams } from "react-router";
+
 import { courseBaseSchema } from "@repo/schemas/course/base.course";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { Suspense } from "react";
-import { useParams } from "react-router";
+
 import { NotFound } from "../NotFound";
 import { Course } from "./Course";
 

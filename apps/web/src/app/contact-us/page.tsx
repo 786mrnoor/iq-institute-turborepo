@@ -1,5 +1,7 @@
-import { getCoursesApi } from "@repo/api-client/courses.ts";
 import { Suspense } from "react";
+
+import { getCoursesApi } from "@repo/api-client/courses.ts";
+
 import { ContactInfo } from "./components/ContactInfo";
 import { Form } from "./components/Form";
 

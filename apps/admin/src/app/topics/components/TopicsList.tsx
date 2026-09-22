@@ -1,4 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
+
 import { topicsQueries } from "@/queries/topics";
 import { TopicCard } from "./TopicCard";
 

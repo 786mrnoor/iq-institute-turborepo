@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { XIcon } from "lucide-react";
+
 import navBg from "@/assets/images/icon.jpg";
 import { AppLink } from "@/components/link/AppLink";
 import { Nav } from "./Nav";

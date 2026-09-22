@@ -1,5 +1,6 @@
 import cookieParser from "cookie-parser";
 import express from "express";
+
 import { connectDB } from "./config/db";
 import { getHealthController } from "./controllers/health";
 import { globalErrorHandler } from "./middleware/error.middleware";

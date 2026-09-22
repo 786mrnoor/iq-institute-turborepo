@@ -1,6 +1,7 @@
-import { revalidateSchema } from "@repo/schemas/revalidate/revalidate";
 import { revalidatePath } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
+
+import { revalidateSchema } from "@repo/schemas/revalidate/revalidate";
 
 async function POST(request: NextRequest) {
 	const secret = request.headers.get("x-revalidate-secret");

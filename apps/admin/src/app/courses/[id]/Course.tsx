@@ -1,8 +1,10 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { Suspense } from "react";
+
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { Suspense } from "react";
+
 import { coursesQueries } from "@/queries/courses";
 import { CourseContent } from "./CourseContent";
 

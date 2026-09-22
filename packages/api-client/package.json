@@ -7,7 +7,7 @@
 	},
 	"scripts": {
 		"lint": "biome lint .",
-		"format": "biome format --write .",
+		"format": "biome check --write",
 		"format:check": "biome format .",
 		"typecheck": "tsc --noEmit",
 		"check": "biome check . && tsc --noEmit"

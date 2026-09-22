@@ -1,7 +1,8 @@
+import z from "zod";
+
 import { courseBaseSchema } from "@repo/schemas/course/base.course";
 import { emptyStringToUndefined } from "@repo/schemas/shared/empty-string-to-undefined";
 import { checkDuplicate } from "@repo/utils/check-duplicate.js";
-import z from "zod";
 
 export const courseFormSchema = z
 	.object({

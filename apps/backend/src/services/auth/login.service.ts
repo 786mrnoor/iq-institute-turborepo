@@ -1,7 +1,9 @@
+import bcrypt from "bcryptjs";
+
 import type { AuthUser } from "@repo/schemas/auth/auth.user";
 import type { LoginData } from "@repo/schemas/auth/login";
 import { AppError } from "@repo/utils/app-error.js";
-import bcrypt from "bcryptjs";
+
 import { response } from "@/lib/controller";
 import type { PublicControllerContext } from "@/lib/controller/types";
 import { createSession } from "@/lib/session";

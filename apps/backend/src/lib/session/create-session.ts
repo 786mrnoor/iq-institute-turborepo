@@ -1,7 +1,9 @@
-import type { AuthUser } from "@repo/schemas/auth/auth.user";
-import { AppError } from "@repo/utils/app-error.js";
 import type { Response } from "express";
 import jwt from "jsonwebtoken";
+
+import type { AuthUser } from "@repo/schemas/auth/auth.user";
+import { AppError } from "@repo/utils/app-error.js";
+
 import { JWT_SECRET_KEY, SESSION_KEY } from "./shared";
 
 export async function createSession(payload: AuthUser, res: Response) {

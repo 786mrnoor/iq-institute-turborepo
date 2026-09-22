@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { applyTheme, getSystemTheme, THEME_KEY, type Theme } from "../theme";
 
 function getInitialTheme(): Theme {

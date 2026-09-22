@@ -1,5 +1,7 @@
-import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { useState } from "react";
+
+import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
+
 import { EditContext, SetEditContext } from "./EditContext";
 
 type EditProviderProps = {

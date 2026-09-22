@@ -1,6 +1,8 @@
+import { Suspense } from "react";
+
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { Suspense } from "react";
+
 import { Form } from "./components/Form";
 import { TopicsList } from "./components/TopicsList";
 import { EditProvider } from "./context/EditProvider";

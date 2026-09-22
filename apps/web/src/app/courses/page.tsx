@@ -1,4 +1,5 @@
 import { Heading } from "@repo/ui/heading";
+
 import { Courses } from "./components/Courses";
 
 export default function CoursesPage() {

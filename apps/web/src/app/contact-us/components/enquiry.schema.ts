@@ -1,5 +1,6 @@
-import { enquiryBaseSchema } from "@repo/schemas/enquiry/base.enquiry";
 import type z from "zod";
+
+import { enquiryBaseSchema } from "@repo/schemas/enquiry/base.enquiry";
 
 export const enquiryFormSchema = enquiryBaseSchema.pick({
 	course: true,

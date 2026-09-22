@@ -1,12 +1,14 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect } from "react";
+import { type UseFormSetError, useForm } from "react-hook-form";
+
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { Button } from "@repo/ui/button";
 import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
 import { Input, Select, Textarea } from "@repo/ui/form-controls";
-import { useEffect } from "react";
-import { type UseFormSetError, useForm } from "react-hook-form";
+
 import {
 	type EnquiryFormData,
 	type EnquiryFormInput,

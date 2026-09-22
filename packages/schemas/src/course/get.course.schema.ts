@@ -1,4 +1,5 @@
 import z from "zod";
+
 import type { InferRequestShape } from "../request.types";
 import { courseBaseSchema } from "./base.course.schema";
 

@@ -1,5 +1,7 @@
-import { checkDuplicate } from "@repo/utils/check-duplicate.ts";
 import z from "zod";
+
+import { checkDuplicate } from "@repo/utils/check-duplicate.ts";
+
 import { objectIdSchema } from "../shared/object-id.schema";
 import { timestampSchema } from "../shared/timestamp-schema.schema";
 import { topicBaseSchema } from "../topics/base.topic.schema";

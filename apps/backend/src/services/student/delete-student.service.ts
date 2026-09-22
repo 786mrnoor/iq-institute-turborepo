@@ -1,5 +1,6 @@
 import type { DeleteStudentSchema } from "@repo/schemas/students/delete.student";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Student } from "@/models/student.model";

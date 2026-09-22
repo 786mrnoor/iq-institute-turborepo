@@ -1,7 +1,9 @@
-import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
-import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
 import { useMutation, useSuspenseQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
+import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
+
 import { topicsMutations, topicsQueries } from "@/queries/topics";
 import { TopicForm } from "./TopicForm";
 

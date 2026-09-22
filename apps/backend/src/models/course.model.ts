@@ -1,6 +1,8 @@
-import { DURATION_UNITS } from "@repo/schemas/course/base.course";
 import type { Model } from "mongoose";
 import mongoose, { type InferSchemaType } from "mongoose";
+
+import { DURATION_UNITS } from "@repo/schemas/course/base.course";
+
 import type { DefaultSchema } from "./types";
 
 const durationSchema = new mongoose.Schema(

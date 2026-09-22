@@ -1,7 +1,9 @@
-import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
-import { ConfirmModal } from "@repo/ui/modals/confirm";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
+import { ConfirmModal } from "@repo/ui/modals/confirm";
+
 import { topicsMutations } from "@/queries/topics";
 
 type DeleteTopicModalProps = {

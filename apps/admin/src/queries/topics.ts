@@ -1,3 +1,5 @@
+import { mutationOptions, queryOptions } from "@tanstack/react-query";
+
 import {
 	createTopicApi,
 	deleteTopicApi,
@@ -5,7 +7,6 @@ import {
 	updateTopicApi,
 } from "@repo/api-client/topic.ts";
 import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
-import { mutationOptions, queryOptions } from "@tanstack/react-query";
 export const topicsKeys = {
 	all: ["topics"] as const,
 };

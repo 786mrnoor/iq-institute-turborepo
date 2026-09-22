@@ -1,6 +1,8 @@
-import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
+
+import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
+
 import { topicsQueries } from "@/queries/topics";
 
 type CourseContentProps = {

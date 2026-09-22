@@ -1,9 +1,11 @@
+import { Suspense } from "react";
+import { useParams } from "react-router";
+
 import { studentBaseSchema } from "@repo/schemas/students/base.student";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { Heading } from "@repo/ui/heading";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { Suspense } from "react";
-import { useParams } from "react-router";
+
 import { EditStudentForm } from "@/forms/student/EditStudentForm";
 import { NotFound } from "../NotFound";
 

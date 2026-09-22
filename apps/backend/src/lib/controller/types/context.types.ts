@@ -1,6 +1,7 @@
+import type { Request, Response } from "express";
+
 import type { AuthUser } from "@repo/schemas/auth/auth.user";
 import type { RequestShape } from "@repo/schemas/request-types";
-import type { Request, Response } from "express";
 
 export type AuthControllerContext<
 	TData extends RequestShape = RequestShape<undefined>,

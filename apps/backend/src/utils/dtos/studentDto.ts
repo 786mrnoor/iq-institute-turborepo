@@ -1,4 +1,5 @@
 import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
+
 import type { TStudent } from "@/models/student.model";
 
 export function studentDto(doc: TStudent) {

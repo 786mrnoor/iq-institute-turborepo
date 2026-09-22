@@ -1,7 +1,9 @@
-import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
-import { ConfirmModal } from "@repo/ui/modals/confirm";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
+import { ConfirmModal } from "@repo/ui/modals/confirm";
+
 import { studentMutations } from "@/queries/students";
 
 type DeleteStudentModalProps = {

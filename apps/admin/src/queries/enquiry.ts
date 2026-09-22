@@ -1,9 +1,10 @@
+import { mutationOptions, queryOptions } from "@tanstack/react-query";
+
 import {
 	getEnquiriesApi,
 	updateEnquiryStatusApi,
 } from "@repo/api-client/enquiry.ts";
 import type { GetEnquiriesSchema } from "@repo/schemas/enquiry/get.enquiries";
-import { mutationOptions, queryOptions } from "@tanstack/react-query";
 
 export const enquiriesKeys = {
 	all: ["enquirys"] as const,

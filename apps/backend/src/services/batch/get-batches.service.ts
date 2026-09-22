@@ -1,4 +1,5 @@
 import type { GetBatchesSchema } from "@repo/schemas/batch/get.batches";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Batch } from "@/models/batch.model";

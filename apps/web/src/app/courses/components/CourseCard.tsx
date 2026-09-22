@@ -1,8 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { Button, ButtonGroup } from "@repo/ui/button";
-import { useRouter } from "next/navigation";
 
 type CourseCardProps = {
 	course: CourseBaseSchema;

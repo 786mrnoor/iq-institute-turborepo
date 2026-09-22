@@ -1,5 +1,6 @@
 import type { UpdateEnquiryStatusSchema } from "@repo/schemas/enquiry/update.enquiry.status";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Enquiry } from "@/models/enquiry.model";

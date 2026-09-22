@@ -2,6 +2,7 @@ import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { createTopicSchema } from "@repo/schemas/topics/create.topic";
 import { deleteTopicSchema } from "@repo/schemas/topics/delete.topic";
 import { updateTopicSchema } from "@repo/schemas/topics/update.topic";
+
 import { createController } from "@/lib/controller";
 import { PERMISSIONS } from "@/lib/permissions/permissions";
 import { Course } from "@/models/course.model";

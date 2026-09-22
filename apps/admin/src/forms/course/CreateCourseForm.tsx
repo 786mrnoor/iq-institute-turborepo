@@ -1,6 +1,8 @@
-import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
+
 import { coursesMutations } from "@/queries/courses";
 import { CourseForm } from "./CourseForm";
 import type { CourseFormInput } from "./course.schema";

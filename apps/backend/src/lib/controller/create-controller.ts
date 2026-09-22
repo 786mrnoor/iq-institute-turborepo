@@ -1,5 +1,7 @@
-import type { RequestZodShape } from "@repo/schemas/request-types";
 import type { Request, Response } from "express";
+
+import type { RequestZodShape } from "@repo/schemas/request-types";
+
 import { validate } from "@/middleware/validate.middleware";
 import { authorize } from "../permissions/authorize";
 import { verifySession } from "../session";

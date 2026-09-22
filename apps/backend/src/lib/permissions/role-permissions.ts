@@ -1,4 +1,5 @@
 import { ROLES, type UserRole } from "@repo/schemas/user-roles";
+
 import { PERMISSIONS, type Permission } from "./permissions";
 
 export const ROLE_PERMISSIONS: Record<UserRole, readonly Permission[]> = {

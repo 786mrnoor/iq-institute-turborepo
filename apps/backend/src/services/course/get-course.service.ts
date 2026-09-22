@@ -1,5 +1,6 @@
 import type { GetCourseSchema } from "@repo/schemas/course/get.course";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { PublicControllerContext } from "@/lib/controller/types";
 import { Course } from "@/models/course.model";

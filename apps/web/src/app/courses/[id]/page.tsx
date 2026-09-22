@@ -1,9 +1,11 @@
+import { notFound } from "next/navigation";
+
 import {
 	getCoursesApi,
 	getCourseWithTopicsApi,
 } from "@repo/api-client/courses.ts";
 import { courseBaseSchema } from "@repo/schemas/course/base.course";
-import { notFound } from "next/navigation";
+
 import { CourseCard } from "./components/CourseCard";
 
 export async function generateStaticParams() {

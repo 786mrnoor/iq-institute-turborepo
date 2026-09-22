@@ -1,12 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Suspense, useEffect } from "react";
+import { type UseFormSetError, useForm } from "react-hook-form";
+
 import { DURATION_UNITS } from "@repo/schemas/course/base.course";
 import { Button, ButtonGroup } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { FieldError, FieldGroup, FieldLabel, InputGroup } from "@repo/ui/field";
 import { Input, Select, Textarea } from "@repo/ui/form-controls";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { Suspense, useEffect } from "react";
-import { type UseFormSetError, useForm } from "react-hook-form";
+
 import {
 	type CourseFormData,
 	type CourseFormInput,

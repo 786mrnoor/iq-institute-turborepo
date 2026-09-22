@@ -2,6 +2,7 @@ import { createCourseSchema } from "@repo/schemas/course/create.course";
 import { deleteCourseSchema } from "@repo/schemas/course/delete.course";
 import { getCourseSchema } from "@repo/schemas/course/get.course";
 import { updateCourseSchema } from "@repo/schemas/course/update.course";
+
 import { createController } from "@/lib/controller";
 import { PERMISSIONS } from "@/lib/permissions/permissions";
 import { addCourseService } from "@/services/course/add-course.service";

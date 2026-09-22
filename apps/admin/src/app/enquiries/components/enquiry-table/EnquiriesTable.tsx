@@ -1,4 +1,5 @@
 import type { EnquiryBaseSchema } from "@repo/schemas/enquiry/base.enquiry";
+
 import { EnquiryCard } from "./EnquiryCard";
 
 type EnquiriesTableProps = {

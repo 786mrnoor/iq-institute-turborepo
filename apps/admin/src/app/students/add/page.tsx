@@ -1,4 +1,5 @@
 import { Heading } from "@repo/ui/heading";
+
 import { CreateStudentForm } from "@/forms/student/CreateStudentForm";
 
 function AddStudentPage() {

@@ -1,5 +1,6 @@
 import { CircleUserRound, Menu } from "lucide-react";
 import { useLocation } from "react-router";
+
 import type { AdminAppRoutes } from "@/types/routes";
 
 const HEADING: Record<AdminAppRoutes, string> = {

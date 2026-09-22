@@ -1,7 +1,9 @@
-import type { CreateUserSchema } from "@repo/schemas/users/create.user";
-import { AppError } from "@repo/utils/app-error.js";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
+
+import type { CreateUserSchema } from "@repo/schemas/users/create.user";
+import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { User } from "@/models/user.model";

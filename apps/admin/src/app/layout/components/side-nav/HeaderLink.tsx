@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import type { MouseEvent } from "react";
 import { NavLink } from "react-router";
+
 import type { AdminAppRoutes } from "@/types/routes";
 
 export type HeaderLinkProps = {

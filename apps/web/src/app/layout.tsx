@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+
 import { Footer } from "@/components/footer/Footer";
 import { WebAppHeader } from "@/components/header/Header";
 

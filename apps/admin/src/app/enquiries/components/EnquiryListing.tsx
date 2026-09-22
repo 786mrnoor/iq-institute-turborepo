@@ -1,6 +1,8 @@
-import { Pagination } from "@repo/ui/pagination";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
+
+import { Pagination } from "@repo/ui/pagination";
+
 import { enquiriesQueries } from "@/queries/enquiry";
 import type { EnquiryFilterFormData } from "./enquiry-filter-form/schema";
 import { EnquiriesTable } from "./enquiry-table/EnquiriesTable";

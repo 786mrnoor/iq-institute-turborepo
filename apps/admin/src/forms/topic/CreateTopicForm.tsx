@@ -1,6 +1,8 @@
-import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
+
 import { topicsMutations } from "@/queries/topics";
 import { TopicForm } from "./TopicForm";
 import type { FormTopicData } from "./topic.schema";

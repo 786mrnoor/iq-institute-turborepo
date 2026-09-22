@@ -1,4 +1,5 @@
 import type { GetStudentSchema } from "@repo/schemas/students/get.student";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Student } from "@/models/student.model";

@@ -1,7 +1,9 @@
-import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
-import { ConfirmModal } from "@repo/ui/modals/confirm";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
+import { ConfirmModal } from "@repo/ui/modals/confirm";
+
 import { coursesMutations } from "@/queries/courses";
 
 type DeleteCourseModalProps = {

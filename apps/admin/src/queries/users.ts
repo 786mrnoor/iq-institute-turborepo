@@ -1,6 +1,7 @@
+import { mutationOptions, queryOptions } from "@tanstack/react-query";
+
 import { createUserApi, getUsersApi } from "@repo/api-client/user.js";
 import type { GetUsersSchema } from "@repo/schemas/users/get.users";
-import { mutationOptions, queryOptions } from "@tanstack/react-query";
 
 export const userKeys = {
 	all: ["users"] as const,

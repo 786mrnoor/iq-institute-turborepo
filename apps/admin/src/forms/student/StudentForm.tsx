@@ -1,8 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, ButtonGroup } from "@repo/ui/button";
-import { FieldError } from "@repo/ui/field";
 import { useEffect } from "react";
 import { type UseFormSetError, useForm } from "react-hook-form";
+
+import { Button, ButtonGroup } from "@repo/ui/button";
+import { FieldError } from "@repo/ui/field";
+
 import { BasicDetails } from "./components/BasicDetails";
 import { ContactDetails } from "./components/ContactDetails";
 import {

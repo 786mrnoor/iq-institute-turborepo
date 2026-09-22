@@ -1,11 +1,13 @@
 "use client";
 
-import { createEnquiryApi } from "@repo/api-client/enquiry.ts";
-import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
-import { applyBackendErrors } from "@repo/utils/apply-backend-errors.ts";
 import { useSearchParams } from "next/navigation";
 import type { UseFormSetError } from "react-hook-form";
 import toast from "react-hot-toast";
+
+import { createEnquiryApi } from "@repo/api-client/enquiry.ts";
+import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
+import { applyBackendErrors } from "@repo/utils/apply-backend-errors.ts";
+
 import { EnquiryForm } from "./EnquiryForm";
 import type { EnquiryFormData, EnquiryFormInput } from "./enquiry.schema";
 

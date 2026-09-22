@@ -1,5 +1,6 @@
-import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { createContext, useContext } from "react";
+
+import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
 
 export const EditContext = createContext<null | TopicBaseSchema["id"]>(null);
 export const SetEditContext = createContext<

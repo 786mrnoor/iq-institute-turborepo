@@ -1,5 +1,6 @@
 import type { UpdateBatchSchema } from "@repo/schemas/batch/update.batch";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Batch } from "@/models/batch.model";

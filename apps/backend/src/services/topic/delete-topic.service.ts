@@ -1,5 +1,6 @@
 import type { DeleteTopicSchema } from "@repo/schemas/topics/delete.topic";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Course } from "@/models/course.model";

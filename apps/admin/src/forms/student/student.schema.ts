@@ -1,6 +1,7 @@
+import z from "zod";
+
 import { emptyStringToUndefined } from "@repo/schemas/shared/empty-string-to-undefined";
 import { studentBaseSchema } from "@repo/schemas/students/base.student";
-import z from "zod";
 
 export const studentFormSchema = z.object({
 	...studentBaseSchema.pick({

@@ -1,6 +1,8 @@
-import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+
+import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
+
 import { studentMutations } from "@/queries/students";
 import { StudentForm } from "./StudentForm";
 import type { StudentFormInput } from "./student.schema";

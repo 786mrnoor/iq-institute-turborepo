@@ -1,5 +1,6 @@
 import type { UpdateCourseSchema } from "@repo/schemas/course/update.course";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Course } from "@/models/course.model";

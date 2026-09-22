@@ -1,7 +1,9 @@
+import { EllipsisVertical } from "lucide-react";
+
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { Dropdown, DropdownToggleButton } from "@repo/ui/dropdown";
 import { formatDateTime } from "@repo/utils/date/format/date-time.js";
-import { EllipsisVertical } from "lucide-react";
+
 import { AppLink } from "@/components/link/AppLink";
 import { CourseDropdownMenu } from "./CourseDropdownMenu";
 

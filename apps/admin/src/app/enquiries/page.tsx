@@ -1,6 +1,8 @@
+import { Suspense, useState } from "react";
+
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { Suspense, useState } from "react";
+
 import { EnquiryListing } from "./components/EnquiryListing";
 import { EnquiryFilterForm } from "./components/enquiry-filter-form/EnquiryFilterForm";
 import type { EnquiryFilterFormData } from "./components/enquiry-filter-form/schema";

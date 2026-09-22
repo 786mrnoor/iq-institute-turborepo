@@ -1,3 +1,5 @@
+import z from "zod";
+
 import { paginationSchema } from "@repo/schemas/shared/pagination";
 import type { AddStudentInput } from "@repo/schemas/students/add.student";
 import {
@@ -10,7 +12,6 @@ import type {
 	UpdateStudentSchema,
 } from "@repo/schemas/students/update.student";
 import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.js";
-import z from "zod";
 
 const BASE_PATH = "/api/students";
 

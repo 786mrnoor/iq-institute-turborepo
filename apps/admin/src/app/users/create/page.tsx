@@ -1,4 +1,5 @@
 import { Heading } from "@repo/ui/heading";
+
 import { CreateUserForm } from "./components/CreateUserForm";
 
 function CreateAccountPage() {

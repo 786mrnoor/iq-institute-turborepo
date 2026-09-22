@@ -1,9 +1,10 @@
+import z from "zod";
+
 import { topicBaseSchema } from "@repo/schemas/topics/base.topic";
 import type { CreateTopicSchema } from "@repo/schemas/topics/create.topic";
 import type { DeleteTopicSchema } from "@repo/schemas/topics/delete.topic";
 import type { UpdateTopicSchema } from "@repo/schemas/topics/update.topic";
 import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.ts";
-import z from "zod";
 
 export const createTopicApi = (data: CreateTopicSchema["body"]) =>
 	customFetch(topicBaseSchema, {

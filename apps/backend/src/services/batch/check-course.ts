@@ -1,5 +1,6 @@
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { Course } from "@/models/course.model";
 
 async function checkCourse(courseId: CourseBaseSchema["id"]) {

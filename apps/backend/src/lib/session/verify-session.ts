@@ -1,7 +1,9 @@
-import { authUserSchema } from "@repo/schemas/auth/auth.user";
-import { AppError } from "@repo/utils/app-error.js";
 import type { Request } from "express";
 import jwt from "jsonwebtoken";
+
+import { authUserSchema } from "@repo/schemas/auth/auth.user";
+import { AppError } from "@repo/utils/app-error.js";
+
 import { JWT_SECRET_KEY, SESSION_KEY } from "./shared";
 
 export async function verifySession(req: Request) {

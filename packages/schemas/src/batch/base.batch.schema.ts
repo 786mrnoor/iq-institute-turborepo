@@ -1,4 +1,5 @@
 import z from "zod";
+
 import { courseBaseSchema } from "../course/base.course.schema";
 import { objectIdSchema } from "../shared/object-id.schema";
 

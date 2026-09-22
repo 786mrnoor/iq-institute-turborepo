@@ -1,5 +1,6 @@
-import { topicBaseSchema } from "@repo/schemas/topics/base.topic";
 import type z from "zod";
+
+import { topicBaseSchema } from "@repo/schemas/topics/base.topic";
 
 export const formTopicSchema = topicBaseSchema.pick({
 	title: true,

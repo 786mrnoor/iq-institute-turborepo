@@ -1,4 +1,5 @@
 import mongoose, { type InferSchemaType, type Model } from "mongoose";
+
 import type { DefaultSchema } from "./types";
 
 const topicSchema = new mongoose.Schema(

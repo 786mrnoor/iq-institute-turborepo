@@ -1,3 +1,5 @@
+import z from "zod";
+
 import {
 	type CourseBaseSchema,
 	courseBaseSchema,
@@ -7,7 +9,6 @@ import type { DeleteCourseSchema } from "@repo/schemas/course/delete.course";
 import type { UpdateCourseSchema } from "@repo/schemas/course/update.course";
 import { topicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { customFetch } from "@repo/utils/custom-fetch/custom-fetch.ts";
-import z from "zod";
 
 export const createCourseApi = (data: CreateCourseSchema["body"]) =>
 	customFetch(courseBaseSchema, {

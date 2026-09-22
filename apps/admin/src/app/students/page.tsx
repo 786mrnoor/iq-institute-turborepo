@@ -1,8 +1,10 @@
+import { Suspense, useState } from "react";
+import { useNavigate } from "react-router";
+
 import { Button } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { QueryLoader } from "@repo/ui/query-loder";
-import { Suspense, useState } from "react";
-import { useNavigate } from "react-router";
+
 import { StudentListing } from "./components/StudentListing";
 import { StudentFilterForm } from "./components/student-filter-form/StudentFilterForm";
 import type { StudentFilterFormData } from "./components/student-filter-form/schema";

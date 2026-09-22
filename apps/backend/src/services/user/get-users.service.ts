@@ -1,4 +1,5 @@
 import type { GetUsersSchema } from "@repo/schemas/users/get.users";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { User } from "@/models/user.model";

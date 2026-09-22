@@ -1,5 +1,6 @@
 import type { CreateTopicSchema } from "@repo/schemas/topics/create.topic";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Topic } from "@/models/topic.model";

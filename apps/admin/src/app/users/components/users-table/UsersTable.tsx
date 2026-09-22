@@ -1,4 +1,5 @@
 import type { UserBaseSchema } from "@repo/schemas/users/base.user";
+
 import { UserCard } from "./UserCard";
 
 type UsersTableProps = {

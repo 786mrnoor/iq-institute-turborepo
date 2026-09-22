@@ -1,4 +1,5 @@
 import type { BatchBaseSchema } from "@repo/schemas/batch/base.batch";
+
 import type { TBatch } from "@/models/batch.model";
 
 export function batchDto(doc: TBatch) {

@@ -1,5 +1,6 @@
-import { NotFound } from "@repo/ui/not-found";
 import { Link } from "react-router";
+
+import { NotFound } from "@repo/ui/not-found";
 
 function NotFoundPage() {
 	return (

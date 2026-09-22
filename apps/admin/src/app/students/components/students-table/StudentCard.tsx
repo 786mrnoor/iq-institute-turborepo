@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router";
+
 import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
 import { Button, ButtonGroup } from "@repo/ui/button";
 import { formatDateTime } from "@repo/utils/date/format/date-time.js";
 import { formatDOB } from "@repo/utils/date/format/dob.js";
-import { useNavigate } from "react-router";
 
 type StudentCardProps = {
 	student: StudentBaseSchema;

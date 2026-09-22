@@ -1,6 +1,8 @@
+import mongoose from "mongoose";
+
 import type { UpdateStudentSchema } from "@repo/schemas/students/update.student";
 import { AppError } from "@repo/utils/app-error.js";
-import mongoose from "mongoose";
+
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Student } from "@/models/student.model";

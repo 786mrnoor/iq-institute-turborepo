@@ -1,5 +1,7 @@
-import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
 import { useState } from "react";
+
+import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
+
 import { DeleteStudentModal } from "./DeleteUserModal";
 import { StudentCard } from "./StudentCard";
 

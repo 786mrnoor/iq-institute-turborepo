@@ -1,5 +1,6 @@
 import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
 import { AppError } from "@repo/utils/app-error.js";
+
 import { Topic } from "@/models/topic.model";
 
 async function checkTopics(topicIds: TopicBaseSchema["id"][]) {

@@ -1,4 +1,5 @@
 import { XIcon } from "lucide-react";
+
 import { useDialogClose } from "../context/dialog.context";
 
 type DialogHeaderProps = {

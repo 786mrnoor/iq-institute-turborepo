@@ -52,7 +52,23 @@
 		"enabled": true,
 		"actions": {
 			"source": {
-				"organizeImports": "on"
+				"organizeImports": {
+					"level": "on",
+					"options": {
+						"groups": [
+							[":NODE:"],
+							":BLANK_LINE:",
+							[":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:", "!@repo/**"],
+							":BLANK_LINE:",
+							["@repo/**"],
+							":BLANK_LINE:",
+							[":ALIAS:", ":PATH:"],
+							":BLANK_LINE:",
+							[":STYLE:"],
+							":BLANK_LINE:"
+						]
+					}
+				}
 			}
 		}
 	}

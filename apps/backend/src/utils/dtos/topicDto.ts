@@ -1,4 +1,5 @@
 import type { TopicBaseSchema } from "@repo/schemas/topics/base.topic";
+
 import type { TTopic } from "@/models/topic.model";
 
 export function topicDto(doc: TTopic): TopicBaseSchema {

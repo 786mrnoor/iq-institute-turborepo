@@ -1,4 +1,5 @@
 import type z from "zod";
+
 import { AppError } from "../app-error";
 import { buildQuery } from "./build-query";
 import { parseResult } from "./parse-resutl";
