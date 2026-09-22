@@ -5,6 +5,7 @@ import { EditCoursePage } from "./courses/edit/page";
 import { CoursesPage } from "./courses/page";
 import { EnquiriesPage } from "./enquiries/page";
 import { Layout } from "./layout/Layout";
+import { NotFoundPage } from "./not-found";
 import { AddStudentPage } from "./students/add/page";
 import { EditStudentPage } from "./students/edit/page";
 import { StudentsPage } from "./students/page";
@@ -29,5 +30,7 @@ export const routes = (
 
 		<Route path="users" element={<UsersPage />} />
 		<Route path="users/create" element={<CreateAccountPage />} />
+
+		<Route path="/admin/*" element={<NotFoundPage />} />
 	</Route>
 );
