@@ -13,6 +13,8 @@ const HEADING: Record<AdminAppRoutes, string> = {
 	"/admin/users/create": "Create User",
 	"/admin/enquiries": "Enquiries",
 	"/admin/users": "Users",
+	"/admin/batches": "Batches",
+	"/admin/batches/add": "Add Batch",
 };
 
 type HeaderProps = {
@@ -29,6 +31,10 @@ function Header({ onOpen }: HeaderProps) {
 			heading = "Course";
 		} else if (pathname.startsWith("/admin/students/edit")) {
 			heading = "Update the student";
+		} else if (pathname.startsWith("/admin/batches/edit")) {
+			heading = "Update The Batch";
+		} else if (pathname.startsWith("/admin/batches")) {
+			heading = "Batch Details";
 		}
 	}
 

@@ -9,4 +9,7 @@ export type AdminAppRoutes =
 	| `/admin/courses/edit/${string}`
 	| "/admin/students"
 	| "/admin/students/add"
+	| "/admin/batches"
+	| `/admin/batches/${string}`
+	| `/admin/batches/edit/${string}`
 	| "/admin/enquiries";

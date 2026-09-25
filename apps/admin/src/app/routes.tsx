@@ -1,5 +1,9 @@
 import { Route } from "react-router";
 
+import { BatchPage } from "./batches/[id]/page";
+import { AddBatchPage } from "./batches/add/page";
+import { EditBatchPage } from "./batches/edit/page";
+import { BatchesPage } from "./batches/page";
 import { CoursePage } from "./courses/[id]/page";
 import { CreateCoursePage } from "./courses/add/page";
 import { EditCoursePage } from "./courses/edit/page";
@@ -26,6 +30,11 @@ export const routes = (
 		<Route path="students" element={<StudentsPage />} />
 		<Route path="students/add" element={<AddStudentPage />} />
 		<Route path="students/edit/:id" element={<EditStudentPage />} />
+
+		<Route path="batches" element={<BatchesPage />} />
+		<Route path="batches/add" element={<AddBatchPage />} />
+		<Route path="batches/edit/:id" element={<EditBatchPage />} />
+		<Route path="batches/:id" element={<BatchPage />} />
 
 		<Route path="enquiries" element={<EnquiriesPage />} />
 

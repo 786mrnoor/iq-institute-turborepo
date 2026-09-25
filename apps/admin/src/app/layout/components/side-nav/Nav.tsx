@@ -3,6 +3,7 @@ import {
 	GraduationCap,
 	LogOut,
 	MessageCircleQuestionMark,
+	School,
 	TagsIcon,
 	UsersIcon,
 } from "lucide-react";
@@ -29,6 +30,9 @@ function Nav({ onNavigate }: NavProps) {
 				onClick={onNavigate}
 			>
 				Students
+			</HeaderLink>
+			<HeaderLink to="/admin/batches" icon={<School />} onClick={onNavigate}>
+				Batches
 			</HeaderLink>
 			<HeaderLink
 				to="/admin/enquiries"

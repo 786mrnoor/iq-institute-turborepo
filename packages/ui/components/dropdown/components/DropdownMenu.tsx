@@ -19,8 +19,9 @@ function DropdownMenu({ children, side = "bottom" }: DropdownMenuProps) {
 		function hideDropdown() {
 			setShow(false);
 		}
-
-		document.addEventListener("click", hideDropdown);
+		setTimeout(() => {
+			document.addEventListener("click", hideDropdown);
+		});
 
 		return () => {
 			document.removeEventListener("click", hideDropdown);
