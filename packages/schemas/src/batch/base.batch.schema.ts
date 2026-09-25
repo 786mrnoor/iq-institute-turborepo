@@ -2,6 +2,14 @@ import z from "zod";
 
 import { courseBaseSchema } from "../course/base.course.schema";
 import { objectIdSchema } from "../shared/object-id.schema";
+import { timestampSchema } from "../shared/timestamp-schema.schema";
+
+export const BATCH_STATUS = [
+	"upcoming",
+	"active",
+	"completed",
+	"cancelled",
+] as const;
 
 const scheduleSchema = z
 	.object({
@@ -22,7 +30,7 @@ const scheduleSchema = z
 
 export const batchBaseSchema = z
 	.object({
-		id: objectIdSchema.brand("courseId"),
+		id: objectIdSchema.brand("batchId"),
 
 		courseId: courseBaseSchema.shape.id,
 		name: z
@@ -42,15 +50,14 @@ export const batchBaseSchema = z
 
 		capacity: z.number("Capacity is required").int().min(1),
 		schedule: scheduleSchema,
-		status: z
-			.enum(["upcoming", "active", "completed", "cancelled"])
-			.default("upcoming"),
+		status: z.enum(BATCH_STATUS).default("upcoming"),
 
 		deletedAt: z.coerce.date().nullish(),
 	})
 	.refine(({ startDate, endDate }) => endDate >= startDate, {
 		error: "End date must be on or after start date",
 		path: ["endDate"],
-	});
+	})
+	.extend(timestampSchema);
 
 export type BatchBaseSchema = z.infer<typeof batchBaseSchema>;

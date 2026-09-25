@@ -25,7 +25,7 @@ app.use("/api/topics", topicRouter);
 app.use("/api/courses", courseRouter);
 app.use("/api/students", studentRouter);
 app.use("/api/enquiries", enquiryRouter);
-app.use("/api/batch", batchRouter);
+app.use("/api/batches", batchRouter);
 
 app.all("/*path", (_req, res) =>
 	res.status(404).json({ message: "Not Found" }),

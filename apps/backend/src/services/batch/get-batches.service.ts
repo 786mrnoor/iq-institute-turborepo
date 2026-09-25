@@ -10,7 +10,7 @@ async function getBatchesService({
 }: AuthControllerContext<GetBatchesSchema>) {
 	const { status, page, limit } = input.query;
 	const filter = {
-		status,
+		...(status ? { status } : {}),
 		deletedAt: null,
 	};
 

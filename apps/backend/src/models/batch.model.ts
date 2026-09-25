@@ -1,5 +1,7 @@
 import mongoose, { type InferSchemaType, Schema } from "mongoose";
 
+import { BATCH_STATUS } from "@repo/schemas/batch/base.batch";
+
 import type { DefaultSchema } from "./types";
 
 const scheduleSchema = new mongoose.Schema(
@@ -58,7 +60,7 @@ const batchSchema = new mongoose.Schema(
 		},
 		status: {
 			type: String,
-			enum: ["upcoming", "active", "completed", "cancelled"],
+			enum: BATCH_STATUS,
 			default: "upcoming",
 		},
 		deletedAt: { type: Date, default: null },

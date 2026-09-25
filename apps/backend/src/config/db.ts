@@ -7,7 +7,7 @@ export async function connectDB() {
 
 		await mongoose.connect(dbUri);
 
-		mongoose.set("autoIndex", false);
+		// mongoose.set("autoIndex", false);
 	} catch (error) {
 		console.log(error);
 		process.exit(1);
