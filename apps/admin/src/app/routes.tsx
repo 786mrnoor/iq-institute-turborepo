@@ -1,46 +1,41 @@
-import { Route } from "react-router";
+import { createBrowserRouter } from "react-router";
 
-import { BatchPage } from "./batches/[id]/page";
-import { AddBatchPage } from "./batches/add/page";
-import { EditBatchPage } from "./batches/edit/page";
-import { BatchesPage } from "./batches/page";
-import { CoursePage } from "./courses/[id]/page";
-import { CreateCoursePage } from "./courses/add/page";
-import { EditCoursePage } from "./courses/edit/page";
-import { CoursesPage } from "./courses/page";
-import { EnquiriesPage } from "./enquiries/page";
+import { batchRoutes } from "./batches/batch.routes";
+import { courseRoutes } from "./courses/course.routes";
+import { enquiryRoutes } from "./enquiries/enquiry.routes";
 import { Layout } from "./layout/Layout";
 import { NotFoundPage } from "./not-found";
-import { AddStudentPage } from "./students/add/page";
-import { EditStudentPage } from "./students/edit/page";
-import { StudentsPage } from "./students/page";
-import { TopicsPage } from "./topics/page";
-import CreateAccountPage from "./users/create/page";
-import UsersPage from "./users/page";
+import { studentRoutes } from "./students/student.routes";
+import { topicRoutes } from "./topics/topic.routes";
+import { userRoutes } from "./users/user.routes";
 
-export const routes = (
-	<Route path="/admin" element={<Layout />}>
-		<Route path="topics" element={<TopicsPage />} />
-
-		<Route path="courses" element={<CoursesPage />} />
-		<Route path="courses/:id" element={<CoursePage />} />
-		<Route path="courses/add" element={<CreateCoursePage />} />
-		<Route path="courses/edit/:id" element={<EditCoursePage />} />
-
-		<Route path="students" element={<StudentsPage />} />
-		<Route path="students/add" element={<AddStudentPage />} />
-		<Route path="students/edit/:id" element={<EditStudentPage />} />
-
-		<Route path="batches" element={<BatchesPage />} />
-		<Route path="batches/add" element={<AddBatchPage />} />
-		<Route path="batches/edit/:id" element={<EditBatchPage />} />
-		<Route path="batches/:id" element={<BatchPage />} />
-
-		<Route path="enquiries" element={<EnquiriesPage />} />
-
-		<Route path="users" element={<UsersPage />} />
-		<Route path="users/create" element={<CreateAccountPage />} />
-
-		<Route path="/admin/*" element={<NotFoundPage />} />
-	</Route>
-);
+export const router = createBrowserRouter([
+	{
+		path: "/admin",
+		Component: Layout,
+		children: [
+			...topicRoutes,
+			{
+				path: "courses",
+				children: courseRoutes,
+			},
+			{
+				path: "students",
+				children: studentRoutes,
+			},
+			{
+				path: "batches",
+				children: batchRoutes,
+			},
+			{
+				path: "enquiries",
+				children: enquiryRoutes,
+			},
+			{
+				path: "users",
+				children: userRoutes,
+			},
+			{ path: "/admin/*", Component: NotFoundPage },
+		],
+	},
+]);

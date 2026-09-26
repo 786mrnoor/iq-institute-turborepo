@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { LoaderCircle } from "lucide-react";
 import type { MouseEvent } from "react";
 import { NavLink } from "react-router";
 
@@ -33,8 +34,12 @@ function HeaderLink({
 			onClick={handleClick}
 			className={clsx("nav-link", className)}
 		>
-			{icon}
-			{children}
+			{({ isPending }) => (
+				<>
+					{isPending ? <LoaderCircle className="animate-spin" /> : icon}
+					{children}
+				</>
+			)}
 		</NavLink>
 	);
 }

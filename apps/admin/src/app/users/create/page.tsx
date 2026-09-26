@@ -12,4 +12,4 @@ function CreateAccountPage() {
 	);
 }
 
-export default CreateAccountPage;
+export { CreateAccountPage };

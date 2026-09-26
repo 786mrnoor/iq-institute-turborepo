@@ -1,11 +1,11 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Routes } from "react-router";
+import { RouterProvider } from "react-router";
 
 import { ErrorScreen } from "@repo/ui/error-screen";
 
-import { routes } from "./app/routes";
+import { router } from "./app/routes";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -18,10 +18,7 @@ function App() {
 	return (
 		<ErrorScreen>
 			<QueryClientProvider client={queryClient}>
-				<BrowserRouter>
-					<Routes>{routes}</Routes>
-				</BrowserRouter>
-
+				<RouterProvider router={router} />
 				<Toaster />
 				<ReactQueryDevtools />
 			</QueryClientProvider>
