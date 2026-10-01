@@ -29,6 +29,9 @@ function CourseCard({ course }: CourseProps) {
 					<strong>Eligibility: </strong>
 					{course.eligibility}
 				</p>
+				<p>
+					<strong>Fee:</strong> ₹{course.fee}
+				</p>
 				<p>{course.description}</p>
 			</div>
 

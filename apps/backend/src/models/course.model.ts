@@ -28,7 +28,12 @@ const courseSchema = new mongoose.Schema(
 			required: true,
 		},
 		eligibility: { type: String, trim: true, required: true },
-		description: { type: String, trim: true, required: true },
+		fee: {
+			type: Number,
+			required: true,
+			min: 0,
+		},
+		description: { type: String, trim: true },
 		topics: {
 			type: [mongoose.Types.ObjectId],
 			required: true,

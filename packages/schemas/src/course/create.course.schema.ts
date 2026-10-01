@@ -6,6 +6,7 @@ export const createCourseSchema = {
 		title: true,
 		duration: true,
 		eligibility: true,
+		fee: true,
 		description: true,
 		topics: true,
 	}),

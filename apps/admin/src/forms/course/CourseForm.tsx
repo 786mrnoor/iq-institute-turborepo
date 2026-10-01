@@ -100,7 +100,20 @@ function CourseForm({ onSubmit, defaultValues }: CourseFormProps) {
 			</FieldGroup>
 
 			<FieldGroup>
-				<FieldLabel htmlFor="description">Course description</FieldLabel>
+				<FieldLabel htmlFor="fee">Course Fee</FieldLabel>
+				<Input
+					id="fee"
+					placeholder="Enter course fee"
+					isInvalid={!!errors.fee?.message}
+					{...register("fee", { valueAsNumber: true })}
+				/>
+				<FieldError>{errors.fee?.message}</FieldError>
+			</FieldGroup>
+
+			<FieldGroup>
+				<FieldLabel htmlFor="description" optional>
+					Course description
+				</FieldLabel>
 				<Textarea
 					id="description"
 					autoHeight

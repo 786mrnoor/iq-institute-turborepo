@@ -26,10 +26,13 @@ export const courseBaseSchema = z
 			.string("Elegibility is required.")
 			.trim()
 			.min(3, "Elegibility must be at least 3 characters long"),
+		fee: z.number().min(0),
 		description: z
-			.string("Description is required")
+			.string()
 			.trim()
-			.min(3, "Description must be at least 3 characters long"),
+			.min(3, "Description must be empty or at least 3 characters long")
+			.nullable()
+			.default(null),
 		topics: z
 			.array(topicBaseSchema.shape.id)
 			.min(1, "At least 1 topic is required")

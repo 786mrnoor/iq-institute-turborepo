@@ -31,6 +31,9 @@ function Course({ id }: CourseProps) {
 				<strong>Eligibility: </strong>
 				{course.eligibility}
 			</p>
+			<p>
+				<strong>Fee:</strong> ₹{course.fee}
+			</p>
 			<p>{course.description}</p>
 
 			<h2 className="text-xl font-semibold text-primary">Course Content</h2>

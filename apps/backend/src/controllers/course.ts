@@ -19,7 +19,9 @@ export const addCourseController = createController({
 	async handler(ctx) {
 		const result = await addCourseService(ctx);
 
-		await revalidateCourse([result.data.id]);
+		await revalidateCourse([result.data.id]).catch(() =>
+			console.log("error revalidating course"),
+		);
 
 		return result;
 	},
@@ -44,7 +46,9 @@ export const updateCourseController = createController({
 	async handler(ctx) {
 		const result = await updateCourseService(ctx);
 
-		await revalidateCourse([result.data.id]);
+		await revalidateCourse([result.data.id]).catch(() =>
+			console.log("error revalidating course"),
+		);
 
 		return result;
 	},
@@ -57,7 +61,9 @@ export const deleteCourseController = createController({
 	async handler(ctx) {
 		const result = await deleteCourseService(ctx);
 
-		await revalidateCourse([ctx.input.params.id]);
+		await revalidateCourse([ctx.input.params.id]).catch(() =>
+			console.log("error revalidating course"),
+		);
 
 		return result;
 	},

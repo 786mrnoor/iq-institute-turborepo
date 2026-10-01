@@ -28,6 +28,9 @@ export default function CourseCard({ course }: CourseCardProps) {
 					<strong>Eligibility: </strong>
 					{course.eligibility}
 				</p>
+				<p>
+					<strong>Fee:</strong> ₹{course.fee}
+				</p>
 			</div>
 
 			<ButtonGroup>
