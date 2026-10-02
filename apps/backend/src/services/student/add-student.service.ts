@@ -7,7 +7,7 @@ import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Student } from "@/models/student.model";
 import { studentDto } from "@/utils/dtos/studentDto";
-import { generateStudentId } from "@/utils/generate-student-id";
+import { generateRandomId } from "@/utils/generate-random-id";
 import { handleDuplicateStudent } from "./handle-duplicate-student";
 
 async function addStudentService({
@@ -15,7 +15,7 @@ async function addStudentService({
 }: AuthControllerContext<AddStudentSchema>) {
 	for (let attempt = 0; attempt < 5; attempt++) {
 		try {
-			const studentId = generateStudentId();
+			const studentId = `STU-${new Date().getFullYear()}-${generateRandomId()}`;
 			const student = new Student({ ...input.body, studentId });
 			await student.save();
 

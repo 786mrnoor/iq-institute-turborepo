@@ -28,6 +28,12 @@ export const PERMISSIONS = {
 	BATCH_READ: "batch:read",
 	BATCH_UPDATE: "batch:update",
 	BATCH_DELETE: "batch:delete",
+
+	TEACHER_CREATE: "teacher:create",
+	TEACHER_READ: "teacher:read",
+	TEACHER_UPDATE: "teacher:update",
+	TEACHER_DELETE: "teacher:delete",
+	TEACHER_LEFT: "teacher:left",
 } as const;
 
 export type Permission = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];

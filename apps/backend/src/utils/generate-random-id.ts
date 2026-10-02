@@ -1,10 +1,10 @@
 import crypto from "node:crypto";
 
-function generateStudentId(): string {
+function generateRandomId(): string {
 	const buffer = crypto.randomBytes(3);
 	const random = buffer.toString("hex").toUpperCase();
 
-	return `STU-${new Date().getFullYear()}-${random}`;
+	return random;
 }
 
-export { generateStudentId };
+export { generateRandomId };
