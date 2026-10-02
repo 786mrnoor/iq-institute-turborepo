@@ -1,4 +1,4 @@
-import mongoose, { type InferSchemaType, type Model } from "mongoose";
+import mongoose, { type InferSchemaType } from "mongoose";
 
 import type { DefaultSchema } from "./types";
 
@@ -48,6 +48,7 @@ const studentSchema = new mongoose.Schema(
 
 		adharNo: {
 			type: String,
+			required: true,
 			trim: true,
 			match: /^\d{12}$/,
 		},
@@ -78,6 +79,10 @@ const studentSchema = new mongoose.Schema(
 			minlength: 5,
 			maxlength: 500,
 		},
+		registeredAt: {
+			type: Date,
+			required: true,
+		},
 		deletedAt: { type: Date, default: null },
 	},
 	{ timestamps: true },
@@ -85,7 +90,7 @@ const studentSchema = new mongoose.Schema(
 
 export type TStudent = DefaultSchema & InferSchemaType<typeof studentSchema>;
 
-studentSchema.index({ createdAt: -1 });
+studentSchema.index({ registeredAt: -1 });
 studentSchema.index({ deletedAt: 1 });
 studentSchema.index({ studentId: 1 }, { unique: true });
 studentSchema.index(
@@ -93,7 +98,6 @@ studentSchema.index(
 	{
 		unique: true,
 		partialFilterExpression: {
-			apaarId: { $exists: true },
 			deletedAt: null,
 		},
 	},
@@ -109,5 +113,4 @@ studentSchema.index(
 	},
 );
 
-export const Student: Model<TStudent> =
-	mongoose.models.Student || mongoose.model<TStudent>("Student", studentSchema);
+export const Student = mongoose.model<TStudent>("Student", studentSchema);

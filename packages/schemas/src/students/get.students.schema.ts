@@ -8,7 +8,7 @@ export const getStudentsSchema = {
 		.object({
 			fromDate: z.coerce.date("Enter a valid date"),
 			toDate: z.coerce.date("Enter a valid date"),
-			adharNo: studentBaseSchema.shape.adharNo,
+			adharNo: studentBaseSchema.shape.adharNo.optional(),
 			apaarId: studentBaseSchema.shape.apaarId,
 			page: z.coerce.number().default(1),
 			limit: z.coerce.number().default(10),

@@ -9,7 +9,7 @@ import { getDefaultRange } from "@/forms/shared/range-filter-form/range-filter-d
 export const studentFilterFormSchema = z
 	.object({
 		dateRange: dateRangeSchema,
-		adharNo: emptyStringToUndefined(studentBaseSchema.shape.adharNo),
+		adharNo: emptyStringToUndefined(studentBaseSchema.shape.adharNo.optional()),
 		apaarId: emptyStringToUndefined(studentBaseSchema.shape.apaarId),
 	})
 	.transform((data) => {

@@ -41,8 +41,7 @@ export const studentBaseSchema = z
 			})
 			.length(12, {
 				message: "Aadhaar number must be exactly 12 characters long.",
-			})
-			.optional(),
+			}),
 
 		apaarId: z
 			.string()
@@ -60,7 +59,8 @@ export const studentBaseSchema = z
 			.min(5, "Address must contain at least 5 characters")
 			.max(500, "Address cannot exceed 500 characters"),
 
-		deletedAt: z.date().nullish(),
+		registeredAt: z.coerce.date(),
+		deletedAt: z.coerce.date().nullish(),
 	})
 	.extend(timestampSchema);
 

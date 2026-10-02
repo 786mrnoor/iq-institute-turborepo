@@ -11,7 +11,7 @@ export const studentRoutes: RouteObject[] = [
 	},
 	{
 		path: "add",
-		handle: { title: "Add a new student" },
+		handle: { title: "Register student" },
 		lazy: async () => {
 			const { AddStudentPage } = await import("./add/page");
 			return { Component: AddStudentPage };

@@ -26,7 +26,7 @@ function StudentsPage() {
 	return (
 		<main className="mx-auto my-5 w-96/100">
 			<Button onClick={() => navigate("/admin/students/add")}>
-				Add A New Student
+				Register Student
 			</Button>
 
 			<StudentFilterForm onSubmit={onSubmit} />

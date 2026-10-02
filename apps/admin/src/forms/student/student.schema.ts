@@ -2,6 +2,7 @@ import z from "zod";
 
 import { emptyStringToUndefined } from "@repo/schemas/shared/empty-string-to-undefined";
 import { studentBaseSchema } from "@repo/schemas/students/base.student";
+import { checkYearsAgo } from "@repo/utils/date/check-years-ago.js";
 
 export const studentFormSchema = z.object({
 	...studentBaseSchema.pick({
@@ -9,13 +10,20 @@ export const studentFormSchema = z.object({
 		gender: true,
 		fatherName: true,
 		motherName: true,
+		adharNo: true,
 		mobile: true,
 		address: true,
 	}).shape,
-	dob: z.iso.date("Enter a valid date"),
+	dob: z.iso
+		.date("Enter a valid date")
+		.refine((dob) => checkYearsAgo(5, new Date(dob)), {
+			error: "Date of birth must be at least 5 years ago",
+		}),
 	apaarId: emptyStringToUndefined(studentBaseSchema.shape.apaarId),
-	adharNo: emptyStringToUndefined(studentBaseSchema.shape.adharNo),
 	email: emptyStringToUndefined(studentBaseSchema.shape.email),
+	registeredAt: z.iso
+		.date("Enter a valid date")
+		.transform((date) => new Date(date)),
 });
 
 export type StudentFormData = z.infer<typeof studentFormSchema>;

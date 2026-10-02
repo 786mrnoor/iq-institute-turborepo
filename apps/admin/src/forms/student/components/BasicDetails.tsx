@@ -85,9 +85,7 @@ function BasicDetails({ register, errors }: BasicDetailsProps) {
 			</FieldGroup>
 
 			<FieldGroup>
-				<FieldLabel optional htmlFor="adharNo">
-					Student&apos;s Adhar Number
-				</FieldLabel>
+				<FieldLabel htmlFor="adharNo">Student&apos;s Adhar Number</FieldLabel>
 				<Input
 					id="adharNo"
 					placeholder="Enter student Adhar No."

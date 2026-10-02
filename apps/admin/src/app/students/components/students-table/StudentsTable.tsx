@@ -23,7 +23,7 @@ function StudentsTable({ students }: StudentsTableProps) {
 				<thead className="bg-black text-white">
 					<tr className="*:border *:border-gray-300 *:p-2 dark:*:border-neutral-700">
 						<th>Basic Details</th>
-						<th>Adhar / Apaar</th>
+						<th>IDs</th>
 						<th>Parents Details</th>
 						<th>Contact Details</th>
 						<th>Address</th>

@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
+import { formatInputDate } from "@repo/utils/date/format/input-date.js";
 
 import { studentMutations } from "@/queries/students";
 import { StudentForm } from "./StudentForm";
@@ -18,6 +19,7 @@ const DEFAULT_VALUES: StudentFormInput = {
 	mobile: "",
 	email: "",
 	address: "",
+	registeredAt: formatInputDate(new Date()),
 };
 
 function CreateStudentForm() {

@@ -16,7 +16,6 @@ function ContactDetails({ register, errors }: ContactDetailsProps) {
 			<FieldGroup>
 				<FieldLabel htmlFor="mobile">Student&apos;s Mobile No.</FieldLabel>
 				<Input
-					autoFocus
 					id="mobile"
 					placeholder="Enter student mobile no."
 					isInvalid={!!errors.mobile?.message}
@@ -30,7 +29,6 @@ function ContactDetails({ register, errors }: ContactDetailsProps) {
 					Student&apos;s Email id
 				</FieldLabel>
 				<Input
-					autoFocus
 					id="email"
 					placeholder="Enter student email id"
 					isInvalid={!!errors.email?.message}
@@ -50,6 +48,18 @@ function ContactDetails({ register, errors }: ContactDetailsProps) {
 					{...register("address")}
 				/>
 				<FieldError>{errors.address?.message}</FieldError>
+			</FieldGroup>
+
+			<FieldGroup>
+				<FieldLabel htmlFor="registeredAt">Registration Date</FieldLabel>
+				<Input
+					type="date"
+					id="registeredAt"
+					placeholder="Enter student registration date"
+					isInvalid={!!errors.registeredAt?.message}
+					{...register("registeredAt")}
+				/>
+				<FieldError>{errors.registeredAt?.message}</FieldError>
 			</FieldGroup>
 		</>
 	);

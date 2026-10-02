@@ -2,7 +2,6 @@ import { useNavigate } from "react-router";
 
 import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
 import { Button, ButtonGroup } from "@repo/ui/button";
-import { formatDateTime } from "@repo/utils/date/format/date-time.js";
 import { formatDOB } from "@repo/utils/date/format/dob.js";
 
 type StudentCardProps = {
@@ -19,11 +18,12 @@ function StudentCard({ student, onDelete }: StudentCardProps) {
 				Name: <strong>{student.name}</strong> <br />
 				Gender: <strong>{student.gender}</strong> <br />
 				DOB: <strong>{formatDOB(student.dob)}</strong> <br />
-				Added At: <strong>{formatDateTime(student.createdAt)}</strong>
+				Registration Date: <strong>{formatDOB(student.registeredAt)}</strong>
 			</td>
 			<td>
+				Student ID: <strong>{student.studentId}</strong> <br />
 				Adhar No.: <strong>{student.adharNo}</strong> <br />
-				Apaar Id: <strong>{student.apaarId}</strong> <br />
+				Apaar ID: <strong>{student.apaarId}</strong> <br />
 			</td>
 			<td>
 				Father&apos;s Name: <strong>{student.fatherName}</strong> <br />

@@ -29,6 +29,7 @@ function EditStudentForm({ id }: EditStudentFormProps) {
 			defaultValues={{
 				...defaultStudent,
 				dob: defaultStudent.dob.toISOString().slice(0, 10),
+				registeredAt: defaultStudent.registeredAt.toISOString().slice(0, 10),
 			}}
 			onSubmit={async (data, setError) => {
 				await mutateAsync(
