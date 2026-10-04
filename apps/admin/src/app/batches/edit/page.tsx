@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { batchBaseSchema } from "@repo/schemas/batch/base.batch";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { Heading } from "@repo/ui/heading";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonForm } from "@repo/ui/skeleton";
 
 import { EditBatchForm } from "@/forms/batch/EditBatchForm";
 import { NotFound } from "../NotFound";
@@ -23,7 +23,7 @@ function EditBatchPage() {
 			<Heading className="mb-3">Batch Form</Heading>
 
 			<ErrorScreen title="Error Loading Batch">
-				<Suspense fallback={<QueryLoader>Batch Loading...</QueryLoader>}>
+				<Suspense fallback={<SkeletonForm />}>
 					<EditBatchForm id={parsed.data} />
 				</Suspense>
 			</ErrorScreen>

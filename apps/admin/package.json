@@ -10,8 +10,8 @@
 		"lint": "biome lint .",
 		"format": "biome check --write",
 		"format:check": "biome format .",
-		"typecheck": "tsc --noEmit",
-		"check": "biome check . && tsc --noEmit"
+		"typecheck": "tsc -p tsconfig.app.json --noEmit",
+		"check": "biome check . && tsc -p tsconfig.app.json --noEmit"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.9.1",

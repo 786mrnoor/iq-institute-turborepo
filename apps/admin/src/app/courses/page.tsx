@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import { Button } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonList } from "@repo/ui/skeleton";
 
 import { CourseList } from "./components/CourseList";
 
@@ -17,7 +17,7 @@ function CoursesPage() {
 			</Button>
 
 			<ErrorScreen title="Error Loading Courses">
-				<Suspense fallback={<QueryLoader>Loading ...</QueryLoader>}>
+				<Suspense fallback={<SkeletonList />}>
 					<CourseList />
 				</Suspense>
 			</ErrorScreen>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import { Button } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonList } from "@repo/ui/skeleton";
 
 import { BatchList } from "./components/BatchList";
 
@@ -17,7 +17,7 @@ function BatchesPage() {
 			</Button>
 
 			<ErrorScreen title="Error Loading Courses">
-				<Suspense fallback={<QueryLoader>Batches Loading ...</QueryLoader>}>
+				<Suspense fallback={<SkeletonList />}>
 					<BatchList />
 				</Suspense>
 			</ErrorScreen>

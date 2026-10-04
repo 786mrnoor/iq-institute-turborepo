@@ -1,7 +1,7 @@
 import { Suspense, useState } from "react";
 
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonTable } from "@repo/ui/skeleton";
 
 import { EnquiryListing } from "./components/EnquiryListing";
 import { EnquiryFilterForm } from "./components/enquiry-filter-form/EnquiryFilterForm";
@@ -25,7 +25,7 @@ function EnquiriesPage() {
 			<EnquiryFilterForm onSubmit={onSubmit} />
 
 			<ErrorScreen title="Error Loading Courses">
-				<Suspense fallback={<QueryLoader>Loading Enquiries ...</QueryLoader>}>
+				<Suspense fallback={<SkeletonTable className="mt-5" />}>
 					{filter && <EnquiryListing filter={filter} />}
 				</Suspense>
 			</ErrorScreen>

@@ -7,7 +7,7 @@ import { Button, ButtonGroup } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { FieldError, FieldGroup, FieldLabel, InputGroup } from "@repo/ui/field";
 import { Input, Select, Textarea } from "@repo/ui/form-controls";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonFieldGroup } from "@repo/ui/skeleton";
 
 import {
 	type CourseFormData,
@@ -21,7 +21,7 @@ type CourseFormProps = {
 		data: CourseFormData,
 		setError: UseFormSetError<CourseFormInput>,
 	) => Promise<unknown>;
-	defaultValues: CourseFormInput;
+	defaultValues: Omit<CourseFormInput, "fee">;
 };
 
 function CourseForm({ onSubmit, defaultValues }: CourseFormProps) {
@@ -32,7 +32,7 @@ function CourseForm({ onSubmit, defaultValues }: CourseFormProps) {
 		reset,
 		formState: { errors, isSubmitting, isSubmitSuccessful },
 		control,
-	} = useForm({
+	} = useForm<CourseFormInput, unknown, CourseFormData>({
 		defaultValues,
 		resolver: zodResolver(courseFormSchema),
 	});
@@ -126,7 +126,7 @@ function CourseForm({ onSubmit, defaultValues }: CourseFormProps) {
 			</FieldGroup>
 
 			<ErrorScreen title="Error Loading Topics">
-				<Suspense fallback={<QueryLoader>Loading topics...</QueryLoader>}>
+				<Suspense fallback={<SkeletonFieldGroup />}>
 					<TopicsFileds control={control} register={register} errors={errors} />
 				</Suspense>
 			</ErrorScreen>

@@ -3,7 +3,7 @@ import { Suspense, useState } from "react";
 import { Button } from "@repo/ui/button";
 import { Dialog, DialogContent, DialogHeader } from "@repo/ui/dialog";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonFieldGroup } from "@repo/ui/skeleton";
 
 import { CreateTopicForm } from "@/forms/topic/CreateTopicForm";
 import { EditTopicForm } from "@/forms/topic/EditTopicForm";
@@ -37,7 +37,7 @@ function Form() {
 				<DialogContent>
 					{editId ? (
 						<ErrorScreen title="Error Loading Topics">
-							<Suspense fallback={<QueryLoader>Loading topics...</QueryLoader>}>
+							<Suspense fallback={<SkeletonFieldGroup />}>
 								<EditTopicForm editId={editId} onUpdated={handleClose} />
 							</Suspense>
 						</ErrorScreen>

@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 
 import { courseBaseSchema } from "@repo/schemas/course/base.course";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonCard } from "@repo/ui/skeleton";
 
 import { NotFound } from "../NotFound";
 import { Course } from "./Course";
@@ -19,7 +19,7 @@ function CoursePage() {
 
 	return (
 		<ErrorScreen title="Error Loading Course">
-			<Suspense fallback={<QueryLoader>Loading Course...</QueryLoader>}>
+			<Suspense fallback={<SkeletonCard />}>
 				<Course id={parsed.data} />
 			</Suspense>
 		</ErrorScreen>

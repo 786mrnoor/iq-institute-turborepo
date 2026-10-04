@@ -52,7 +52,6 @@ function TeacherListingComponent({ filter }: TeacherListingProps) {
 function TeacherListing({ filter }: TeacherListingProps) {
 	return (
 		<ErrorScreen title="Error Loading Teachers">
-			{/* <Suspense fallback={<QueryLoader>Loading Teachers ...</QueryLoader>}> */}
 			<Suspense fallback={<SkeletonTable />}>
 				<TeacherListingComponent filter={filter} />
 			</Suspense>

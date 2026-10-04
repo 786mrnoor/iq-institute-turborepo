@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import type { CourseBaseSchema } from "@repo/schemas/course/base.course";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonList } from "@repo/ui/skeleton";
 
 import { coursesQueries } from "@/queries/courses";
 import { CourseContent } from "./CourseContent";
@@ -39,7 +39,7 @@ function Course({ id }: CourseProps) {
 			<h2 className="text-xl font-semibold text-primary">Course Content</h2>
 
 			<ErrorScreen title="Error Loading Topics">
-				<Suspense fallback={<QueryLoader>Loading topics...</QueryLoader>}>
+				<Suspense fallback={<SkeletonList size="sm" className="ms-3" />}>
 					<CourseContent topicsIds={course.topics} />
 				</Suspense>
 			</ErrorScreen>

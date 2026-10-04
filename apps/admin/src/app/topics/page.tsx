@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonList } from "@repo/ui/skeleton";
 
 import { Form } from "./components/Form";
 import { TopicsList } from "./components/TopicsList";
@@ -14,7 +14,7 @@ function TopicsPage() {
 				<Form />
 
 				<ErrorScreen title="Error Loading Topics">
-					<Suspense fallback={<QueryLoader>Loading topics...</QueryLoader>}>
+					<Suspense fallback={<SkeletonList />}>
 						<TopicsList />
 					</Suspense>
 				</ErrorScreen>

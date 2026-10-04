@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import { Button } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonTable } from "@repo/ui/skeleton";
 
 import { UserListing } from "./components/UsersListing";
 import type { UserFilterFormData } from "./components/user-filter-form/schema";
@@ -32,7 +32,7 @@ function UsersPage() {
 			<UserFilterForm onSubmit={onSubmit} />
 
 			<ErrorScreen title="Error Loading Users">
-				<Suspense fallback={<QueryLoader />}>
+				<Suspense fallback={<SkeletonTable className="mt-5" />}>
 					{filter && <UserListing filter={filter} />}
 				</Suspense>
 			</ErrorScreen>

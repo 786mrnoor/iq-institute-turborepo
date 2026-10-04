@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { teacherBaseSchema } from "@repo/schemas/teachers/base.teacher";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { Heading } from "@repo/ui/heading";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonForm } from "@repo/ui/skeleton";
 
 import { EditTeacherForm } from "@/forms/teacher/EditTeacherForm";
 import { NotFound } from "../NotFound";
@@ -23,7 +23,7 @@ function EditTeacherPage() {
 			<Heading className="mb-3">Teacher Form</Heading>
 
 			<ErrorScreen title="Error Loading Teacher">
-				<Suspense fallback={<QueryLoader>Teacher Loading...</QueryLoader>}>
+				<Suspense fallback={<SkeletonForm />}>
 					<EditTeacherForm id={parsed.data} />
 				</Suspense>
 			</ErrorScreen>

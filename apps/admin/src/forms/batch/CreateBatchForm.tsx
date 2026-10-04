@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import toast from "react-hot-toast";
 
 import { ErrorScreen } from "@repo/ui/error-screen";
-import { QueryLoader } from "@repo/ui/query-loder";
+import { SkeletonForm } from "@repo/ui/skeleton";
 import { applyBackendErrors } from "@repo/utils/apply-backend-errors.js";
 
 import { batchesMutations } from "@/queries/batches";
@@ -29,7 +29,7 @@ function CreateBatchForm() {
 
 	return (
 		<ErrorScreen>
-			<Suspense fallback={<QueryLoader />}>
+			<Suspense fallback={<SkeletonForm />}>
 				<BatchForm
 					defaultValues={DEFAULT_VALUES}
 					onSubmit={(data, setError) =>
