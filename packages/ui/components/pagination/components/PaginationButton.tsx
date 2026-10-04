@@ -12,7 +12,7 @@ function PaginationButton({
 			className={clsx(
 				"relative -ml-px inline-block border border-gray-300 px-3 py-1.5 text-primary outline-none dark:border-neutral-700",
 				"cursor-pointer disabled:cursor-auto disabled:bg-gray-200 disabled:text-gray-400",
-				"disabled:bg-neutral-700 disabled:border-neutral-700 disabled:text-neutral-400",
+				"disabled:bg-gray-300 dark:disabled:bg-neutral-700 disabled:border-gray-400 dark:disabled:border-neutral-700 disabled:text-neutral-400",
 				"focus-visible:z-1 focus-visible:border-primary focus-visible:ring-4 focus-visible:ring-primary/30",
 				className,
 			)}

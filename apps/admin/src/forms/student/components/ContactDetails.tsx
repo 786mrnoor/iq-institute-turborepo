@@ -43,7 +43,7 @@ function ContactDetails({ register, errors }: ContactDetailsProps) {
 					id="address"
 					autoHeight
 					className="max-h-50 min-h-20"
-					placeholder="Enter student mother name"
+					placeholder="Enter student's address"
 					isInvalid={!!errors.address?.message}
 					{...register("address")}
 				/>

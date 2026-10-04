@@ -8,6 +8,7 @@ const COLOR_VARIANTS: Record<Color, string> = {
 	),
 	danger: clsx("border-red bg-red text-white focus-visible:ring-red/25"),
 	success: clsx("border-green bg-green text-white focus-visible:ring-green/25"),
+	transparent: clsx("border-transparent focus-visible:ring-gray-300"),
 };
 
 const SIZE_VARIANTS: Record<Size, string> = {

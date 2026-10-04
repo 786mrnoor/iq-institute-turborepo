@@ -1,4 +1,4 @@
-export type Color = "primary" | "danger" | "success";
+export type Color = "primary" | "danger" | "success" | "transparent";
 export type Size = "small" | "base";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

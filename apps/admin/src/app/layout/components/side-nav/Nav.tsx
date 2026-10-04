@@ -41,6 +41,13 @@ function Nav({ onNavigate }: NavProps) {
 			>
 				Enquiries
 			</HeaderLink>
+			<HeaderLink
+				to="/admin/teachers"
+				icon={<UsersIcon />}
+				onClick={onNavigate}
+			>
+				Teachers
+			</HeaderLink>
 			<HeaderLink to="/admin/users" icon={<UsersIcon />} onClick={onNavigate}>
 				Users
 			</HeaderLink>

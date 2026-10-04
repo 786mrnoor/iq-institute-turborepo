@@ -1,15 +1,17 @@
-export type AdminAppRoutes =
-	| "/admin"
-	| "/admin/users"
-	| "/admin/users/create"
-	| "/admin/topics"
-	| "/admin/courses"
-	| `/admin/courses/${string}`
-	| "/admin/courses/add"
-	| `/admin/courses/edit/${string}`
-	| "/admin/students"
-	| "/admin/students/add"
-	| "/admin/batches"
-	| `/admin/batches/${string}`
-	| `/admin/batches/edit/${string}`
-	| "/admin/enquiries";
+type AppRoutes =
+	| "users"
+	| "users/create"
+	| "topics"
+	| "courses"
+	| `courses/${string}`
+	| "courses/add"
+	| `courses/edit/${string}`
+	| "students"
+	| "students/add"
+	| "batches"
+	| `batches/${string}`
+	| `batches/edit/${string}`
+	| "enquiries"
+	| "teachers";
+
+export type AdminAppRoutes = "/admin" | `/admin/${AppRoutes}`;

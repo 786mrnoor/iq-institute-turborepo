@@ -47,10 +47,6 @@ export const teacherBaseSchema = z
 
 		deletedAt: z.coerce.date().nullish(),
 	})
-	.extend(timestampSchema)
-	.refine(({ status, leftAt }) => status === "left" && leftAt, {
-		error: "Enter leave date",
-		path: ["leftAt"],
-	});
+	.extend(timestampSchema);
 
 export type TeacherBaseSchema = z.infer<typeof teacherBaseSchema>;
