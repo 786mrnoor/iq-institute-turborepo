@@ -7,6 +7,7 @@ type ButtonGroupProps = {
 
 function ButtonGroup({ children, className }: ButtonGroupProps) {
 	return (
+		// biome-ignore lint/a11y/useSemanticElements: not needed
 		<div
 			role="group"
 			className={clsx(

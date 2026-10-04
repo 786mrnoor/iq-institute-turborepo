@@ -13,12 +13,7 @@ type TabsProps = {
 	className?: string;
 };
 
-function Tabs<T extends string = string>({
-	children,
-	defaultValue,
-	onChange,
-	className,
-}: TabsProps) {
+function Tabs({ children, defaultValue, onChange, className }: TabsProps) {
 	const [activeTab, setActiveTab] = useState<null | string>(
 		defaultValue || null,
 	);

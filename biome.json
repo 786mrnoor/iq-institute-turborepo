@@ -31,9 +31,6 @@
 			},
 			"suspicious": {
 				"noArrayIndexKey": "info"
-			},
-			"a11y": {
-				"useSemanticElements": "info"
 			}
 		}
 	},

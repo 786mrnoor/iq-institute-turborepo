@@ -39,6 +39,7 @@ export class AppError extends Error {
 		}
 
 		if ("captureStackTrace" in Error) {
+			// biome-ignore lint/suspicious/noExplicitAny: not needed
 			(Error as any).captureStackTrace(this, this.constructor);
 		}
 	}

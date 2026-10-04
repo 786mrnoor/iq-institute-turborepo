@@ -12,6 +12,7 @@ type InputGroupProps = {
 function InputGroup({ children, className, size }: InputGroupProps) {
 	return (
 		<FieldGroupContext value={size}>
+			{/* biome-ignore lint/a11y/useSemanticElements: can not use other element*/}
 			<div
 				role="group"
 				className={clsx(

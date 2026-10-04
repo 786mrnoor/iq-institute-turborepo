@@ -19,6 +19,7 @@ function FieldGroup({
 }: FieldGroupProps) {
 	return (
 		<FieldGroupContext value={size}>
+			{/* biome-ignore lint/a11y/useSemanticElements: can not use other element*/}
 			<div
 				role="group"
 				data-orientation={orientation}
