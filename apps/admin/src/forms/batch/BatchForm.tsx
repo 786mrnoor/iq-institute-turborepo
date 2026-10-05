@@ -1,19 +1,21 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { type UseFormSetError, useForm } from "react-hook-form";
 
 import { BATCH_STATUS } from "@repo/schemas/batch/base.batch";
 import { Button, ButtonGroup } from "@repo/ui/button";
+import { ErrorScreen } from "@repo/ui/error-screen";
 import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
 import { Input, Select } from "@repo/ui/form-controls";
+import { SkeletonFieldGroup } from "@repo/ui/skeleton";
 
-import { coursesQueries } from "@/queries/courses";
 import {
 	type BatchFormData,
 	type BatchFormInput,
 	batchFormSchema,
 } from "./batch.schema";
+import { CourseField } from "./components/CourseField";
+import { TeacherField } from "./components/TeacherField";
 
 type BatchFormProps = {
 	onSubmit: (
@@ -24,8 +26,6 @@ type BatchFormProps = {
 };
 
 function BatchForm({ onSubmit, defaultValues }: BatchFormProps) {
-	const { data: courses } = useSuspenseQuery(coursesQueries.all);
-
 	const {
 		register,
 		handleSubmit,
@@ -50,23 +50,17 @@ function BatchForm({ onSubmit, defaultValues }: BatchFormProps) {
 			)}
 			className="flex w-full flex-col gap-3"
 		>
-			<FieldGroup>
-				<FieldLabel htmlFor="courseId">Course</FieldLabel>
-				<Select
-					autoFocus
-					id="courseId"
-					isInvalid={!!errors.courseId?.message}
-					{...register("courseId")}
-				>
-					<option value="">Select Course</option>
-					{courses.map((course) => (
-						<option key={course.id} value={course.id}>
-							{course.title}
-						</option>
-					))}
-				</Select>
-				<FieldError>{errors.courseId?.message}</FieldError>
-			</FieldGroup>
+			<ErrorScreen title="Error loading courses">
+				<Suspense fallback={<SkeletonFieldGroup />}>
+					<CourseField register={register} error={errors.courseId?.message} />
+				</Suspense>
+			</ErrorScreen>
+
+			<ErrorScreen title="Error loading teachers">
+				<Suspense fallback={<SkeletonFieldGroup />}>
+					<TeacherField register={register} error={errors.teacherId?.message} />
+				</Suspense>
+			</ErrorScreen>
 
 			<FieldGroup>
 				<FieldLabel htmlFor="name">Batch name</FieldLabel>

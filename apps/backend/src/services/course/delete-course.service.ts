@@ -3,12 +3,25 @@ import { AppError } from "@repo/utils/app-error.js";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
+import { Batch } from "@/models/batch.model";
 import { Course } from "@/models/course.model";
 
 async function deleteCourseService({
 	input,
 }: AuthControllerContext<DeleteCourseSchema>) {
 	const id = input.params.id;
+
+	const batch = await Batch.findOne({ courseId: id })
+		.select("_id")
+		.lean()
+		.exec();
+
+	if (batch)
+		throw new AppError(
+			400,
+			"The course is used in one of the batches. Delete the batch first",
+		);
+
 	const result = await Course.updateOne(
 		{ _id: id, deletedAt: null },
 		{ deletedAt: new Date() },

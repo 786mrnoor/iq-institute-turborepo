@@ -26,6 +26,11 @@ const batchSchema = new mongoose.Schema(
 			ref: "Course",
 			required: true,
 		},
+		teacherId: {
+			type: Schema.Types.ObjectId,
+			ref: "Teacher",
+			required: true,
+		},
 		name: {
 			type: String,
 			required: true,
@@ -69,6 +74,7 @@ const batchSchema = new mongoose.Schema(
 );
 
 batchSchema.index({ deletedAt: 1 });
+batchSchema.index({ teacherId: 1 });
 batchSchema.index(
 	{ courseId: 1, code: 1 },
 	{

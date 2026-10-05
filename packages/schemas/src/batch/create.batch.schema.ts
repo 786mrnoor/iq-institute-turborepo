@@ -7,6 +7,7 @@ export const createBatchSchema = {
 	body: z
 		.object({
 			courseId: batchBaseSchema.shape.courseId,
+			teacherId: batchBaseSchema.shape.teacherId,
 			name: batchBaseSchema.shape.name,
 			code: batchBaseSchema.shape.code,
 			startDate: batchBaseSchema.shape.startDate,

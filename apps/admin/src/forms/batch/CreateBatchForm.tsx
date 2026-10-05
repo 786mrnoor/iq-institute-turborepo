@@ -12,6 +12,7 @@ import type { BatchFormInput } from "./batch.schema";
 
 const DEFAULT_VALUES: BatchFormInput = {
 	courseId: "",
+	teacherId: "",
 	name: "",
 	code: "",
 	startDate: "",

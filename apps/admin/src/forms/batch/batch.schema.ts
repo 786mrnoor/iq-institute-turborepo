@@ -5,6 +5,7 @@ import { BATCH_STATUS, batchBaseSchema } from "@repo/schemas/batch/base.batch";
 export const batchFormSchema = z
 	.object({
 		courseId: batchBaseSchema.shape.courseId,
+		teacherId: batchBaseSchema.shape.teacherId,
 		name: batchBaseSchema.shape.name,
 		code: batchBaseSchema.shape.code,
 		startDate: batchBaseSchema.shape.startDate,

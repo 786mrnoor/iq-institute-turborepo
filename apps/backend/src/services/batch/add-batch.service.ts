@@ -5,6 +5,7 @@ import type { AuthControllerContext } from "@/lib/controller/types";
 import { Batch } from "@/models/batch.model";
 import { batchDto } from "@/utils/dtos/batchDto";
 import { checkCourse } from "./check-course";
+import { checkTeacher } from "./check-teacher";
 import { handleDuplicateBatch } from "./handle-duplicate-batch";
 
 async function addBatchService({
@@ -12,6 +13,7 @@ async function addBatchService({
 }: AuthControllerContext<CreateBatchSchema>) {
 	try {
 		await checkCourse(input.body.courseId);
+		await checkTeacher(input.body.teacherId);
 
 		const batch = new Batch(input.body);
 		await batch.save();

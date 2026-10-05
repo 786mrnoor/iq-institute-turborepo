@@ -3,12 +3,24 @@ import { AppError } from "@repo/utils/app-error.js";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
+import { Batch } from "@/models/batch.model";
 import { Teacher } from "@/models/teacher.model";
 
 async function deleteTeacherService({
 	input,
 }: AuthControllerContext<DeleteTeacherSchema>) {
 	const id = input.params.id;
+
+	const batch = await Batch.findOne({ teacherId: id })
+		.select("_id")
+		.lean()
+		.exec();
+
+	if (batch)
+		throw new AppError(
+			400,
+			"The teacher is used in one of the batches. You can left the teacher",
+		);
 
 	const result = await Teacher.updateOne(
 		{ _id: id },

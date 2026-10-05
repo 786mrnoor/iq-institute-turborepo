@@ -3,6 +3,7 @@ import z from "zod";
 import { courseBaseSchema } from "../course/base.course.schema";
 import { objectIdSchema } from "../shared/object-id.schema";
 import { timestampSchema } from "../shared/timestamp-schema.schema";
+import { teacherBaseSchema } from "../teachers/base.teacher.schema";
 
 export const BATCH_STATUS = [
 	"upcoming",
@@ -33,6 +34,7 @@ export const batchBaseSchema = z
 		id: objectIdSchema.brand("batchId"),
 
 		courseId: courseBaseSchema.shape.id,
+		teacherId: teacherBaseSchema.shape.id,
 		name: z
 			.string("Name of the batch is required")
 			.trim()

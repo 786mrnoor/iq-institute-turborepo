@@ -1,9 +1,14 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { Suspense } from "react";
 
 import type { BatchBaseSchema } from "@repo/schemas/batch/base.batch";
+import { ErrorScreen } from "@repo/ui/error-screen";
+import { Skeleton } from "@repo/ui/skeleton";
 import { formatDateTime } from "@repo/utils/date/format/date-time.js";
 
 import { batchesQueries } from "@/queries/batches";
+import { CourseDetails } from "./CourseDetails";
+import { TeacherDetails } from "./TeacherDetails";
 
 type BatchProps = {
 	id: BatchBaseSchema["id"];
@@ -32,6 +37,18 @@ function Batch({ id }: BatchProps) {
 				<strong>Schedule: </strong>
 				{batch.schedule.startTime} - {batch.schedule.endTime}
 			</p>
+
+			<ErrorScreen>
+				<Suspense fallback={<Skeleton className="h-6 w-full" />}>
+					<CourseDetails id={batch.courseId} />
+				</Suspense>
+			</ErrorScreen>
+
+			<ErrorScreen>
+				<Suspense fallback={<Skeleton className="h-6 w-full" />}>
+					<TeacherDetails id={batch.teacherId} />
+				</Suspense>
+			</ErrorScreen>
 		</main>
 	);
 }
