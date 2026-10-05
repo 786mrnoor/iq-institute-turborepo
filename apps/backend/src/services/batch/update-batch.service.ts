@@ -5,8 +5,8 @@ import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
 import { Batch } from "@/models/batch.model";
 import { batchDto } from "@/utils/dtos/batchDto";
-import { checkCourse } from "./check-course";
-import { checkTeacher } from "./check-teacher";
+import { checkCourse } from "../course/check-course";
+import { checkTeacher } from "../teacher/check-teacher";
 import { handleDuplicateBatch } from "./handle-duplicate-batch";
 
 async function updateBatchService({

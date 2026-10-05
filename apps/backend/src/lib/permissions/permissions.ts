@@ -35,6 +35,11 @@ export const PERMISSIONS = {
 	TEACHER_DELETE: "teacher:delete",
 	TEACHER_LEFT: "teacher:left",
 	TEACHER_ACTIVE: "teacher:active",
+
+	ENROLLMENT_CREATE: "enrollment:create",
+	ENROLLMENT_READ: "enrollment:read",
+	ENROLLMENT_UPDATE: "enrollment:update",
+	ENROLLMENT_DELETE: "enrollment:delete",
 } as const;
 
 export type Permission = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];
