@@ -1,6 +1,7 @@
 import { mutationOptions, queryOptions } from "@tanstack/react-query";
 
 import {
+	activeTeacherApi,
 	addTeacherApi,
 	deleteTeacherByIdApi,
 	getTeacherByIdApi,
@@ -65,6 +66,15 @@ export const teacherMutations = {
 	left: mutationOptions({
 		mutationFn: (data: Parameters<typeof leftTeacherApi>[0]) =>
 			leftTeacherApi(data),
+		onSuccess: async (teacher, _, __, { client }) => {
+			await client.invalidateQueries({ queryKey: teacherKeys.lists() });
+			client.invalidateQueries({ queryKey: teacherKeys.detail(teacher.id) });
+		},
+	}),
+
+	active: mutationOptions({
+		mutationFn: (data: Parameters<typeof activeTeacherApi>[0]) =>
+			activeTeacherApi(data),
 		onSuccess: async (teacher, _, __, { client }) => {
 			await client.invalidateQueries({ queryKey: teacherKeys.lists() });
 			client.invalidateQueries({ queryKey: teacherKeys.detail(teacher.id) });

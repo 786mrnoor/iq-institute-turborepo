@@ -11,22 +11,22 @@ async function leftTeacherService({
 }: AuthControllerContext<LeftTeacherSchema>) {
 	const leftAt = input.body.leftAt;
 
-	const teacher = await Teacher.findOne({
+	const activeTeacher = await Teacher.findOne({
 		_id: input.params.id,
-		status: "active",
+		leftAt: null,
 		deletedAt: null,
 	})
 		.select("joinedAt")
 		.lean()
 		.exec();
 
-	if (teacher?.joinedAt && leftAt < teacher?.joinedAt) {
+	if (activeTeacher?.joinedAt && leftAt < activeTeacher?.joinedAt) {
 		throw new AppError(400, "leave date must be after joining date");
 	}
 
 	const updatedTeacher = await Teacher.findOneAndUpdate(
 		{ _id: input.params.id, deletedAt: null },
-		{ leftAt, status: "left" },
+		{ leftAt },
 		{
 			runValidators: true,
 			returnDocument: "after",

@@ -7,7 +7,7 @@ export const getTeachersSchema = {
 	query: z.object({
 		teacherId: teacherBaseSchema.shape.teacherId.optional(),
 		adharNo: teacherBaseSchema.shape.adharNo.optional(),
-		status: teacherBaseSchema.shape.status.unwrap().optional(),
+		status: z.enum(["active", "left"]).optional(),
 		page: z.coerce.number().default(1),
 		limit: z.coerce.number().default(10),
 	}),

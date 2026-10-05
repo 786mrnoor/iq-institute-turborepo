@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import {
+	activeTeacherController,
 	addTeacherController,
 	deleteTeacherByIdController,
 	getTeacherByIdController,
@@ -17,4 +18,5 @@ teacherRouter
 	.get("/:id", getTeacherByIdController)
 	.patch("/:id", updateTeacherController)
 	.delete("/:id", deleteTeacherByIdController)
-	.patch("/:id/left", leftTeacherController);
+	.patch("/:id/left", leftTeacherController)
+	.patch("/:id/active", activeTeacherController);

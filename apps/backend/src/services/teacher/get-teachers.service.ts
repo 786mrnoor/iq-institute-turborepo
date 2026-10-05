@@ -1,8 +1,10 @@
+import type { QueryFilter } from "mongoose";
+
 import type { GetTeachersSchema } from "@repo/schemas/teachers/get.teachers";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
-import { Teacher } from "@/models/teacher.model";
+import { Teacher, type TTeacher } from "@/models/teacher.model";
 import { teacherDto } from "@/utils/dtos/teacherDto";
 
 async function getTeachersService({
@@ -10,11 +12,15 @@ async function getTeachersService({
 }: AuthControllerContext<GetTeachersSchema>) {
 	const { teacherId, adharNo, status, page, limit } = input.query;
 
-	const filter = {
+	const filter: QueryFilter<TTeacher> = {
 		deletedAt: null,
 		...(teacherId && { teacherId }),
 		...(adharNo && { adharNo }),
-		...(status && { status }),
+		...(status === "active"
+			? { leftAt: null }
+			: status === "left"
+				? { leftAt: { $ne: null } }
+				: null),
 	};
 
 	const skip = (page - 1) * limit;

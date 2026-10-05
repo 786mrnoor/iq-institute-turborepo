@@ -34,6 +34,7 @@ export const PERMISSIONS = {
 	TEACHER_UPDATE: "teacher:update",
 	TEACHER_DELETE: "teacher:delete",
 	TEACHER_LEFT: "teacher:left",
+	TEACHER_ACTIVE: "teacher:active",
 } as const;
 
 export type Permission = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];

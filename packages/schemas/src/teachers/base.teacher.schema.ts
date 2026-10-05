@@ -4,8 +4,6 @@ import { indianMobileSchema } from "../shared/indian-mobile.schema";
 import { objectIdSchema } from "../shared/object-id.schema";
 import { timestampSchema } from "../shared/timestamp-schema.schema";
 
-export const TEACHER_STATUS = ["active", "left"] as const;
-
 export const teacherBaseSchema = z
 	.object({
 		id: objectIdSchema.brand("teacherId"),
@@ -41,7 +39,6 @@ export const teacherBaseSchema = z
 			.min(5, "Address must contain at least 5 characters")
 			.max(500, "Address cannot exceed 500 characters"),
 
-		status: z.enum(TEACHER_STATUS).default("active"),
 		joinedAt: z.coerce.date(),
 		leftAt: z.coerce.date().nullish(),
 

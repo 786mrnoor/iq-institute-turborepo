@@ -1,6 +1,7 @@
 import z from "zod";
 
 import { paginationSchema } from "@repo/schemas/shared/pagination";
+import type { ActiveTeacherSchema } from "@repo/schemas/teachers/active.teacher";
 import type { AddTeacherInput } from "@repo/schemas/teachers/add.teacher";
 import {
 	type TeacherBaseSchema,
@@ -55,10 +56,16 @@ export const deleteTeacherByIdApi = (id: TeacherBaseSchema["id"]) =>
 	});
 
 export const leftTeacherApi = (
-	data: Pick<LeftTeacherSchema, "body"> & Pick<LeftTeacherSchema, "params">,
+	data: Pick<LeftTeacherSchema, "body" | "params">,
 ) =>
 	customFetch(teacherBaseSchema, {
 		path: [BASE_PATH, data.params.id, "left"],
 		method: "PATCH",
 		body: data.body,
+	});
+
+export const activeTeacherApi = (data: Pick<ActiveTeacherSchema, "params">) =>
+	customFetch(teacherBaseSchema, {
+		path: [BASE_PATH, data.params.id, "active"],
+		method: "PATCH",
 	});

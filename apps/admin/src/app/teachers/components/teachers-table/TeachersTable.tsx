@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import type { TeacherBaseSchema } from "@repo/schemas/teachers/base.teacher";
 
+import { ActiveTeacherModal } from "./ActiveTeacherModal";
 import { DeleteTeacherModal } from "./DeleteTeacherModal";
 import { LeftTeacherModal } from "./LeftTeacherModal";
 import { TeacherCard } from "./TeacherCard";
@@ -10,11 +11,13 @@ type TeachersTableProps = {
 	teachers: TeacherBaseSchema[];
 };
 
+type ActionState = {
+	teacherId: TeacherBaseSchema["id"];
+	type: "delete" | "left" | "active";
+};
+
 function TeachersTable({ teachers }: TeachersTableProps) {
-	const [deleteId, setDeleteId] = useState<TeacherBaseSchema["id"] | null>(
-		null,
-	);
-	const [leftId, setLeftId] = useState<TeacherBaseSchema["id"] | null>(null);
+	const [state, setState] = useState<ActionState | null>(null);
 
 	return (
 		<div className="overflow-auto bg-white mb-3 dark:bg-neutral-800">
@@ -36,17 +39,31 @@ function TeachersTable({ teachers }: TeachersTableProps) {
 						<TeacherCard
 							key={teacher.id}
 							teacher={teacher}
-							onDelete={() => setDeleteId(teacher.id)}
-							onLeft={() => setLeftId(teacher.id)}
+							onLeft={() => setState({ teacherId: teacher.id, type: "left" })}
+							onActive={() =>
+								setState({ teacherId: teacher.id, type: "active" })
+							}
+							onDelete={() =>
+								setState({ teacherId: teacher.id, type: "delete" })
+							}
 						/>
 					))}
 				</tbody>
 			</table>
-			{deleteId && (
-				<DeleteTeacherModal id={deleteId} onCancel={() => setDeleteId(null)} />
+			{state?.type === "delete" && (
+				<DeleteTeacherModal
+					id={state.teacherId}
+					onCancel={() => setState(null)}
+				/>
 			)}
-			{leftId && (
-				<LeftTeacherModal id={leftId} onClose={() => setLeftId(null)} />
+			{state?.type === "left" && (
+				<LeftTeacherModal id={state.teacherId} onClose={() => setState(null)} />
+			)}
+			{state?.type === "active" && (
+				<ActiveTeacherModal
+					id={state.teacherId}
+					onClose={() => setState(null)}
+				/>
 			)}
 		</div>
 	);

@@ -1,3 +1,4 @@
+import { activeTeacherSchema } from "@repo/schemas/teachers/active.teacher";
 import { addTeacherSchema } from "@repo/schemas/teachers/add.teacher";
 import { deleteTeacherSchema } from "@repo/schemas/teachers/delete.teacher";
 import { getTeacherSchema } from "@repo/schemas/teachers/get.teacher";
@@ -7,6 +8,7 @@ import { updateTeacherSchema } from "@repo/schemas/teachers/update.teacher";
 
 import { createController } from "@/lib/controller";
 import { PERMISSIONS } from "@/lib/permissions/permissions";
+import { activeTeacherService } from "@/services/teacher/active-teacher.service";
 import { addTeacherService } from "@/services/teacher/add-teacher.service";
 import { deleteTeacherService } from "@/services/teacher/delete-teacher.service";
 import { getTeacherService } from "@/services/teacher/get-teacher.service";
@@ -54,4 +56,11 @@ export const leftTeacherController = createController({
 	requireAuth: true,
 	permission: PERMISSIONS.TEACHER_LEFT,
 	handler: leftTeacherService,
+});
+
+export const activeTeacherController = createController({
+	schema: activeTeacherSchema,
+	requireAuth: true,
+	permission: PERMISSIONS.TEACHER_ACTIVE,
+	handler: ({ input }) => activeTeacherService(input.params.id),
 });

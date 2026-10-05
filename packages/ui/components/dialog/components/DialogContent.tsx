@@ -1,9 +1,12 @@
+import clsx from "clsx";
+
 type DialogContentProps = {
 	children: React.ReactNode;
+	className?: string;
 };
 
-function DialogContent({ children }: DialogContentProps) {
-	return <main className="p-4">{children}</main>;
+function DialogContent({ children, className }: DialogContentProps) {
+	return <main className={clsx("p-4 space-y-4", className)}>{children}</main>;
 }
 
 export { DialogContent };

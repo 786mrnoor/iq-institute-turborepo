@@ -1,7 +1,5 @@
 import mongoose, { type InferSchemaType } from "mongoose";
 
-import { TEACHER_STATUS } from "@repo/schemas/teachers/base.teacher";
-
 import type { DefaultSchema } from "./types";
 
 const teacherSchema = new mongoose.Schema(
@@ -55,17 +53,14 @@ const teacherSchema = new mongoose.Schema(
 			maxlength: 500,
 		},
 
-		status: {
-			type: String,
-			enum: TEACHER_STATUS,
-			required: true,
-			default: "active",
-		},
 		joinedAt: {
 			type: Date,
 			required: true,
 		},
-		leftAt: Date,
+		leftAt: {
+			type: Date,
+			default: null,
+		},
 
 		deletedAt: { type: Date, default: null },
 	},
@@ -74,7 +69,7 @@ const teacherSchema = new mongoose.Schema(
 
 export type TTeacher = DefaultSchema & InferSchemaType<typeof teacherSchema>;
 
-teacherSchema.index({ status: 1, joinedAt: -1 });
+teacherSchema.index({ leftAt: -1 });
 teacherSchema.index({ deletedAt: 1 });
 teacherSchema.index({ teacherId: 1 }, { unique: true });
 teacherSchema.index(

@@ -8,9 +8,15 @@ type TeacherCardProps = {
 	teacher: TeacherBaseSchema;
 	onDelete: () => void;
 	onLeft: () => void;
+	onActive: () => void;
 };
 
-function TeacherCard({ teacher, onDelete, onLeft }: TeacherCardProps) {
+function TeacherCard({
+	teacher,
+	onDelete,
+	onLeft,
+	onActive,
+}: TeacherCardProps) {
 	const navigate = useNavigate();
 
 	return (
@@ -42,9 +48,16 @@ function TeacherCard({ teacher, onDelete, onLeft }: TeacherCardProps) {
 					<Button size="small" color="danger" onClick={onDelete}>
 						Delete
 					</Button>
-					<Button size="small" onClick={onLeft}>
-						Left
-					</Button>
+
+					{teacher.leftAt ? (
+						<Button size="small" onClick={onActive}>
+							Active
+						</Button>
+					) : (
+						<Button size="small" onClick={onLeft}>
+							Left
+						</Button>
+					)}
 				</ButtonGroup>
 			</td>
 		</tr>
