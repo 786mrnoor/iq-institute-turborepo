@@ -37,11 +37,8 @@ app.all("/*path", (_req, res) =>
 
 app.use(globalErrorHandler);
 
-const PORT = process.env.BACKEND_PORT || 5000;
-
-connectDB();
-app.listen(PORT, () => {
-	console.log(`Server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+	connectDB();
+}
 
 export default app;

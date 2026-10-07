@@ -4,7 +4,7 @@ import type { DefaultSchema } from "./types";
 
 const topicSchema = new mongoose.Schema(
 	{
-		title: { type: String, required: true, trim: true, minlenght: 3 },
+		title: { type: String, required: true, trim: true, minlength: 3 },
 		deletedAt: { type: Date, default: null },
 	},
 	{ timestamps: true },

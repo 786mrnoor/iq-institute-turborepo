@@ -11,18 +11,18 @@ function validate<S extends RequestZodShape>(
 ): InferRequestShape<S> {
 	const paramsRes = schema.params?.safeParse(data.params);
 	if (paramsRes && !paramsRes?.success) {
-		throw new AppError(404, paramsRes?.error?.issues[0].message);
+		throw new AppError(400, paramsRes?.error?.issues[0].message);
 	}
 
 	const queryRes = schema.query?.safeParse(data.query);
 	if (queryRes && !queryRes?.success) {
-		throw new AppError(404, queryRes?.error?.issues[0].message);
+		throw new AppError(400, queryRes?.error?.issues[0].message);
 	}
 
 	const bodyRes = schema.body?.safeParse(data.body);
 	if (bodyRes && !bodyRes?.success) {
 		throw new AppError(
-			404,
+			400,
 			"Validation Failed",
 			bodyRes?.error?.issues.map((i) => ({
 				path: i.path.join("."),
