@@ -1,12 +1,20 @@
 import request from "supertest";
-import { describe, expect, it } from "vitest";
+import type TestAgent from "supertest/lib/agent";
+import { beforeEach, describe, expect, it } from "vitest";
 
 import app from "@/app";
 import { Topic } from "@/models/topic.model";
 import { API_PATH } from "../helpers/api-path";
 import { createAuthenticatedAgent } from "../helpers/auth";
+import { createCourse } from "../helpers/course";
 import { createObjectId } from "../helpers/objectId";
 import { createTopic } from "../helpers/topic";
+
+let agent: TestAgent;
+beforeEach(async () => {
+	const result = await createAuthenticatedAgent();
+	agent = result.agent;
+});
 
 describe("DELETE /topics/:id", () => {
 	it("should reject unauthenticated requests", async () => {
@@ -18,7 +26,6 @@ describe("DELETE /topics/:id", () => {
 
 	it("should soft delete a topic", async () => {
 		const topic = await createTopic();
-		const { agent } = await createAuthenticatedAgent();
 
 		const response = await agent.delete(API_PATH.topics.withId(topic._id));
 
@@ -32,7 +39,6 @@ describe("DELETE /topics/:id", () => {
 
 	it("should return 404 when deleting a nonexistent topic", async () => {
 		const id = createObjectId();
-		const { agent } = await createAuthenticatedAgent();
 
 		const response = await agent.delete(API_PATH.topics.withId(id));
 
@@ -42,7 +48,6 @@ describe("DELETE /topics/:id", () => {
 	it("should not return a deleted topic from GET", async () => {
 		const topic = await createTopic();
 		const topicId = topic._id.toString();
-		const { agent } = await createAuthenticatedAgent();
 
 		await agent.delete(API_PATH.topics.withId(topicId));
 
@@ -57,7 +62,6 @@ describe("DELETE /topics/:id", () => {
 
 	it("should allow creating the same title after soft deletion", async () => {
 		const topic = await createTopic();
-		const { agent } = await createAuthenticatedAgent();
 
 		await agent.delete(API_PATH.topics.withId(topic._id));
 
@@ -67,5 +71,20 @@ describe("DELETE /topics/:id", () => {
 
 		expect(response.status).toBe(201);
 		expect(response.body.title).toBe(topic.title);
+	});
+
+	it("should not delete a topic that is used by a course", async () => {
+		const course = await createCourse();
+
+		const response = await agent.delete(
+			API_PATH.topics.withId(course.topics[0]._id),
+		);
+
+		expect(response.status).toBe(409);
+
+		const existingTopic = await Topic.findById(course.topics[0]._id);
+
+		expect(existingTopic).not.toBeNull();
+		expect(existingTopic?.deletedAt).toBeNull();
 	});
 });

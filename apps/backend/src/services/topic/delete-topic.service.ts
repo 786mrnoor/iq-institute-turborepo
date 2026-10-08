@@ -18,7 +18,7 @@ async function deleteTopicService({
 
 	if (course) {
 		throw new AppError(
-			404,
+			409,
 			"Cannot delete this topic because it is being used by a course",
 		);
 	}

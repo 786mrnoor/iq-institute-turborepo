@@ -3,6 +3,7 @@ import { AppError } from "@repo/utils/app-error.js";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
+import { Course } from "@/models/course.model";
 import { Topic } from "@/models/topic.model";
 import { topicDto } from "@/utils/dtos/topicDto";
 
@@ -12,6 +13,18 @@ async function updateTopicService({
 	try {
 		const topic = input.body;
 		const id = input.params.id;
+
+		const course = await Course.findOne({
+			topics: id,
+			deletedAt: null,
+		});
+
+		if (course) {
+			throw new AppError(
+				409,
+				"Cannot update this topic because it is being used by a course",
+			);
+		}
 
 		const newTopic = await Topic.findByIdAndUpdate(id, topic, {
 			returnDocument: "after",

@@ -12,7 +12,7 @@ async function checkTopics(topicIds: TopicBaseSchema["id"][]) {
 
 	// Compare counts
 	if (existingTopics.length !== topicIds.length) {
-		throw new AppError(404, "One or more topics do not exist");
+		throw new AppError(400, "One or more topics do not exist");
 	}
 }
 

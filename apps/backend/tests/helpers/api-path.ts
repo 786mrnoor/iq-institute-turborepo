@@ -9,6 +9,11 @@ export const API_PATH = {
 	topics: {
 		base: `${BASE_PATH}/topics` as const,
 		withId: (id: string | Types.ObjectId) =>
-			`${API_PATH.topics.base}/${id || id.toString()}` as const,
+			`${API_PATH.topics.base}/${id.toString()}` as const,
+	},
+	courses: {
+		base: `${BASE_PATH}/courses` as const,
+		withId: (id: string | Types.ObjectId) =>
+			`${API_PATH.courses.base}/${id.toString()}` as const,
 	},
 };
