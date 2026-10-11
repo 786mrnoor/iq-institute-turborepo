@@ -12,17 +12,18 @@ async function leftTeacherService({
 }: AuthControllerContext<LeftTeacherSchema>) {
 	const leftAt = input.body.leftAt;
 
-	// the teacher must not have an active or upcoming batch
-	const batch = await Batch.findOne({ teacherId: input.params.id })
-		.select("status")
+	// the teacher must not have an active batch
+	const batch = await Batch.findOne({
+		teacherId: input.params.id,
+		status: "active",
+		deletedAt: null,
+	})
+		.select("_id")
 		.lean()
 		.exec();
 
-	if (batch?.status === "active" || batch?.status === "upcoming")
-		throw new AppError(
-			400,
-			"The teacher is assigned in one of the active or upcoming batches",
-		);
+	if (batch)
+		throw new AppError(400, "The teacher is assigned in one of the batches");
 
 	const activeTeacher = await Teacher.findOne({
 		_id: input.params.id,
@@ -33,6 +34,8 @@ async function leftTeacherService({
 		.lean()
 		.exec();
 
+	if (!activeTeacher)
+		throw new AppError(400, "Teacher not found or already left");
 	if (activeTeacher?.joinedAt && leftAt < activeTeacher?.joinedAt) {
 		throw new AppError(400, "leave date must be after joining date");
 	}

@@ -9,8 +9,9 @@ export const courseFormSchema = z
 		...courseBaseSchema.pick({
 			title: true,
 			eligibility: true,
-			fee: true,
+			// fee: true,
 		}).shape,
+		fee: z.coerce.number<string>().int().min(0),
 		description: emptyStringToUndefined(courseBaseSchema.shape.description),
 		duration: z.object({
 			value: emptyStringToUndefined(

@@ -16,7 +16,12 @@ async function updateBatchService({
 		const { params, body } = input;
 
 		await checkCourse(body.courseId);
-		await checkTeacher(body.teacherId);
+		const teacher = await checkTeacher(body.teacherId);
+		if (teacher.leftAt)
+			throw new AppError(400, "Teacher is not active.", {
+				path: "teacherId",
+				message: "Choose another teacher",
+			});
 
 		const updatedBatch = await Batch.findOneAndUpdate(
 			{ _id: params.id, deletedAt: null, status: { $ne: "completed" } },

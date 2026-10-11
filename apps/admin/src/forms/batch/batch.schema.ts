@@ -1,6 +1,6 @@
 import z from "zod";
 
-import { BATCH_STATUS, batchBaseSchema } from "@repo/schemas/batch/base.batch";
+import { batchBaseSchema } from "@repo/schemas/batch/base.batch";
 
 export const batchFormSchema = z
 	.object({
@@ -15,7 +15,6 @@ export const batchFormSchema = z
 			.int()
 			.min(1, "Capacity must be greater than 0"),
 		schedule: batchBaseSchema.shape.schedule,
-		status: z.enum(BATCH_STATUS),
 	})
 	.refine(({ startDate, endDate }) => endDate >= startDate, {
 		message: "End date must be on or after start date",

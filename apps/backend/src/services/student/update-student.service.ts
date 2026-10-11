@@ -5,6 +5,7 @@ import { AppError } from "@repo/utils/app-error.js";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
+import { Enrollment } from "@/models/enrollment.model";
 import { Student } from "@/models/student.model";
 import { studentDto } from "@/utils/dtos/studentDto";
 import { handleDuplicateStudent } from "./handle-duplicate-student";
@@ -13,6 +14,20 @@ async function updateStudentService({
 	input,
 }: AuthControllerContext<UpdateStudentSchema>) {
 	try {
+		const enrollment = await Enrollment.findOne({
+			studentId: input.params.id,
+			status: "completed",
+		})
+			.select("_id")
+			.lean()
+			.exec();
+
+		if (enrollment)
+			throw new AppError(
+				400,
+				"The student can not be updated because it has completed one of the enrollments",
+			);
+
 		const updatedStudent = await Student.findOneAndUpdate(
 			{ _id: input.params.id, deletedAt: null },
 			input.body,

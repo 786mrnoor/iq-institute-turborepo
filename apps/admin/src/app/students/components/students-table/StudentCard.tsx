@@ -24,8 +24,8 @@ function StudentCard({ student, onDelete }: StudentCardProps) {
 
 			<TableCell>
 				Student ID: <strong>{student.studentId}</strong> <br />
-				Adhar No.: <strong>student.adharNo</strong> <br />
-				Apaar ID: <strong>student.apaarId</strong> <br />
+				Adhar No.: <strong>{student.adharNo}</strong> <br />
+				Apaar ID: <strong>{student.apaarId}</strong> <br />
 			</TableCell>
 
 			<TableCell>
@@ -34,8 +34,8 @@ function StudentCard({ student, onDelete }: StudentCardProps) {
 			</TableCell>
 
 			<TableCell>
-				Mobile No.: <strong>student.mobile</strong> <br />
-				Email: <strong>student.email</strong> <br />
+				Mobile No.: <strong>{student.mobile}</strong> <br />
+				Email: <strong>{student.email}</strong> <br />
 			</TableCell>
 
 			<TableCell>{student.address}</TableCell>
@@ -44,7 +44,7 @@ function StudentCard({ student, onDelete }: StudentCardProps) {
 				<ButtonGroup>
 					<Button
 						size="small"
-						onClick={() => navigate(`/admin/students/edit/$student.id`)}
+						onClick={() => navigate(`/admin/students/edit/${student.id}`)}
 					>
 						Edit
 					</Button>

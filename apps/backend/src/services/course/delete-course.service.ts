@@ -11,7 +11,7 @@ async function deleteCourseService({
 }: AuthControllerContext<DeleteCourseSchema>) {
 	const id = input.params.id;
 
-	const batch = await Batch.findOne({ courseId: id })
+	const batch = await Batch.findOne({ courseId: id, deletedAt: null })
 		.select("_id")
 		.lean()
 		.exec();

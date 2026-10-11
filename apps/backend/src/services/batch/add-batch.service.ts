@@ -1,4 +1,5 @@
 import type { CreateBatchSchema } from "@repo/schemas/batch/create.batch";
+import { AppError } from "@repo/utils/app-error.js";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
@@ -13,7 +14,12 @@ async function addBatchService({
 }: AuthControllerContext<CreateBatchSchema>) {
 	try {
 		await checkCourse(input.body.courseId);
-		await checkTeacher(input.body.teacherId);
+		const teacher = await checkTeacher(input.body.teacherId);
+		if (teacher.leftAt)
+			throw new AppError(400, "Teacher is not active.", {
+				path: "teacherId",
+				message: "Choose another teacher",
+			});
 
 		const batch = new Batch(input.body);
 		await batch.save();

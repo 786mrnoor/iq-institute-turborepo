@@ -5,12 +5,7 @@ import { objectIdSchema } from "../shared/object-id.schema";
 import { timestampSchema } from "../shared/timestamp-schema.schema";
 import { teacherBaseSchema } from "../teachers/base.teacher.schema";
 
-export const BATCH_STATUS = [
-	"upcoming",
-	"active",
-	"completed",
-	"cancelled",
-] as const;
+export const BATCH_STATUS = ["active", "completed", "cancelled"] as const;
 
 const scheduleSchema = z
 	.object({
@@ -52,13 +47,9 @@ export const batchBaseSchema = z
 
 		capacity: z.number("Capacity is required").int().min(1),
 		schedule: scheduleSchema,
-		status: z.enum(BATCH_STATUS).default("upcoming"),
+		status: z.enum(BATCH_STATUS).default("active"),
 
 		deletedAt: z.coerce.date().nullish(),
-	})
-	.refine(({ startDate, endDate }) => endDate >= startDate, {
-		error: "End date must be on or after start date",
-		path: ["endDate"],
 	})
 	.extend(timestampSchema);
 

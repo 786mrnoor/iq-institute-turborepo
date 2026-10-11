@@ -2,11 +2,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Suspense, useEffect } from "react";
 import { type UseFormSetError, useForm } from "react-hook-form";
 
-import { BATCH_STATUS } from "@repo/schemas/batch/base.batch";
 import { Button, ButtonGroup } from "@repo/ui/button";
 import { ErrorScreen } from "@repo/ui/error-screen";
 import { FieldError, FieldGroup, FieldLabel } from "@repo/ui/field";
-import { Input, Select } from "@repo/ui/form-controls";
+import { Input } from "@repo/ui/form-controls";
 import { SkeletonFieldGroup } from "@repo/ui/skeleton";
 
 import {
@@ -45,8 +44,9 @@ function BatchForm({ onSubmit, defaultValues }: BatchFormProps) {
 
 	return (
 		<form
-			onSubmit={handleSubmit((data) =>
-				onSubmit(data, setError).catch((e) => console.log(e)),
+			onSubmit={handleSubmit(
+				(data) => onSubmit(data, setError).catch((e) => console.log(e)),
+				(err) => console.log(err),
 			)}
 			className="flex w-full flex-col gap-3"
 		>
@@ -137,23 +137,6 @@ function BatchForm({ onSubmit, defaultValues }: BatchFormProps) {
 					{...register("schedule.endTime")}
 				/>
 				<FieldError>{errors.schedule?.endTime?.message}</FieldError>
-			</FieldGroup>
-
-			<FieldGroup>
-				<FieldLabel htmlFor="status">Batch status</FieldLabel>
-				<Select
-					id="status"
-					isInvalid={!!errors.status?.message}
-					{...register("status")}
-					className="capitalize"
-				>
-					{BATCH_STATUS.map((status) => (
-						<option key={status} value={status}>
-							{status}
-						</option>
-					))}
-				</Select>
-				<FieldError>{errors.status?.message}</FieldError>
 			</FieldGroup>
 
 			<FieldError>{errors?.root?.message}</FieldError>

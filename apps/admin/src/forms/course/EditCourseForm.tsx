@@ -28,6 +28,7 @@ function EditCourseForm({ id }: EditCourseFormProps) {
 		<CourseForm
 			defaultValues={{
 				...defaultCourse,
+				fee: String(defaultCourse.fee),
 				topics: defaultCourse.topics.map((t) => ({
 					topicId: t,
 				})),

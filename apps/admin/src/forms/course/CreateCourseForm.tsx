@@ -7,12 +7,13 @@ import { coursesMutations } from "@/queries/courses";
 import { CourseForm } from "./CourseForm";
 import type { CourseFormInput } from "./course.schema";
 
-const DEFAULT_VALUES: Omit<CourseFormInput, "fee"> = {
+const DEFAULT_VALUES: CourseFormInput = {
 	title: "",
 	duration: {
 		value: "",
 		unit: "month",
 	},
+	fee: "",
 	eligibility: "",
 	description: "",
 	topics: [{ topicId: "" }],

@@ -66,7 +66,7 @@ const batchSchema = new mongoose.Schema(
 		status: {
 			type: String,
 			enum: BATCH_STATUS,
-			default: "upcoming",
+			default: "active",
 		},
 		deletedAt: { type: Date, default: null },
 	},
@@ -85,7 +85,7 @@ batchSchema.index(
 	},
 );
 batchSchema.index(
-	{ status: 1 },
+	{ status: 1, startDate: -1 },
 	{
 		partialFilterExpression: {
 			deletedAt: null,

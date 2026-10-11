@@ -21,7 +21,7 @@ type CourseFormProps = {
 		data: CourseFormData,
 		setError: UseFormSetError<CourseFormInput>,
 	) => Promise<unknown>;
-	defaultValues: Omit<CourseFormInput, "fee">;
+	defaultValues: CourseFormInput;
 };
 
 function CourseForm({ onSubmit, defaultValues }: CourseFormProps) {

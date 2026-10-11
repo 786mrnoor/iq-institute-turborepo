@@ -14,7 +14,6 @@ export const createBatchSchema = {
 			endDate: batchBaseSchema.shape.endDate,
 			capacity: batchBaseSchema.shape.capacity,
 			schedule: batchBaseSchema.shape.schedule,
-			status: batchBaseSchema.shape.status,
 		})
 		.refine(({ startDate, endDate }) => endDate >= startDate, {
 			message: "End date must be on or after start date",
