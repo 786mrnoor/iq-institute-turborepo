@@ -16,9 +16,9 @@
 		"@repo/schemas": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@repo/utils": "workspace:*",
-		"typescript": "^7.0.2"
+		"typescript": "catalog:"
 	},
 	"dependencies": {
-		"zod": "^4.5.4"
+		"zod": "catalog:"
 	}
 }

@@ -1,4 +1,5 @@
 import type { GetStudentSchema } from "@repo/schemas/students/get.student";
+import { AppError } from "@repo/utils/app-error.js";
 
 import { response } from "@/lib/controller";
 import type { AuthControllerContext } from "@/lib/controller/types";
@@ -15,7 +16,9 @@ async function getStudentService({
 		.lean()
 		.exec();
 
-	return response(200, student ? studentDto(student) : null);
+	if (!student) throw new AppError(404, "Student could not be found");
+
+	return response(200, studentDto(student));
 }
 
 export { getStudentService };

@@ -19,5 +19,6 @@
 		"erasableSyntaxOnly": true,
 		"noFallthroughCasesInSwitch": true,
 		"strict": true
-	}
+	},
+	"exclude": ["node_modules", "dist", "build", ".next", "coverage", ".turbo"]
 }

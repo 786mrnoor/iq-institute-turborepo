@@ -6,7 +6,7 @@ import { studentBaseSchema } from "./base.student.schema";
 
 export const updateStudentSchema = {
 	params: studentBaseSchema.pick({ id: true }),
-	body: z.object({ ...addStudentSchema.body.shape }),
+	body: z.object({ ...addStudentSchema.body.shape }).exactPartial(),
 };
 
 export type UpdateStudentSchema = InferRequestShape<typeof updateStudentSchema>;

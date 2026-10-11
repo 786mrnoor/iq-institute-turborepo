@@ -16,4 +16,9 @@ export const API_PATH = {
 		withId: (id: string | Types.ObjectId) =>
 			`${API_PATH.courses.base}/${id.toString()}` as const,
 	},
+	students: {
+		base: `${BASE_PATH}/students` as const,
+		withId: (id: string | Types.ObjectId) =>
+			`${API_PATH.students.base}/${id.toString()}` as const,
+	},
 };

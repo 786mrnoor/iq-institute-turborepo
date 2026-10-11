@@ -20,10 +20,10 @@
 		"@repo/typescript-config": "workspace:*",
 		"@types/node": "^26.4.0",
 		"@types/react": "^19.2.18",
-		"typescript": "^7.0.2"
+		"typescript": "catalog:"
 	},
 	"dependencies": {
 		"react-hook-form": "^7.87.0",
-		"zod": "^4.5.4"
+		"zod": "catalog:"
 	}
 }

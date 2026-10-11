@@ -14,7 +14,7 @@ async function getStudentsService({
 		deletedAt: null,
 		...(adharNo && { adharNo }),
 		...(apaarId && { apaarId }),
-		createdAt: {
+		registeredAt: {
 			$gte: fromDate,
 			$lte: toDate,
 		},
