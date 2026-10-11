@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import type { EnquiryBaseSchema } from "@repo/schemas/enquiry/base.enquiry";
 import { Button } from "@repo/ui/button";
 import { Select } from "@repo/ui/form-controls";
+import { TableCell, TableRow } from "@repo/ui/table";
 import { formatDateTime } from "@repo/utils/date/format/date-time.js";
 
 import { enquirysMutations } from "@/queries/enquiry";
@@ -32,16 +33,16 @@ function EnquiryCard({ enquiry }: EnquiryCardProps) {
 	}
 
 	return (
-		<tr className="*:border *:border-gray-300 *:p-2 odd:bg-gray-100 dark:*:border-neutral-700 dark:odd:bg-neutral-900">
-			<td>
+		<TableRow>
+			<TableCell>
 				{enquiry.name} <br />
 				<span className="text-xs">{formatDateTime(enquiry.createdAt)}</span>
-			</td>
-			<td>{enquiry.mobile}</td>
-			<td>{enquiry.address}</td>
-			<td>{enquiry.course}</td>
-			<td>{enquiry.status}</td>
-			<td>
+			</TableCell>
+			<TableCell>{enquiry.mobile}</TableCell>
+			<TableCell>{enquiry.address}</TableCell>
+			<TableCell>{enquiry.course}</TableCell>
+			<TableCell>{enquiry.status}</TableCell>
+			<TableCell>
 				<Select
 					name="status"
 					value={enquiryStatus}
@@ -64,8 +65,8 @@ function EnquiryCard({ enquiry }: EnquiryCardProps) {
 				>
 					Update
 				</Button>
-			</td>
-		</tr>
+			</TableCell>
+		</TableRow>
 	);
 }
 

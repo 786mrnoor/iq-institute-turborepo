@@ -1,6 +1,13 @@
 import { useState } from "react";
 
 import type { StudentBaseSchema } from "@repo/schemas/students/base.student";
+import {
+	Table,
+	TableBody,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@repo/ui/table";
 
 import { DeleteStudentModal } from "./DeleteUserModal";
 import { StudentCard } from "./StudentCard";
@@ -15,35 +22,30 @@ function StudentsTable({ students }: StudentsTableProps) {
 	);
 
 	return (
-		<div className="overflow-auto bg-white mb-3 dark:bg-neutral-800">
-			<table
-				border={1}
-				className="mb-4 w-full border border-gray-300 dark:border-neutral-700"
-			>
-				<thead className="bg-black text-white">
-					<tr className="*:border *:border-gray-300 *:p-2 dark:*:border-neutral-700">
-						<th>Basic Details</th>
-						<th>IDs</th>
-						<th>Parents Details</th>
-						<th>Contact Details</th>
-						<th>Address</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					{students?.map((student) => (
-						<StudentCard
-							key={student.id}
-							student={student}
-							onDelete={() => setDeleteId(student.id)}
-						/>
-					))}
-				</tbody>
-			</table>
+		<Table>
+			<TableHeader>
+				<TableRow>
+					<TableHead>Basic Details</TableHead>
+					<TableHead>IDs</TableHead>
+					<TableHead>Parents Details</TableHead>
+					<TableHead>Contact Details</TableHead>
+					<TableHead>Address</TableHead>
+					<TableHead>Actions</TableHead>
+				</TableRow>
+			</TableHeader>
+			<TableBody>
+				{students?.map((student) => (
+					<StudentCard
+						key={student.id}
+						student={student}
+						onDelete={() => setDeleteId(student.id)}
+					/>
+				))}
+			</TableBody>
 			{deleteId && (
 				<DeleteStudentModal id={deleteId} onCancel={() => setDeleteId(null)} />
 			)}
-		</div>
+		</Table>
 	);
 }
 
