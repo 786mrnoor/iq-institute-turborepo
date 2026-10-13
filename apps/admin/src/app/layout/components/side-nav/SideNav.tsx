@@ -1,6 +1,12 @@
+import { useMutation } from "@tanstack/react-query";
 import clsx from "clsx";
 import { LogOut, XIcon } from "lucide-react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
+import { ConfirmModal } from "@repo/ui/modals/confirm";
+
+import { authMutations } from "@/queries/auth";
 import { HeaderLink } from "./HeaderLink";
 import { Nav } from "./Nav";
 import { ThemeToggler } from "./ThemeToggler";
@@ -11,6 +17,20 @@ type SideNavProps = {
 };
 
 function SideNav({ showNav, setShowNav }: SideNavProps) {
+	const [showLogoutModal, setShowLogoutModal] = useState(false);
+	const { mutateAsync, isPending } = useMutation(authMutations.logout);
+	async function logout() {
+		try {
+			await mutateAsync();
+			toast.success("Logout Sucessfull");
+			window.location.href = "/login";
+		} catch (e) {
+			const message = e instanceof Error ? e.message : "Some Error Occured";
+			toast.error(message);
+		} finally {
+			setShowLogoutModal(false);
+		}
+	}
 	return (
 		// biome-ignore lint/a11y/useKeyWithClickEvents: reason
 		<aside
@@ -40,11 +60,22 @@ function SideNav({ showNav, setShowNav }: SideNavProps) {
 						to="void"
 						icon={<LogOut />}
 						className="hover:bg-red-200 hover:text-red"
+						onClick={() => setShowLogoutModal(true)}
 					>
 						Logout
 					</HeaderLink>
 				</div>
 			</div>
+			{showLogoutModal && (
+				<ConfirmModal
+					title="Confirm Logout"
+					message="Do you really want to logout?"
+					onConfirm={logout}
+					onCancel={() => setShowLogoutModal(false)}
+					isPending={isPending}
+					confirmText="Logout"
+				/>
+			)}
 		</aside>
 	);
 }

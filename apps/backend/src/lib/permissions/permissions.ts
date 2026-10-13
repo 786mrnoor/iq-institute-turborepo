@@ -1,4 +1,6 @@
 export const PERMISSIONS = {
+	AUTH_ME: "auth:me",
+
 	USER_CREATE: "user:create",
 	USER_READ: "user:read",
 	USER_UPDATE: "user:update",

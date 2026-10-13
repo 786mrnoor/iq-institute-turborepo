@@ -2,6 +2,8 @@ import { CircleUserRound, Menu } from "lucide-react";
 import { useEffect } from "react";
 import { useMatches } from "react-router";
 
+import { ProfileDetails } from "./ProfileDetails";
+
 type RouteHandle = {
 	title?: string;
 };
@@ -33,10 +35,8 @@ function Header({ onOpen }: HeaderProps) {
 				{heading}
 			</h1>
 
-			<div className="hidden md:block">
-				<p>User Name</p>
-				<p className="text-sm text-end">Super Admin</p>
-			</div>
+			<ProfileDetails />
+
 			<button
 				type="button"
 				className="p-1 text-primary cursor-pointer rounded-full"
