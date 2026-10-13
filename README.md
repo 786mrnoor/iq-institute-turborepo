@@ -4,7 +4,7 @@ A role-based educational institute management system for managing students, cour
 
 ### Live Demo
 
-- **Application:** [iq-institute-demo](https://iq-institute-demo.vercel.app/admin/students)
+- **Application:** [iq-institute-demo](https://iq-institute-demo.vercel.app/login)
 - **Role:** Admin
 - **Email:** `admin@demo.com`
 - **Password:** `DemoPassword@123`
