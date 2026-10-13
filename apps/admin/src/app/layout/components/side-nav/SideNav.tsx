@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { XIcon } from "lucide-react";
+import { LogOut, XIcon } from "lucide-react";
 
-import navBg from "@/assets/images/icon.jpg";
-import { AppLink } from "@/components/link/AppLink";
+import { HeaderLink } from "./HeaderLink";
 import { Nav } from "./Nav";
+import { ThemeToggler } from "./ThemeToggler";
 
 type SideNavProps = {
 	showNav: boolean;
@@ -16,11 +16,11 @@ function SideNav({ showNav, setShowNav }: SideNavProps) {
 		<aside
 			onClick={(e) => e.target === e.currentTarget && setShowNav(false)}
 			className={clsx(
-				"fixed h-full w-full z-2 top-0 left-0 bg-black/20 md:w-auto ",
+				"fixed h-full w-full z-2 top-0 left-0 bg-black/20 md:w-auto overflow-hidden",
 				showNav ? "" : "hidden md:flex",
 			)}
 		>
-			<div className="relative w-50 lg:w-60 h-full flex flex-col border-r border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 overflow-x-hidden p-3 starting:-translate-x-full transition-all duration-400">
+			<div className="relative w-50 lg:w-60 h-full grid grid-cols-1 grid-rows-[1fr_auto] gap-3 border-r border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 overflow-x-hidden starting:-translate-x-full transition-all duration-400">
 				<button
 					type="button"
 					className="absolute right-3 cursor-pointer p-2 rounded-sm hover:bg-gray-300 hover:dark:bg-neutral-700 md:hidden"
@@ -29,15 +29,21 @@ function SideNav({ showNav, setShowNav }: SideNavProps) {
 					<XIcon />
 				</button>
 
-				<AppLink to="/admin" className="w-fit">
-					<img
-						src={navBg}
-						alt="nav-bg"
-						className="w-30 aspect-square object-cover object-center rounded-full"
-					/>
-				</AppLink>
-
 				<Nav onNavigate={() => setShowNav(false)} />
+
+				<div className="px-3 pb-3 space-y-2">
+					<hr className="border-gray-300 dark:border-neutral-700" />
+
+					<ThemeToggler />
+
+					<HeaderLink
+						to="void"
+						icon={<LogOut />}
+						className="hover:bg-red-200 hover:text-red"
+					>
+						Logout
+					</HeaderLink>
+				</div>
 			</div>
 		</aside>
 	);

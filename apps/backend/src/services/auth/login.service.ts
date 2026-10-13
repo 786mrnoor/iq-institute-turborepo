@@ -20,10 +20,7 @@ async function loginService({
 		.lean()
 		.exec();
 	if (!user) {
-		throw new AppError(401, "email is not found.", {
-			path: "email",
-			message: "email is not found.",
-		});
+		throw new AppError(401, "Invalid username or password");
 	}
 
 	if (user.status !== "active") {
@@ -32,10 +29,7 @@ async function loginService({
 
 	const isAuth = bcrypt.compareSync(password, user.passwordHash);
 	if (!isAuth) {
-		throw new AppError(401, "Failed to login", {
-			path: "password",
-			message: "password is not correct.",
-		});
+		throw new AppError(401, "Invalid username or password");
 	}
 
 	await createSession(

@@ -16,7 +16,7 @@ function LoginForm() {
 		register,
 		handleSubmit,
 		setError,
-		formState: { errors, isLoading },
+		formState: { errors, isSubmitting },
 	} = useForm({
 		resolver: zodResolver(loginSchema.body),
 	});
@@ -52,7 +52,7 @@ function LoginForm() {
 				<FieldError>{errors.root?.message}</FieldError>
 			</FieldGroup>
 
-			<Button type="submit" className="w-full" disabled={isLoading}>
+			<Button type="submit" className="w-full" disabled={isSubmitting}>
 				Login
 			</Button>
 		</form>

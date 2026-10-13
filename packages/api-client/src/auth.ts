@@ -8,4 +8,5 @@ export const loginApi = (data: LoginData["body"]) =>
 		path: "/api/auth/login",
 		method: "POST",
 		body: data,
+		redirectOn401: false,
 	});

@@ -11,6 +11,7 @@ async function customFetch<T extends z.ZodType>(
 ): Promise<z.output<T>> {
 	const path = Array.isArray(config.path) ? config.path.join("/") : config.path;
 	const url = path + buildQuery(config.query);
+	const redirectOn401 = config.redirectOn401 ?? true;
 
 	const res = await fetch(url, {
 		...config,
@@ -22,7 +23,7 @@ async function customFetch<T extends z.ZodType>(
 		},
 	});
 
-	if (res.status === 401) {
+	if (res.status === 401 && redirectOn401) {
 		if (globalThis.window) {
 			window.location.href = "/login";
 		}

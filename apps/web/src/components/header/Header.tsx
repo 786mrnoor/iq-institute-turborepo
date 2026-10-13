@@ -41,6 +41,7 @@ function WebAppHeader() {
 					showNav ? "w-full flex-col md:w-auto" : "hidden md:flex",
 				)}
 			>
+				<NavLink href="/">Home</NavLink>
 				<NavLink href="/courses">Courses</NavLink>
 				<NavLink href="/contact-us">Contact Us</NavLink>
 				<NavLink href="/login">Login</NavLink>

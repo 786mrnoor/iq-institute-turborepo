@@ -22,7 +22,6 @@ const DEFAULT_VALUES: BatchFormInput = {
 		startTime: "",
 		endTime: "",
 	},
-	status: "upcoming",
 };
 
 function CreateBatchForm() {

@@ -1,15 +1,15 @@
 import {
 	BookOpen,
 	GraduationCap,
-	LogOut,
 	MessageCircleQuestionMark,
 	School,
 	TagsIcon,
 	UsersIcon,
 } from "lucide-react";
 
+import navBg from "@/assets/images/icon.jpg";
+import { AppLink } from "@/components/link/AppLink";
 import { HeaderLink } from "./HeaderLink";
-import { ThemeToggler } from "./ThemeToggler";
 
 type NavProps = {
 	onNavigate: () => void;
@@ -17,7 +17,16 @@ type NavProps = {
 
 function Nav({ onNavigate }: NavProps) {
 	return (
-		<nav className="flex flex-col gap-2 mt-8 h-full">
+		<nav className="px-3 space-y-2 h-full overflow-auto scrollbar-thin">
+			<div className="pt-3 sticky top-0 bg-white dark:bg-neutral-900">
+				<AppLink to="/admin" className="w-fit">
+					<img
+						src={navBg}
+						alt="nav-bg"
+						className="w-30 aspect-square object-cover object-center rounded-full"
+					/>
+				</AppLink>
+			</div>
 			<HeaderLink to="/admin/topics" icon={<TagsIcon />} onClick={onNavigate}>
 				Topics
 			</HeaderLink>
@@ -50,18 +59,6 @@ function Nav({ onNavigate }: NavProps) {
 			</HeaderLink>
 			<HeaderLink to="/admin/users" icon={<UsersIcon />} onClick={onNavigate}>
 				Users
-			</HeaderLink>
-
-			<hr className="mt-auto border-gray-300 dark:border-neutral-700" />
-
-			<ThemeToggler />
-
-			<HeaderLink
-				to="void"
-				icon={<LogOut />}
-				className="hover:bg-red-200 hover:text-red"
-			>
-				Logout
 			</HeaderLink>
 		</nav>
 	);
